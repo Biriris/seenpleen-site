@@ -1,0 +1,15 @@
+backend:
+  name: github
+  repo: Biriris/seenpleen-site
+  branch: main
+media_folder: public/uploads
+public_folder: /uploads
+collections:
+  - name: settings
+    label: Settings
+    files:
+      - name: projects
+        label: Projects Data
+        file: src/data/projects.json
+        fields:
+          - {label: Projects, name: body, widget: hidden, required: false}
