@@ -1,21 +1,169 @@
 ---
 import projects from '../data/projects.json';
 ---
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SeenPleen Studio</title>
+  <title>SeenPleen Studio | Konstantinos Kostaras</title>
+
+  <meta
+    name="description"
+    content="Architecture, Interior Design & Visualization studio based in Patras, Greece."
+  />
+
   <style>
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7f4ee;color:#111} header{padding:48px 6vw 24px;display:flex;justify-content:space-between;align-items:center} nav a{margin-left:24px;color:#111;text-decoration:none} .hero{padding:80px 6vw 60px}.hero h1{font-size:clamp(44px,8vw,116px);line-height:.9;margin:0;font-weight:500}.hero p{max-width:680px;font-size:20px;line-height:1.5}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;padding:30px 6vw 80px}.card{color:#111;text-decoration:none;background:white}.card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}.card div{padding:18px}.card h2{font-size:22px;margin:0 0 8px}.card p{margin:0;color:#555}.section-title{padding:0 6vw;font-size:28px} footer{padding:50px 6vw;border-top:1px solid #ddd;color:#555}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:#f7f4ee;
+      color:#111
+    }
+
+    header{
+      padding:48px 6vw 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center
+    }
+
+    nav a{
+      margin-left:24px;
+      color:#111;
+      text-decoration:none
+    }
+
+    .hero{
+      padding:80px 6vw 60px
+    }
+
+    .hero h1{
+      font-size:clamp(44px,8vw,116px);
+      line-height:.9;
+      margin:0;
+      font-weight:500
+    }
+
+    .hero p{
+      max-width:680px;
+      font-size:20px;
+      line-height:1.5
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:24px;
+      padding:30px 6vw 80px
+    }
+
+    .card{
+      color:#111;
+      text-decoration:none;
+      background:white
+    }
+
+    .card img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      display:block
+    }
+
+    .card div{
+      padding:18px
+    }
+
+    .card h2{
+      font-size:22px;
+      margin:0 0 8px
+    }
+
+    .card p{
+      margin:0;
+      color:#555
+    }
+
+    .section-title{
+      padding:0 6vw;
+      font-size:28px
+    }
+
+    footer{
+      padding:50px 6vw;
+      border-top:1px solid #ddd;
+      color:#555;
+      line-height:1.8
+    }
+
+    footer a{
+      color:#555;
+      text-decoration:none
+    }
   </style>
 </head>
+
 <body>
-<header><strong>SeenPleen Studio</strong><nav><a href="#projects">Projects</a><a href="mailto:info@seenpleen.com">Contact</a></nav></header>
-<section class="hero"><h1>Architecture & Interior Design</h1><p>Selected projects from SeenPleen Studio.</p></section>
-<h2 class="section-title" id="projects">Projects</h2>
+
+<header>
+  <strong>SeenPleen Studio</strong>
+
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Architecture & Interior Design</h1>
+
+  <p>
+    Selected projects from SeenPleen Studio.
+  </p>
+</section>
+
+<h2 class="section-title" id="projects">
+  Projects
+</h2>
+
 <main class="grid">
-{projects.map((p) => (<a class="card" href={`/projects/${p.slug}/`}>{p.cover && <img src={p.cover} alt={p.title} loading="lazy" />}<div><h2>{p.title}</h2><p>{p.project_id}</p></div></a>))}
+  {projects.map((p) => (
+    <a class="card" href={`/projects/${p.slug}/`}>
+      {p.cover && (
+        <img
+          src={p.cover}
+          alt={p.title}
+          loading="lazy"
+        />
+      )}
+
+      <div>
+        <h2>{p.title}</h2>
+        <p>{p.project_id}</p>
+      </div>
+    </a>
+  ))}
 </main>
-<footer>SeenPleen Studio</footer>
-</body></html>
+
+<footer>
+  <strong>SeenPleen Studio | Konstantinos Kostaras</strong>
+  <br />
+
+  Πλ. Γεωργίου Α' 50 | 26221 | Πάτρα
+  <br />
+
+  <a href="mailto:kfkostaras@gmail.com">
+    kfkostaras@gmail.com
+  </a>
+
+  |
+
+  <a href="tel:+306948232696">
+    +30 6948 232 696
+  </a>
+</footer>
+
+</body>
+</html>
