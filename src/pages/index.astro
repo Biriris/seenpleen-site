@@ -1,172 +1,44 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import projects from '../data/projects.json';
 ---
 
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SeenPleen Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<BaseLayout title="SeenPleen Studio | Konstantinos Kostaras">
+  <Header />
 
-  <meta
-    name="description"
-    content="Architecture, Interior Design & Visualization studio based in Patras, Greece."
-  />
+  <section class="hero">
+    <h1>SeenPleen Studio</h1>
 
-  <style>
-    body{
-      margin:0;
-      font-family:'Manrope', sans-serif;
-      background:#f7f4ee;
-      color:#111
-    }
+    <p class="hero-tagline">
+      Architecture, Interior Design & Visualization
+    </p>
 
-    header{
-      padding:48px 6vw 24px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center
-    }
+    <p class="hero-subtitle">
+      Selected residential, hospitality and commercial projects by
+      Konstantinos Kostaras.
+    </p>
+  </section>
 
-    nav a{
-      margin-left:24px;
-      color:#111;
-      text-decoration:none
-    }
+  <h2 class="section-title" id="projects">
+    Projects
+  </h2>
 
-    .hero{
-      padding:80px 6vw 60px
-    }
+  <main class="grid">
+    {projects.map((p) => (
+      <a class="card" href={`/projects/${p.slug}/`}>
+        {p.cover && (
+          <img src={p.cover} alt={p.title} loading="lazy" />
+        )}
 
-    .hero h1{
-      font-size:clamp(44px,8vw,116px);
-      line-height:.9;
-      margin:0;
-      font-weight:500
-    }
+        <div>
+          <h2>{p.title}</h2>
+          <p>{p.project_id}</p>
+        </div>
+      </a>
+    ))}
+  </main>
 
-    .hero p{
-      max-width:680px;
-      font-size:20px;
-      line-height:1.5
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:24px;
-      padding:30px 6vw 80px
-    }
-
-    .card{
-      color:#111;
-      text-decoration:none;
-      background:white
-    }
-
-    .card img{
-      width:100%;
-      aspect-ratio:4/3;
-      object-fit:cover;
-      display:block
-    }
-
-    .card div{
-      padding:18px
-    }
-
-    .card h2{
-      font-size:22px;
-      margin:0 0 8px
-    }
-
-    .card p{
-      margin:0;
-      color:#555
-    }
-
-    .section-title{
-      padding:0 6vw;
-      font-size:28px
-    }
-
-    footer{
-      padding:50px 6vw;
-      border-top:1px solid #ddd;
-      color:#555;
-      line-height:1.8
-    }
-
-    footer a{
-      color:#555;
-      text-decoration:none
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <strong>SeenPleen Studio</strong>
-
-  <nav>
-    <a href="#projects">Projects</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Architecture & Interior Design</h1>
-
-  <p>
-    Selected projects from SeenPleen Studio.
-  </p>
-</section>
-
-<h2 class="section-title" id="projects">
-  Projects
-</h2>
-
-<main class="grid">
-  {projects.map((p) => (
-    <a class="card" href={`/projects/${p.slug}/`}>
-      {p.cover && (
-        <img
-          src={p.cover}
-          alt={p.title}
-          loading="lazy"
-        />
-      )}
-
-      <div>
-        <h2>{p.title}</h2>
-        <p>{p.project_id}</p>
-      </div>
-    </a>
-  ))}
-</main>
-
-<footer>
-  <strong>SeenPleen Studio | Konstantinos Kostaras</strong>
-  <br />
-
-  Πλ. Γεωργίου Α' 50 | 26221 | Πάτρα
-  <br />
-
-  <a href="mailto:kfkostaras@gmail.com">
-    kfkostaras@gmail.com
-  </a>
-
-  |
-
-  <a href="tel:+306948232696">
-    +30 6948 232 696
-  </a>
-</footer>
-
-</body>
-</html>
+  <Footer />
+</BaseLayout>
