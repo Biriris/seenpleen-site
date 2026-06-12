@@ -232,3 +232,151 @@ img{
     grid-template-columns:1fr;
   }
 }
+/* Project pages */
+
+.project-page{
+  background:var(--bg);
+}
+
+.project-hero{
+  padding:0 6vw;
+}
+
+.project-hero img{
+  width:100%;
+  height:82vh;
+  object-fit:cover;
+  display:block;
+}
+
+.project-intro{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:80px;
+  padding:90px 6vw 80px;
+}
+
+.project-label{
+  margin:0 0 18px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:var(--muted);
+}
+
+.project-intro h1{
+  margin:0;
+  font-size:clamp(48px,8vw,120px);
+  line-height:.9;
+  letter-spacing:-0.06em;
+  font-weight:600;
+}
+
+.project-info{
+  align-self:end;
+}
+
+.project-info p{
+  margin:0 0 24px;
+  font-size:18px;
+  line-height:1.75;
+  color:var(--text);
+}
+
+.project-info p:first-child{
+  color:var(--muted);
+  font-size:16px;
+}
+
+.project-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+  padding:0 6vw 110px;
+}
+
+.project-gallery img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.project-gallery img:nth-child(3n + 1){
+  grid-column:span 2;
+}
+
+@media (max-width:768px){
+  .project-hero{
+    padding:0;
+  }
+
+  .project-hero img{
+    height:72vh;
+  }
+
+  .project-intro{
+    grid-template-columns:1fr;
+    gap:34px;
+    padding:60px 6vw;
+  }
+
+  .project-gallery{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .project-gallery img:nth-child(3n + 1){
+    grid-column:span 1;
+  }
+}
+.project-navigation{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.project-navigation a{
+  padding:44px 6vw;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.project-navigation a:first-child{
+  border-right:1px solid var(--border);
+}
+
+.project-navigation a:last-child{
+  text-align:right;
+  align-items:flex-end;
+}
+
+.project-navigation span{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.project-navigation strong{
+  font-size:clamp(24px,4vw,54px);
+  line-height:1;
+  letter-spacing:-0.04em;
+  font-weight:600;
+}
+
+@media (max-width:768px){
+  .project-navigation{
+    grid-template-columns:1fr;
+  }
+
+  .project-navigation a:first-child{
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .project-navigation a:last-child{
+    text-align:left;
+    align-items:flex-start;
+  }
+}
