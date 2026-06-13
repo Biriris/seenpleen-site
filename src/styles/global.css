@@ -98,7 +98,8 @@ img {
 
 .home-hero {
   position: relative;
-  min-height: 120vh;
+  height: calc(100vh - 78px);
+  min-height: 680px;
   overflow: hidden;
   background: #111;
 }
@@ -110,20 +111,19 @@ img {
   background:
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.14) 0%,
-      rgba(0, 0, 0, 0.08) 40%,
-      rgba(0, 0, 0, 0.58) 100%
+      rgba(0, 0, 0, 0.08) 0%,
+      rgba(0, 0, 0, 0.06) 42%,
+      rgba(0, 0, 0, 0.52) 100%
     );
   pointer-events: none;
 }
 
 .home-hero-image {
   width: 100%;
-  height: 120vh;
+  height: 100%;
   object-fit: cover;
   display: block;
-  opacity: 0.94;
-  transform: scale(1.02);
+  opacity: 0.96;
 }
 
 .home-hero-overlay {
@@ -133,13 +133,15 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 6vw 120px;
+  padding: 0 6vw 82px;
   color: #fff;
 }
 
 .home-hero-kicker {
-  margin: 0 0 20px;
-  font-size: 13px;
+  margin: 0 0 18px;
+  max-width: 520px;
+  font-size: 12px;
+  line-height: 1.5;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-weight: 500;
@@ -147,19 +149,19 @@ img {
 
 .home-hero-overlay h1 {
   margin: 0;
-  max-width: 1150px;
-  font-size: clamp(64px, 11vw, 170px);
-  line-height: 0.86;
-  font-weight: 600;
-  letter-spacing: -0.075em;
+  max-width: 980px;
+  font-size: clamp(48px, 7.6vw, 118px);
+  line-height: 0.94;
+  font-weight: 500;
+  letter-spacing: -0.065em;
 }
 
 .home-hero-link {
-  margin-top: 32px;
+  margin-top: 28px;
   width: max-content;
   color: #fff;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.75);
   padding-bottom: 7px;
 }
@@ -415,11 +417,8 @@ img {
   }
 
   .home-hero {
-    min-height: 92vh;
-  }
-
-  .home-hero-image {
-    height: 92vh;
+    height: calc(100vh - 74px);
+    min-height: 580px;
   }
 
   .home-hero-overlay {
@@ -432,11 +431,12 @@ img {
   }
 
   .home-hero-overlay h1 {
-    font-size: clamp(54px, 17vw, 86px);
+    font-size: clamp(42px, 13vw, 70px);
+    line-height: 0.96;
   }
 
   .home-hero-link {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .projects-section {
