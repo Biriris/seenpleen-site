@@ -339,5 +339,113 @@
         "alt": ""
       }
     ]
+  },
+  {
+    "title": "Mono",
+    "slug": "mono-bar",
+    "project_id": "",
+    "category": "Commercial",
+    "subcategory": "Bar",
+    "client": "",
+    "location": "Patras",
+    "year": "2019",
+    "area": "",
+    "status": "Completed",
+    "featured": false,
+    "details": "",
+    "cover": "/images/uploads/alesskikinas.com-1026.jpg",
+    "hero": "/images/uploads/alesskikinas.com-1026.jpg",
+    "gallery": [
+      {
+        "url": "/images/uploads/1.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/2.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/3.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/4.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/5.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/6.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/7.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/8.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/9.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/10.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/13.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/15.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1002.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1026.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1036.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1053.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1068.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1071.jpg",
+        "title": "",
+        "alt": ""
+      }
+    ]
   }
 ]
