@@ -17,11 +17,21 @@ export function getStaticPaths() {
 
 const { project, previousProject, nextProject } = Astro.props;
 
-const heroImage = project.cover || project.gallery?.[0]?.url;
+const heroImage = project.hero || project.cover || project.gallery?.[0]?.url;
 const gallery = project.gallery || [];
+
 const detailParagraphs = project.details
   ? project.details.split('\n').filter((paragraph) => paragraph.trim().length > 0)
   : [];
+
+const projectMeta = [
+  { label: 'Category', value: project.category },
+  { label: 'Client', value: project.client },
+  { label: 'Location', value: project.location },
+  { label: 'Year', value: project.year },
+  { label: 'Area', value: project.area },
+  { label: 'Status', value: project.status },
+].filter((item) => item.value);
 ---
 
 <BaseLayout title={`${project.title} | SeenPleen Studio`}>
@@ -47,7 +57,20 @@ const detailParagraphs = project.details
       </div>
 
       <div class="project-info">
-        <p class="project-meta-line">{project.project_id}</p>
+        {project.project_id && (
+          <p class="project-meta-line">{project.project_id}</p>
+        )}
+
+        {projectMeta.length > 0 && (
+          <dl class="project-meta-list">
+            {projectMeta.map((item) => (
+              <div class="project-meta-item">
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
 
         {detailParagraphs.length > 0 ? (
           <div class="project-description">

@@ -29,12 +29,50 @@ collections:
               - label: "Slug"
                 name: "slug"
                 widget: "string"
-                hint: "Use lowercase English words with hyphens, e.g. the-matchbox-house."
+                hint: "Lowercase English words with hyphens, e.g. the-matchbox-house."
 
-              - label: "Subtitle / Project Info"
+              - label: "Subtitle / Legacy Project Info"
                 name: "project_id"
                 widget: "string"
                 required: false
+
+              - label: "Category"
+                name: "category"
+                widget: "string"
+                required: false
+
+              - label: "Client"
+                name: "client"
+                widget: "string"
+                required: false
+
+              - label: "Location"
+                name: "location"
+                widget: "string"
+                required: false
+
+              - label: "Year"
+                name: "year"
+                widget: "string"
+                required: false
+
+              - label: "Area"
+                name: "area"
+                widget: "string"
+                required: false
+                hint: "Example: 165 m²"
+
+              - label: "Status"
+                name: "status"
+                widget: "string"
+                required: false
+                hint: "Example: Completed, Under Construction, Concept"
+
+              - label: "Featured Project"
+                name: "featured"
+                widget: "boolean"
+                required: false
+                default: false
 
               - label: "Description"
                 name: "details"
@@ -45,6 +83,12 @@ collections:
                 name: "cover"
                 widget: "image"
                 required: false
+
+              - label: "Hero Image"
+                name: "hero"
+                widget: "image"
+                required: false
+                hint: "Optional. If empty, the cover image will be used."
 
               - label: "Gallery"
                 name: "gallery"

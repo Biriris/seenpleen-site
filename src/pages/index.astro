@@ -3,25 +3,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import projects from '../data/projects.json';
+
+const featuredProject =
+  projects.find((project) => project.featured) ||
+  projects.find((project) => project.slug === 'the-matchbox-house') ||
+  projects[0];
+
+const featuredImage = featuredProject?.hero || featuredProject?.cover;
 ---
 
 <BaseLayout title="SeenPleen Studio">
   <Header />
 
-  <section class="home-hero">
-    <img
-      src="/images/the-matchbox-house/1.jpg"
-      alt="The Matchbox House"
-      class="home-hero-image"
-      loading="eager"
-    />
+  {featuredProject && featuredImage && (
+    <section class="home-hero">
+      <img
+        src={featuredImage}
+        alt={featuredProject.title}
+        class="home-hero-image"
+        loading="eager"
+      />
 
-    <div class="home-hero-overlay">
-      <a href="/projects/the-matchbox-house/" class="home-hero-link">
-        The Matchbox House
-      </a>
-    </div>
-  </section>
+      <div class="home-hero-overlay">
+        <a href={`/projects/${featuredProject.slug}/`} class="home-hero-link">
+          {featuredProject.title}
+        </a>
+      </div>
+    </section>
+  )}
 
   <section class="projects-section" id="projects">
     <div class="projects-heading">
@@ -45,7 +54,7 @@ import projects from '../data/projects.json';
 
             <div class="project-card-hover">
               <h3>{p.title}</h3>
-              <p>{p.project_id}</p>
+              <p>{p.category || p.project_id}</p>
             </div>
           </div>
         </a>
