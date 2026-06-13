@@ -211,10 +211,15 @@ img {
   z-index: 2;
   padding: 28px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: #ffffff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--bg);
   opacity: 0;
+}
+
+.project-card-hover-inner {
+  max-width: 80%;
 }
 
 .project-card:hover .project-card-hover {
@@ -227,14 +232,15 @@ img {
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.03em;
-  color: #111;
+  color: var(--text);
 }
 
 .project-card-hover p {
-  margin: 10px 0 0;
-  max-width: 420px;
-  font-size: 13px;
-  line-height: 1.45;
+  margin: 12px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
   color: var(--muted);
 }
 

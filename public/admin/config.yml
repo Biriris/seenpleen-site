@@ -40,6 +40,13 @@ collections:
                 name: "category"
                 widget: "string"
                 required: false
+                hint: "Example: Commercial, Residential, Hospitality"
+
+              - label: "Subcategory"
+                name: "subcategory"
+                widget: "string"
+                required: false
+                hint: "Example: Cafe, Bar, House, Apartment"
 
               - label: "Client"
                 name: "client"

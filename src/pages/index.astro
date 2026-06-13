@@ -39,26 +39,40 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
     </div>
 
     <div class="projects-grid">
-      {projects.map((p, index) => (
-        <a class="project-card" href={`/projects/${p.slug}/`}>
-          <div class="project-card-image">
-            {p.cover ? (
-              <img
-                src={p.cover}
-                alt={p.title}
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
-            ) : (
-              <div class="project-card-placeholder"></div>
-            )}
+      {projects.map((p, index) => {
+        const hoverMeta = [
+          p.category,
+          p.subcategory,
+          p.location,
+          p.year,
+        ].filter(Boolean);
 
-            <div class="project-card-hover">
-              <h3>{p.title}</h3>
-              <p>{p.category || p.project_id}</p>
+        return (
+          <a class="project-card" href={`/projects/${p.slug}/`}>
+            <div class="project-card-image">
+              {p.cover ? (
+                <img
+                  src={p.cover}
+                  alt={p.title}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                />
+              ) : (
+                <div class="project-card-placeholder"></div>
+              )}
+
+              <div class="project-card-hover">
+                <div class="project-card-hover-inner">
+                  <h3>{p.title}</h3>
+
+                  {hoverMeta.length > 0 && (
+                    <p>{hoverMeta.join(' / ')}</p>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        );
+      })}
     </div>
   </section>
 
