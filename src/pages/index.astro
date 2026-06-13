@@ -29,27 +29,30 @@ import projects from '../data/projects.json';
     </div>
   </section>
 
-  <section class="projects-section">
+  <section class="projects-section" id="projects">
     <div class="projects-heading">
       <span>Selected Works</span>
+      <h2>Projects</h2>
     </div>
 
     <div class="projects-grid">
-      {projects.map((p) => (
+      {projects.map((p, index) => (
         <a class="project-card" href={`/projects/${p.slug}/`}>
           <div class="project-card-image">
-            {p.cover && (
+            {p.cover ? (
               <img
                 src={p.cover}
                 alt={p.title}
-                loading="lazy"
+                loading={index === 0 ? 'eager' : 'lazy'}
               />
+            ) : (
+              <div class="project-card-placeholder"></div>
             )}
-          </div>
 
-          <div class="project-card-meta">
-            <h2>{p.title}</h2>
-            <p>{p.location ?? p.project_id}</p>
+            <div class="project-card-hover">
+              <h3>{p.title}</h3>
+              <p>{p.project_id}</p>
+            </div>
           </div>
         </a>
       ))}

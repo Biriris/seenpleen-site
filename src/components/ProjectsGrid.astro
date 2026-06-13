@@ -1,18 +1,18 @@
----
-import projects from '../data/projects.json';
----
-
-<section class="projects-grid">
-  {projects.map((project) => (
-    <a href={`/projects/${project.slug}`} class="project-card">
-      <div class="project-image">
-        <img src={project.cover} alt={project.title} loading="lazy" />
+<div class="projects-grid">
+  {projects.map((p) => (
+    <a class="project-card" href={`/projects/${p.slug}/`}>
+      <div class="project-card-image">
+        <img
+          src={p.cover}
+          alt={p.title}
+          loading="lazy"
+        />
       </div>
 
-      <div class="project-meta">
-        <h2>{project.title}</h2>
-        <p>{project.location}</p>
+      <div class="project-card-meta">
+        <h3>{p.title}</h3>
+        <span>{p.year || p.project_id}</span>
       </div>
     </a>
   ))}
-</section>
+</div>
