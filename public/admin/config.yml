@@ -1,33 +1,68 @@
 backend:
-  name: test-repo
+  name: github
   repo: Biriris/seenpleen-site
   branch: main
 
-media_folder: public/images
-public_folder: /images
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
-  - name: projects
-    label: Projects
+  - name: "site_data"
+    label: "Site Data"
     files:
-      - name: projects
-        label: Projects
-        file: src/data/projects.json
+      - name: "projects"
+        label: "Projects"
+        file: "src/data/projects.json"
+        format: "json"
         fields:
-          - label: Projects
-            name: body
-            widget: list
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            root: true
+            summary: "{{fields.title}}"
+            collapsed: true
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Slug, name: slug, widget: string }
-              - { label: Project Info, name: project_id, widget: string, required: false }
-              - { label: Description, name: details, widget: text, required: false }
-              - { label: Cover Image, name: cover, widget: image, required: false }
-              - label: Gallery
-                name: gallery
-                widget: list
+              - label: "Title"
+                name: "title"
+                widget: "string"
+
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "Use lowercase English words with hyphens, e.g. the-matchbox-house."
+
+              - label: "Subtitle / Project Info"
+                name: "project_id"
+                widget: "string"
                 required: false
+
+              - label: "Description"
+                name: "details"
+                widget: "text"
+                required: false
+
+              - label: "Cover Image"
+                name: "cover"
+                widget: "image"
+                required: false
+
+              - label: "Gallery"
+                name: "gallery"
+                widget: "list"
+                required: false
+                collapsed: true
+                summary: "{{fields.title}}"
                 fields:
-                  - { label: Image, name: url, widget: image }
-                  - { label: Title, name: title, widget: string, required: false }
-                  - { label: Alt Text, name: alt, widget: string, required: false }
+                  - label: "Image"
+                    name: "url"
+                    widget: "image"
+
+                  - label: "Title"
+                    name: "title"
+                    widget: "string"
+                    required: false
+
+                  - label: "Alt Text"
+                    name: "alt"
+                    widget: "string"
+                    required: false
