@@ -1,1 +1,12 @@
-{"scripts":{"dev":"astro dev","build":"astro build","preview":"astro preview"},"dependencies":{"@astrojs/sitemap":"latest","astro":"latest"},"devDependencies":{}}
+{
+  "scripts": {
+    "dev": "node scripts/generate-projects.mjs && astro dev",
+    "build": "node scripts/generate-projects.mjs && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "latest",
+    "astro": "latest"
+  },
+  "devDependencies": {}
+}
