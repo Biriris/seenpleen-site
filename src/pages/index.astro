@@ -5,46 +5,56 @@ import Footer from '../components/Footer.astro';
 import projects from '../data/projects.json';
 ---
 
-<BaseLayout title="SeenPleen Studio | Konstantinos Kostaras">
+<BaseLayout title="SeenPleen Studio">
   <Header />
 
   <section class="home-hero">
-  <img
-    src="/images/the-matchbox-house/1.jpg"
-    alt="The Matchbox House"
-    class="home-hero-image"
-    loading="eager"
-  />
+    <img
+      src="/images/the-matchbox-house/1.jpg"
+      alt="The Matchbox House"
+      class="home-hero-image"
+      loading="eager"
+    />
 
-  <div class="home-hero-overlay">
-    <p class="home-hero-kicker">Architecture / Interior Design / Visualization</p>
+    <div class="home-hero-overlay">
+      <p class="home-hero-kicker">
+        Architecture / Interior Design / Visualization
+      </p>
 
-    <h1>SeenPleen Studio</h1>
+      <h1>SeenPleen Studio</h1>
 
-    <a href="/projects/the-matchbox-house/" class="home-hero-link">
-      The Matchbox House
-    </a>
-  </div>
-</section>
-
-  <h2 class="section-title" id="projects">
-    Projects
-  </h2>
-
-  <main class="grid">
-    {projects.map((p) => (
-      <a class="card" href={`/projects/${p.slug}/`}>
-        {p.cover && (
-          <img src={p.cover} alt={p.title} loading="lazy" />
-        )}
-
-        <div>
-          <h2>{p.title}</h2>
-          <p>{p.project_id}</p>
-        </div>
+      <a href="/projects/the-matchbox-house/" class="home-hero-link">
+        The Matchbox House
       </a>
-    ))}
-  </main>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="projects-heading">
+      <span>Selected Works</span>
+    </div>
+
+    <div class="projects-grid">
+      {projects.map((p) => (
+        <a class="project-card" href={`/projects/${p.slug}/`}>
+          <div class="project-card-image">
+            {p.cover && (
+              <img
+                src={p.cover}
+                alt={p.title}
+                loading="lazy"
+              />
+            )}
+          </div>
+
+          <div class="project-card-meta">
+            <h2>{p.title}</h2>
+            <p>{p.location ?? p.project_id}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
 
   <Footer />
 </BaseLayout>
