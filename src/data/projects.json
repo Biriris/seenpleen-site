@@ -1,40 +1,5 @@
 [
   {
-    "title": "Katalonia",
-    "slug": "katalonia",
-    "project_id": "",
-    "category": "Commercial",
-    "client": "",
-    "location": "Trion Navarchon, Patras",
-    "year": "2023",
-    "area": "",
-    "status": "Completed",
-    "details": "Το τσιπουράδικο - καφέ - μπάρ \"Katalonia\" βρίσκεται στον Πεζόδρομο Τριών Ναυάρχων στην Πάτρα.\nΑκριβώς κάτω απο τα σκαλιά που ενώνουν την Ιστορική Πλατεία των Υψηλών Αλωνίων με τον πεζόδρομο των Τριών Ναυάρχων, στο Project προσπαθήσαμε να διατηρήσουμε την ιστορικότητα του τοπίου με υλικά και χρωματισμούς που σέβονται τα νεοκλασικά κτίρια που υπάρχουν στο συγκεκριμένο σημείο της πόλης και να εντάξουμε αυτό το all day μέρος σαν μια προσθήκη - συνέχεια στο τοπίο και στην ιστορία της πόλης.",
-    "cover": "/images/katalonia/D5_Image%201_20231104_164315.jpg",
-    "gallery": [
-      {
-        "url": "/images/katalonia/D5_Image%201_20231104_164315.jpg",
-        "title": "D5_Image 1_20231104_164315.jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/katalonia/D5_Image%202_20231104_164146.jpg",
-        "title": "D5_Image 2_20231104_164146.jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/katalonia/D5_Image%203_20231104_164024.jpg",
-        "title": "D5_Image 3_20231104_164024.jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/katalonia/D5_Image_20231104_164440.jpg",
-        "title": "D5_Image_20231104_164440.jpg",
-        "alt": ""
-      }
-    ]
-  },
-  {
     "title": "The Matchbox House",
     "slug": "the-matchbox-house",
     "project_id": "Ισόγεια Μονοκατοικία με υπόγειο |Βάρδα Ηλείας | Υπό Κατασκευή | 165 m2",
@@ -116,6 +81,149 @@
       {
         "url": "/images/the-matchbox-house/print.jpg",
         "title": "print.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "title": "Mono",
+    "slug": "mono-bar",
+    "project_id": "",
+    "category": "Commercial",
+    "subcategory": "Bar",
+    "client": "",
+    "location": "Patras",
+    "year": "2019",
+    "area": "",
+    "status": "Completed",
+    "featured": false,
+    "details": "",
+    "cover": "/images/uploads/alesskikinas.com-1026.jpg",
+    "hero": "/images/uploads/alesskikinas.com-1026.jpg",
+    "gallery": [
+      {
+        "url": "/images/uploads/1.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/2.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/3.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/4.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/5.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/6.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/7.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/8.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/9.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/10.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/13.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/15.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1002.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1026.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1036.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1053.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1068.jpg",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/uploads/alesskikinas.com-1071.jpg",
+        "title": "",
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "title": "Katalonia",
+    "slug": "katalonia",
+    "project_id": "",
+    "category": "Commercial",
+    "client": "",
+    "location": "Trion Navarchon, Patras",
+    "year": "2023",
+    "area": "",
+    "status": "Completed",
+    "details": "Το τσιπουράδικο - καφέ - μπάρ \"Katalonia\" βρίσκεται στον Πεζόδρομο Τριών Ναυάρχων στην Πάτρα.\nΑκριβώς κάτω απο τα σκαλιά που ενώνουν την Ιστορική Πλατεία των Υψηλών Αλωνίων με τον πεζόδρομο των Τριών Ναυάρχων, στο Project προσπαθήσαμε να διατηρήσουμε την ιστορικότητα του τοπίου με υλικά και χρωματισμούς που σέβονται τα νεοκλασικά κτίρια που υπάρχουν στο συγκεκριμένο σημείο της πόλης και να εντάξουμε αυτό το all day μέρος σαν μια προσθήκη - συνέχεια στο τοπίο και στην ιστορία της πόλης.",
+    "cover": "/images/katalonia/D5_Image%201_20231104_164315.jpg",
+    "gallery": [
+      {
+        "url": "/images/katalonia/D5_Image%201_20231104_164315.jpg",
+        "title": "D5_Image 1_20231104_164315.jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/katalonia/D5_Image%202_20231104_164146.jpg",
+        "title": "D5_Image 2_20231104_164146.jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/katalonia/D5_Image%203_20231104_164024.jpg",
+        "title": "D5_Image 3_20231104_164024.jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/katalonia/D5_Image_20231104_164440.jpg",
+        "title": "D5_Image_20231104_164440.jpg",
         "alt": ""
       }
     ]
@@ -336,114 +444,6 @@
       {
         "url": "/images/rodini-vacation-house/Pic-24.jpg",
         "title": "Pic-24.jpg",
-        "alt": ""
-      }
-    ]
-  },
-  {
-    "title": "Mono",
-    "slug": "mono-bar",
-    "project_id": "",
-    "category": "Commercial",
-    "subcategory": "Bar",
-    "client": "",
-    "location": "Patras",
-    "year": "2019",
-    "area": "",
-    "status": "Completed",
-    "featured": false,
-    "details": "",
-    "cover": "/images/uploads/alesskikinas.com-1026.jpg",
-    "hero": "/images/uploads/alesskikinas.com-1026.jpg",
-    "gallery": [
-      {
-        "url": "/images/uploads/1.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/2.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/3.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/4.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/5.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/6.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/7.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/8.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/9.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/10.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/13.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/15.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/alesskikinas.com-1002.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/alesskikinas.com-1026.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/alesskikinas.com-1036.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/alesskikinas.com-1053.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/alesskikinas.com-1068.jpg",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/uploads/alesskikinas.com-1071.jpg",
-        "title": "",
         "alt": ""
       }
     ]
