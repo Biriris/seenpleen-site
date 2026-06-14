@@ -29,6 +29,7 @@ collections:
               - label: "Slug"
                 name: "slug"
                 widget: "string"
+                hint: "Lowercase English words with hyphens, e.g. the-matchbox-house."
 
               - label: "Order"
                 name: "order"
@@ -42,6 +43,18 @@ collections:
                 widget: "boolean"
                 required: false
                 default: false
+
+              - label: "SEO Title"
+                name: "seo_title"
+                widget: "string"
+                required: false
+                hint: "Optional. If empty, the project title will be used."
+
+              - label: "SEO Description"
+                name: "seo_description"
+                widget: "text"
+                required: false
+                hint: "Optional short description for search previews. Keep it around 140–160 characters."
 
               - label: "Subtitle / Legacy Project Info"
                 name: "project_id"
@@ -125,11 +138,25 @@ collections:
                 name: "cover"
                 widget: "image"
                 required: false
+                hint: "Used in the homepage project grid."
+
+              - label: "Cover Alt Text"
+                name: "cover_alt"
+                widget: "string"
+                required: false
+                hint: "Describe the image briefly. If empty, the project title will be used."
 
               - label: "Hero Image"
                 name: "hero"
                 widget: "image"
                 required: false
+                hint: "Used at the top of the project page. If empty, the cover image will be used."
+
+              - label: "Hero Alt Text"
+                name: "hero_alt"
+                widget: "string"
+                required: false
+                hint: "Describe the hero image briefly. If empty, cover alt or project title will be used."
 
               - label: "Gallery"
                 name: "gallery"
@@ -151,3 +178,4 @@ collections:
                     name: "alt"
                     widget: "string"
                     required: false
+                    hint: "Optional, but useful for accessibility and SEO."

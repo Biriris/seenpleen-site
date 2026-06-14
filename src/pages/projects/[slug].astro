@@ -27,6 +27,11 @@ export function getStaticPaths() {
 const { project, previousProject, nextProject } = Astro.props;
 
 const heroImage = project.hero || project.cover || project.gallery?.[0]?.url;
+const heroAlt =
+  project.hero_alt ||
+  project.cover_alt ||
+  project.title;
+
 const gallery = project.gallery || [];
 
 const detailParagraphs = project.details
@@ -42,9 +47,11 @@ const projectMeta = [
   { label: 'Area', value: project.area },
   { label: 'Status', value: project.status },
 ].filter((item) => item.value);
+
+const pageTitle = project.seo_title || project.title;
 ---
 
-<BaseLayout title={`${project.title} | SeenPleen Studio`}>
+<BaseLayout title={`${pageTitle} | SeenPleen Studio`}>
   <Header />
 
   <main class="project-page">
@@ -52,7 +59,7 @@ const projectMeta = [
       {heroImage ? (
         <img
           src={heroImage}
-          alt={project.title}
+          alt={heroAlt}
           loading="eager"
         />
       ) : (

@@ -1,6 +1,6 @@
-import { c as createComponent, $ as $$BaseLayout, a as $$Header, b as $$Footer } from './Footer_Bq-6rhEq.mjs';
+import { c as createComponent, $ as $$BaseLayout, a as $$Header, b as $$Footer } from './Footer_8OSlH1gV.mjs';
 import 'piccolore';
-import { r as renderComponent, a as renderTemplate, m as maybeRenderHead } from './prerender_Aor1Zf0U.mjs';
+import { r as renderComponent, a as renderTemplate, m as maybeRenderHead } from './prerender_u-m2x1ls.mjs';
 
 const $$Contact = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Contact | SeenPleen Studio" }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Header", $$Header, {})} ${maybeRenderHead()}<main class="studio-page"> <section class="studio-page-hero"> <p class="studio-page-kicker">Contact</p> <h1>

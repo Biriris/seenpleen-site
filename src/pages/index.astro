@@ -23,6 +23,10 @@ const featuredProject =
   visibleProjects[0];
 
 const featuredImage = featuredProject?.hero || featuredProject?.cover;
+const featuredAlt =
+  featuredProject?.hero_alt ||
+  featuredProject?.cover_alt ||
+  featuredProject?.title;
 ---
 
 <BaseLayout title="SeenPleen Studio">
@@ -32,7 +36,7 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
     <section class="home-hero is-revealed">
       <img
         src={featuredImage}
-        alt={featuredProject.title}
+        alt={featuredAlt}
         class="home-hero-image"
         loading="eager"
       />
@@ -86,7 +90,7 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
               {p.cover ? (
                 <img
                   src={p.cover}
-                  alt={p.title}
+                  alt={p.cover_alt || p.title}
                   loading={index === 0 ? 'eager' : 'lazy'}
                 />
               ) : (
