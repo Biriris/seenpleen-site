@@ -65,7 +65,7 @@ const pageTitle = project.seo_title || project.title;
   <Header />
 
   <main class="project-page">
-    <section class="project-hero">
+    <section class="project-hero is-revealed">
       {heroImage ? (
         <img src={heroImage} alt={heroAlt} loading="eager" />
       ) : (
@@ -73,7 +73,7 @@ const pageTitle = project.seo_title || project.title;
       )}
     </section>
 
-    <section class="project-intro">
+    <section class="project-intro reveal-item">
       <div class="project-title-block">
         <p class="project-kicker">Project</p>
         <h1>{project.title}</h1>
@@ -112,7 +112,10 @@ const pageTitle = project.seo_title || project.title;
     {gallery.length > 0 && (
       <section class="project-gallery">
         {gallery.map((img, index) => (
-          <figure class={`project-gallery-item project-gallery-item-${(index % 6) + 1}`}>
+          <figure
+            class={`project-gallery-item project-gallery-item-${(index % 6) + 1} reveal-item`}
+            style={`--reveal-delay: ${Math.min(index * 55, 420)}ms`}
+          >
             <img
               src={img.url}
               alt={img.alt || project.title}
@@ -124,7 +127,7 @@ const pageTitle = project.seo_title || project.title;
     )}
 
     {previousProject && nextProject && (
-      <nav class="project-navigation" aria-label="Project navigation">
+      <nav class="project-navigation reveal-item" aria-label="Project navigation">
         <a href={`/projects/${previousProject.slug}/`}>
           <span>Previous Project</span>
           <strong>{previousProject.title}</strong>
@@ -139,4 +142,24 @@ const pageTitle = project.seo_title || project.title;
   </main>
 
   <Footer />
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal-item');
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+      }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  </script>
 </BaseLayout>
