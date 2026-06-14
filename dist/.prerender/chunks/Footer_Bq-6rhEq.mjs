@@ -1,5 +1,5 @@
 import 'piccolore';
-import { A as AstroError, I as InvalidComponentArgs, b as addAttribute, d as renderHead, e as renderSlot, a as renderTemplate, m as maybeRenderHead } from './prerender_zTfVk3HF.mjs';
+import { A as AstroError, I as InvalidComponentArgs, b as addAttribute, d as renderHead, e as renderSlot, a as renderTemplate, m as maybeRenderHead } from './prerender_Aor1Zf0U.mjs';
 import 'clsx';
 
 function validateArgs(args) {

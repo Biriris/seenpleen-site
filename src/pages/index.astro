@@ -29,7 +29,7 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
   <Header />
 
   {featuredProject && featuredImage && (
-    <section class="home-hero">
+    <section class="home-hero is-revealed">
       <img
         src={featuredImage}
         alt={featuredProject.title}
@@ -46,7 +46,7 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
   )}
 
   <section class="projects-section" id="projects">
-    <div class="projects-heading">
+    <div class="projects-heading reveal-item">
       <div>
         <span>Selected Works</span>
         <h2>Projects</h2>
@@ -77,9 +77,10 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
 
         return (
           <a
-            class="project-card"
+            class="project-card reveal-item"
             href={`/projects/${p.slug}/`}
             data-category={p.category || ''}
+            style={`--reveal-delay: ${Math.min(index * 45, 360)}ms`}
           >
             <div class="project-card-image">
               {p.cover ? (
@@ -130,5 +131,23 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
         });
       });
     });
+
+    const revealItems = document.querySelectorAll('.reveal-item');
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+      }
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
   </script>
 </BaseLayout>

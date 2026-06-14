@@ -1,6 +1,6 @@
-import { c as createComponent, $ as $$BaseLayout, a as $$Header, b as $$Footer } from './Footer_CO9e2xKz.mjs';
+import { c as createComponent, $ as $$BaseLayout, a as $$Header, b as $$Footer } from './Footer_Bq-6rhEq.mjs';
 import 'piccolore';
-import { r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from './prerender_zTfVk3HF.mjs';
+import { r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from './prerender_Aor1Zf0U.mjs';
 import { p as projects } from './projects_NVcIhtQ2.mjs';
 
 function getStaticPaths() {
