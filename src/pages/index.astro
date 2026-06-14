@@ -13,6 +13,10 @@ const visibleProjects = projects
     return orderA - orderB;
   });
 
+const categories = [
+  ...new Set(visibleProjects.map((project) => project.category).filter(Boolean)),
+];
+
 const featuredProject =
   visibleProjects.find((project) => project.featured) ||
   visibleProjects.find((project) => project.slug === 'the-matchbox-house') ||
@@ -43,8 +47,24 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
 
   <section class="projects-section" id="projects">
     <div class="projects-heading">
-      <span>Selected Works</span>
-      <h2>Projects</h2>
+      <div>
+        <span>Selected Works</span>
+        <h2>Projects</h2>
+      </div>
+
+      {categories.length > 0 && (
+        <div class="projects-filters" aria-label="Project filters">
+          <button type="button" class="projects-filter is-active" data-filter="all">
+            All
+          </button>
+
+          {categories.map((category) => (
+            <button type="button" class="projects-filter" data-filter={category}>
+              {category}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
 
     <div class="projects-grid">
@@ -52,10 +72,15 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
         const hoverMeta = [
           p.category,
           p.subcategory,
+          p.year,
         ].filter(Boolean);
 
         return (
-          <a class="project-card" href={`/projects/${p.slug}/`}>
+          <a
+            class="project-card"
+            href={`/projects/${p.slug}/`}
+            data-category={p.category || ''}
+          >
             <div class="project-card-image">
               {p.cover ? (
                 <img
@@ -84,4 +109,26 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
   </section>
 
   <Footer />
+
+  <script>
+    const filterButtons = document.querySelectorAll('.projects-filter');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const selectedCategory = button.getAttribute('data-filter');
+
+        filterButtons.forEach((item) => item.classList.remove('is-active'));
+        button.classList.add('is-active');
+
+        projectCards.forEach((card) => {
+          const cardCategory = card.getAttribute('data-category');
+          const shouldShow =
+            selectedCategory === 'all' || cardCategory === selectedCategory;
+
+          card.classList.toggle('is-hidden', !shouldShow);
+        });
+      });
+    });
+  </script>
 </BaseLayout>

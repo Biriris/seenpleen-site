@@ -158,6 +158,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: end;
+  gap: 40px;
 }
 
 .projects-heading span {
@@ -175,6 +176,35 @@ img {
   font-weight: 600;
 }
 
+.projects-filters {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  max-width: 720px;
+}
+
+.projects-filter {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-main);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+}
+
+.projects-filter:hover,
+.projects-filter.is-active {
+  color: var(--text);
+}
+
 .projects-grid {
   width: 100%;
   display: grid;
@@ -187,6 +217,12 @@ img {
   width: 100%;
   text-decoration: none;
   color: var(--text);
+}
+
+.project-card.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .project-card-image {
@@ -428,6 +464,37 @@ img {
   color: var(--muted);
 }
 
+.project-meta-list {
+  margin: 0 0 42px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.project-meta-item {
+  padding: 18px 20px 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-meta-item dt {
+  margin: 0 0 8px;
+  font-size: 11px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.project-meta-item dd {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
 .project-description p {
   margin: 0 0 28px;
   font-size: clamp(18px, 1.55vw, 24px);
@@ -621,6 +688,17 @@ img {
     margin-top: 14px;
   }
 
+  .projects-filters {
+    justify-content: flex-start;
+    gap: 14px;
+    margin-top: 26px;
+  }
+
+  .projects-filter {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
   }
@@ -634,7 +712,7 @@ img {
   }
 
   .project-card-hover p {
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .studio-page-hero {
@@ -721,16 +799,21 @@ img {
     font-size: 12px;
   }
 
+  .project-meta-list {
+    grid-template-columns: 1fr;
+    margin-bottom: 34px;
+  }
+
   .project-description p {
     font-size: 18px;
     line-height: 1.55;
   }
 
-.project-gallery {
-  grid-template-columns: 1fr;
-  gap: 18px;
-  padding: 18px 6vw 80px;
-}
+  .project-gallery {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px 6vw 80px;
+  }
 
   .project-gallery-item {
     grid-column: span 1;
