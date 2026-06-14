@@ -38,15 +38,33 @@ collections:
 
               - label: "Category"
                 name: "category"
-                widget: "string"
+                widget: "select"
                 required: false
-                hint: "Example: Commercial, Residential, Hospitality"
+                options:
+                  - Residential
+                  - Commercial
+                  - Hospitality
+                  - Interior Design
+                  - Renovation
+                  - Mixed Use
+                  - Concept
 
               - label: "Subcategory"
                 name: "subcategory"
-                widget: "string"
+                widget: "select"
                 required: false
-                hint: "Example: Cafe, Bar, House, Apartment"
+                options:
+                  - House
+                  - Apartment
+                  - Villa
+                  - Cafe
+                  - Restaurant
+                  - Bar
+                  - Hotel
+                  - Office
+                  - Retail
+                  - Workspace
+                  - Vacation House
 
               - label: "Client"
                 name: "client"
@@ -71,9 +89,14 @@ collections:
 
               - label: "Status"
                 name: "status"
-                widget: "string"
+                widget: "select"
                 required: false
-                hint: "Example: Completed, Under Construction, Concept"
+                options:
+                  - Completed
+                  - Under Construction
+                  - In Progress
+                  - Concept
+                  - Proposal
 
               - label: "Featured Project"
                 name: "featured"
