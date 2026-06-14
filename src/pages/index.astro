@@ -4,10 +4,19 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import projects from '../data/projects.json';
 
+const visibleProjects = projects
+  .filter((project) => !project.hidden)
+  .sort((a, b) => {
+    const orderA = Number.isInteger(a.order) ? a.order : Number.POSITIVE_INFINITY;
+    const orderB = Number.isInteger(b.order) ? b.order : Number.POSITIVE_INFINITY;
+
+    return orderA - orderB;
+  });
+
 const featuredProject =
-  projects.find((project) => project.featured) ||
-  projects.find((project) => project.slug === 'the-matchbox-house') ||
-  projects[0];
+  visibleProjects.find((project) => project.featured) ||
+  visibleProjects.find((project) => project.slug === 'the-matchbox-house') ||
+  visibleProjects[0];
 
 const featuredImage = featuredProject?.hero || featuredProject?.cover;
 ---
@@ -39,7 +48,7 @@ const featuredImage = featuredProject?.hero || featuredProject?.cover;
     </div>
 
     <div class="projects-grid">
-      {projects.map((p, index) => {
+      {visibleProjects.map((p, index) => {
         const hoverMeta = [
           p.category,
           p.subcategory,

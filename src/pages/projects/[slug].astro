@@ -4,13 +4,22 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import projects from '../../data/projects.json';
 
+const visibleProjects = projects
+  .filter((project) => !project.hidden)
+  .sort((a, b) => {
+    const orderA = Number.isInteger(a.order) ? a.order : Number.POSITIVE_INFINITY;
+    const orderB = Number.isInteger(b.order) ? b.order : Number.POSITIVE_INFINITY;
+
+    return orderA - orderB;
+  });
+
 export function getStaticPaths() {
-  return projects.map((p, index) => ({
+  return visibleProjects.map((p, index) => ({
     params: { slug: p.slug },
     props: {
       project: p,
-      previousProject: projects[index - 1] || projects[projects.length - 1],
-      nextProject: projects[index + 1] || projects[0],
+      previousProject: visibleProjects[index - 1] || visibleProjects[visibleProjects.length - 1],
+      nextProject: visibleProjects[index + 1] || visibleProjects[0],
     },
   }));
 }

@@ -29,7 +29,19 @@ collections:
               - label: "Slug"
                 name: "slug"
                 widget: "string"
-                hint: "Lowercase English words with hyphens, e.g. the-matchbox-house."
+
+              - label: "Order"
+                name: "order"
+                widget: "number"
+                required: false
+                value_type: "int"
+                hint: "Lower numbers appear first."
+
+              - label: "Hide Project"
+                name: "hidden"
+                widget: "boolean"
+                required: false
+                default: false
 
               - label: "Subtitle / Legacy Project Info"
                 name: "project_id"
@@ -118,7 +130,6 @@ collections:
                 name: "hero"
                 widget: "image"
                 required: false
-                hint: "Optional. If empty, the cover image will be used."
 
               - label: "Gallery"
                 name: "gallery"
