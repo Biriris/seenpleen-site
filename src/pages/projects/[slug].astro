@@ -4,22 +4,31 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import projects from '../../data/projects.json';
 
-const visibleProjects = projects
-  .filter((project) => !project.hidden)
-  .sort((a, b) => {
-    const orderA = Number.isInteger(a.order) ? a.order : Number.POSITIVE_INFINITY;
-    const orderB = Number.isInteger(b.order) ? b.order : Number.POSITIVE_INFINITY;
-
-    return orderA - orderB;
-  });
-
 export function getStaticPaths() {
-  return visibleProjects.map((p, index) => ({
-    params: { slug: p.slug },
+  const visibleProjects = projects
+    .filter((project) => !project.hidden)
+    .sort((a, b) => {
+      const orderA = Number.isFinite(Number(a.order))
+        ? Number(a.order)
+        : Number.POSITIVE_INFINITY;
+
+      const orderB = Number.isFinite(Number(b.order))
+        ? Number(b.order)
+        : Number.POSITIVE_INFINITY;
+
+      return orderA - orderB;
+    });
+
+  return visibleProjects.map((project, index) => ({
+    params: {
+      slug: project.slug,
+    },
     props: {
-      project: p,
-      previousProject: visibleProjects[index - 1] || visibleProjects[visibleProjects.length - 1],
-      nextProject: visibleProjects[index + 1] || visibleProjects[0],
+      project,
+      previousProject:
+        visibleProjects[index - 1] || visibleProjects[visibleProjects.length - 1],
+      nextProject:
+        visibleProjects[index + 1] || visibleProjects[0],
     },
   }));
 }
@@ -27,6 +36,7 @@ export function getStaticPaths() {
 const { project, previousProject, nextProject } = Astro.props;
 
 const heroImage = project.hero || project.cover || project.gallery?.[0]?.url;
+
 const heroAlt =
   project.hero_alt ||
   project.cover_alt ||
@@ -57,11 +67,7 @@ const pageTitle = project.seo_title || project.title;
   <main class="project-page">
     <section class="project-hero">
       {heroImage ? (
-        <img
-          src={heroImage}
-          alt={heroAlt}
-          loading="eager"
-        />
+        <img src={heroImage} alt={heroAlt} loading="eager" />
       ) : (
         <div class="project-hero-placeholder"></div>
       )}
@@ -117,17 +123,19 @@ const pageTitle = project.seo_title || project.title;
       </section>
     )}
 
-    <nav class="project-navigation" aria-label="Project navigation">
-      <a href={`/projects/${previousProject.slug}/`}>
-        <span>Previous Project</span>
-        <strong>{previousProject.title}</strong>
-      </a>
+    {previousProject && nextProject && (
+      <nav class="project-navigation" aria-label="Project navigation">
+        <a href={`/projects/${previousProject.slug}/`}>
+          <span>Previous Project</span>
+          <strong>{previousProject.title}</strong>
+        </a>
 
-      <a href={`/projects/${nextProject.slug}/`}>
-        <span>Next Project</span>
-        <strong>{nextProject.title}</strong>
-      </a>
-    </nav>
+        <a href={`/projects/${nextProject.slug}/`}>
+          <span>Next Project</span>
+          <strong>{nextProject.title}</strong>
+        </a>
+      </nav>
+    )}
   </main>
 
   <Footer />
