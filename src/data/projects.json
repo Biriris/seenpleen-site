@@ -86,6 +86,35 @@
     ]
   },
   {
+    "title": "Maneken",
+    "slug": "maneken",
+    "order": 1,
+    "hidden": false,
+    "seo_title": "maneken",
+    "seo_description": "",
+    "project_id": "",
+    "category": "Commercial",
+    "subcategory": "Bar",
+    "client": "",
+    "location": "Patras",
+    "year": "2025",
+    "area": "",
+    "status": "Completed",
+    "featured": false,
+    "details": "",
+    "cover": "/images/6E5A4FF0-8ACE-40B5-AC41-DCB5F0A6EC04.jpg",
+    "cover_alt": "",
+    "hero": "/images/6E5A4FF0-8ACE-40B5-AC41-DCB5F0A6EC04.jpg",
+    "hero_alt": "",
+    "gallery": [
+      {
+        "url": "/images/1765E572-B133-4B83-9970-37DEDFB525FD.JPEG",
+        "title": "",
+        "alt": ""
+      }
+    ]
+  },
+  {
     "title": "Mono",
     "slug": "mono-bar",
     "project_id": "",
@@ -444,35 +473,6 @@
       {
         "url": "/images/rodini-vacation-house/Pic-24.jpg",
         "title": "Pic-24.jpg",
-        "alt": ""
-      }
-    ]
-  },
-  {
-    "title": "Maneken",
-    "slug": "maneken",
-    "order": 1,
-    "hidden": false,
-    "seo_title": "maneken",
-    "seo_description": "",
-    "project_id": "",
-    "category": "Commercial",
-    "subcategory": "Bar",
-    "client": "",
-    "location": "Patras",
-    "year": "2025",
-    "area": "",
-    "status": "Completed",
-    "featured": false,
-    "details": "",
-    "cover": "/images/6E5A4FF0-8ACE-40B5-AC41-DCB5F0A6EC04.jpg",
-    "cover_alt": "",
-    "hero": "/images/6E5A4FF0-8ACE-40B5-AC41-DCB5F0A6EC04.jpg",
-    "hero_alt": "",
-    "gallery": [
-      {
-        "url": "/images/1765E572-B133-4B83-9970-37DEDFB525FD.JPEG",
-        "title": "",
         "alt": ""
       }
     ]
