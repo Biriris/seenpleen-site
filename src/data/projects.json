@@ -1,5 +1,59 @@
 [
   {
+    "title": "Maneken",
+    "slug": "maneken",
+    "order": null,
+    "hidden": false,
+    "seo_title": "maneken",
+    "seo_description": "",
+    "project_id": "",
+    "category": "Commercial",
+    "subcategory": "Bar",
+    "client": "",
+    "location": "Patras",
+    "year": "2025",
+    "area": "",
+    "status": "Completed",
+    "featured": false,
+    "details": "",
+    "cover": "/images/Fratello Post-6.JPEG",
+    "cover_alt": "",
+    "hero": "/images/Fratello Post-6.JPEG",
+    "hero_alt": "",
+    "gallery": [
+      {
+        "url": "/images/Fratello Post-2.JPEG",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/1765E572-B133-4B83-9970-37DEDFB525FD.JPEG",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Fratello Post-4.JPEG",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Fratello Post-17.JPEG",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Fratello Post-5.JPEG",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Fratello Post-9.JPEG",
+        "title": "",
+        "alt": ""
+      }
+    ]
+  },
+  {
     "title": "The Matchbox House",
     "slug": "the-matchbox-house",
     "project_id": "Ισόγεια Μονοκατοικία με υπόγειο |Βάρδα Ηλείας | Υπό Κατασκευή | 165 m2",
@@ -81,60 +135,6 @@
       {
         "url": "/images/the-matchbox-house/print.jpg",
         "title": "print.jpg",
-        "alt": ""
-      }
-    ]
-  },
-  {
-    "title": "Maneken",
-    "slug": "maneken",
-    "order": null,
-    "hidden": false,
-    "seo_title": "maneken",
-    "seo_description": "",
-    "project_id": "",
-    "category": "Commercial",
-    "subcategory": "Bar",
-    "client": "",
-    "location": "Patras",
-    "year": "2025",
-    "area": "",
-    "status": "Completed",
-    "featured": false,
-    "details": "",
-    "cover": "/images/Fratello Post-6.JPEG",
-    "cover_alt": "",
-    "hero": "/images/Fratello Post-6.JPEG",
-    "hero_alt": "",
-    "gallery": [
-      {
-        "url": "/images/Fratello Post-2.JPEG",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/1765E572-B133-4B83-9970-37DEDFB525FD.JPEG",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Fratello Post-4.JPEG",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Fratello Post-17.JPEG",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Fratello Post-5.JPEG",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Fratello Post-9.JPEG",
-        "title": "",
         "alt": ""
       }
     ]
