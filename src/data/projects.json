@@ -470,7 +470,10 @@
     "area": "",
     "status": "Completed",
     "details": "Το Cafe Marmo βρίσκεται στη συμβολή του πεζόδρομου Παρθενάκου και της οδού Μαιζόνος στην Πάτρα.",
-    "cover": "/images/marmo/IMG_1784.jpg",
+    "cover": "/images/marmo/MAT_2981.jpg",
+    "cover_alt": "",
+    "hero": "/images/marmo/MAT_3008.jpg",
+    "hero_alt": "",
     "gallery": [
       {
         "url": "/images/marmo/IMG_1784.jpg",
@@ -520,11 +523,6 @@
       {
         "url": "/images/marmo/MAT_2981.jpg",
         "title": "MAT_2981.jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/marmo/MAT_2998.jpg",
-        "title": "MAT_2998.jpg",
         "alt": ""
       },
       {
