@@ -413,9 +413,19 @@
   {
     "title": "Rodini Vacation House",
     "slug": "rodini-vacation-house",
+    "order": null,
+    "seo_title": "",
+    "seo_description": "",
     "project_id": "Vacation House | Rodini Beach, Patras | 2022",
+    "client": "",
+    "location": "",
+    "year": "",
+    "area": "",
     "details": "Η Καλοκαιρινή Κατοικία \"Rodini Vacation House\" έιναι μια παραθαλάσια εξοχική κατοικία που βρίσκεται στον οικισμό της Κάτω Ροδινής Αχαίας.\nΖητήθηκε η δημιουργία ενός ευχάριστου κοινού χώρου διημέρευσης στον οποίο συναντώνται τρία μεγάλα υπνοδωμάτια.\nΗ κατοικία λειτουργεί ως airbnb.",
-    "cover": "/images/rodini-vacation-house/Pic-1.jpg",
+    "cover": "/images/rodini-vacation-house/Pic-24.jpg",
+    "cover_alt": "",
+    "hero": "/images/rodini-vacation-house/Pic-24.jpg",
+    "hero_alt": "",
     "gallery": [
       {
         "url": "/images/rodini-vacation-house/Pic-1.jpg",
