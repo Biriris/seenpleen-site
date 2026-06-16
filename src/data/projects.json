@@ -88,7 +88,7 @@
   {
     "title": "Maneken",
     "slug": "maneken",
-    "order": 1,
+    "order": null,
     "hidden": false,
     "seo_title": "maneken",
     "seo_description": "",
