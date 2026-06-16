@@ -142,6 +142,9 @@
   {
     "title": "Mono",
     "slug": "mono-bar",
+    "order": null,
+    "seo_title": "",
+    "seo_description": "",
     "project_id": "",
     "category": "Commercial",
     "subcategory": "Bar",
@@ -152,8 +155,10 @@
     "status": "Completed",
     "featured": false,
     "details": "",
-    "cover": "/images/uploads/alesskikinas.com-1026.jpg",
-    "hero": "/images/uploads/alesskikinas.com-1026.jpg",
+    "cover": "/images/mono/6.jpg",
+    "cover_alt": "",
+    "hero": "/images/mono/6.jpg",
+    "hero_alt": "",
     "gallery": [
       {
         "url": "/images/uploads/1.jpg",
