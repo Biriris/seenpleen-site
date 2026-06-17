@@ -1,5 +1,74 @@
 [
   {
+    "title": "U Shaped Villa",
+    "slug": "u-shaped-villa",
+    "order": null,
+    "hidden": false,
+    "seo_title": "",
+    "seo_description": "",
+    "project_id": "",
+    "category": "Residential",
+    "subcategory": "Villa",
+    "client": "",
+    "location": "Manolada",
+    "year": "2026",
+    "area": "230",
+    "status": "Proposal",
+    "featured": false,
+    "details": "",
+    "cover": "/images/Scene 7 - Moody.png",
+    "cover_alt": "",
+    "hero": "/images/Scene 7 - Moody.png",
+    "hero_alt": "",
+    "gallery": [
+      {
+        "url": "/images/Scene 2 - Moody.png",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 3 - Moody.png",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 4 - Moody.png",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 5 - Moody.png",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 6 - Moody.png",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 7 - Moody.png",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 8 - Moody.png",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 9 - Moody.png",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 10 - Moody.png",
+        "title": "",
+        "alt": ""
+      }
+    ]
+  },
+  {
     "title": "Maneken",
     "slug": "maneken",
     "order": null,
@@ -140,6 +209,78 @@
     ]
   },
   {
+    "title": "Elefante",
+    "slug": "elefante",
+    "order": null,
+    "seo_title": "",
+    "seo_description": "",
+    "project_id": "",
+    "category": "Commercial",
+    "subcategory": "Cafe",
+    "client": "",
+    "location": "Patras",
+    "year": "2024",
+    "area": "",
+    "status": "Completed",
+    "details": "Το cafe - coctail bar elefante βρίσκεται στη συμβολή της οδού Πατρέως με τη Ρήγα Φεραίου, τον πιο κεντρικό πεζόδρομο της Πάτρας.\nΑπο τους πελάτες ζητήθηκε να σχεδιαστεί ένα ζεστό all day, με φωτεινά και ζεστά χρώματα και γήινους τόνους σε σύγχρονες γραμμές, συνδυάζοντας και κλασικά στοιχεία.\nΓια την επίτυξη του αποτελέσματος χρησιμοποιήθηκε ξύλο, πλακάκι και πατητή τσιμεντοκονία σε αποχρώσεις του πηλού (cotto) που σε συνδυασμό με το θερμό φωτισμό έβγαλε αυτό το μεστό αποτέλεσμα.",
+    "cover": "/images/elefante/DSC_6682 (2).jpg",
+    "cover_alt": "",
+    "hero": "/images/elefante/DSC_6528 (2).jpg",
+    "hero_alt": "",
+    "gallery": [
+      {
+        "url": "/images/elefante/DSC_6528%20(2).jpg",
+        "title": "DSC_6528 (2).jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/elefante/DSC_6569%20(1).jpg",
+        "title": "DSC_6569 (1).jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/elefante/DSC_6606.jpg",
+        "title": "DSC_6606.jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/elefante/DSC_6607%20(3).jpg",
+        "title": "DSC_6607 (3).jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/elefante/DSC_6609%20(1).jpg",
+        "title": "DSC_6609 (1).jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/elefante/DSC_6626%20(1).jpg",
+        "title": "DSC_6626 (1).jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/elefante/DSC_6634%20(1).jpg",
+        "title": "DSC_6634 (1).jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/elefante/DSC_6682%20(2).jpg",
+        "title": "DSC_6682 (2).jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/elefante/DSC_7052.jpg",
+        "title": "DSC_7052.jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/elefante/DSC_7057.jpg",
+        "title": "DSC_7057.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  {
     "title": "Mono",
     "slug": "mono-bar",
     "order": null,
@@ -253,113 +394,6 @@
     ]
   },
   {
-    "title": "Elefante",
-    "slug": "elefante",
-    "order": null,
-    "seo_title": "",
-    "seo_description": "",
-    "project_id": "",
-    "category": "Commercial",
-    "subcategory": "Cafe",
-    "client": "",
-    "location": "Patras",
-    "year": "2024",
-    "area": "",
-    "status": "Completed",
-    "details": "Το cafe - coctail bar elefante βρίσκεται στη συμβολή της οδού Πατρέως με τη Ρήγα Φεραίου, τον πιο κεντρικό πεζόδρομο της Πάτρας.\nΑπο τους πελάτες ζητήθηκε να σχεδιαστεί ένα ζεστό all day, με φωτεινά και ζεστά χρώματα και γήινους τόνους σε σύγχρονες γραμμές, συνδυάζοντας και κλασικά στοιχεία.\nΓια την επίτυξη του αποτελέσματος χρησιμοποιήθηκε ξύλο, πλακάκι και πατητή τσιμεντοκονία σε αποχρώσεις του πηλού (cotto) που σε συνδυασμό με το θερμό φωτισμό έβγαλε αυτό το μεστό αποτέλεσμα.",
-    "cover": "/images/elefante/DSC_6682 (2).jpg",
-    "cover_alt": "",
-    "hero": "/images/elefante/DSC_6528 (2).jpg",
-    "hero_alt": "",
-    "gallery": [
-      {
-        "url": "/images/elefante/DSC_6528%20(2).jpg",
-        "title": "DSC_6528 (2).jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/elefante/DSC_6569%20(1).jpg",
-        "title": "DSC_6569 (1).jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/elefante/DSC_6606.jpg",
-        "title": "DSC_6606.jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/elefante/DSC_6607%20(3).jpg",
-        "title": "DSC_6607 (3).jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/elefante/DSC_6609%20(1).jpg",
-        "title": "DSC_6609 (1).jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/elefante/DSC_6626%20(1).jpg",
-        "title": "DSC_6626 (1).jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/elefante/DSC_6634%20(1).jpg",
-        "title": "DSC_6634 (1).jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/elefante/DSC_6682%20(2).jpg",
-        "title": "DSC_6682 (2).jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/elefante/DSC_7052.jpg",
-        "title": "DSC_7052.jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/elefante/DSC_7057.jpg",
-        "title": "DSC_7057.jpg",
-        "alt": ""
-      }
-    ]
-  },
-  {
-    "title": "Katalonia",
-    "slug": "katalonia",
-    "project_id": "",
-    "category": "Commercial",
-    "client": "",
-    "location": "Trion Navarchon, Patras",
-    "year": "2023",
-    "area": "",
-    "status": "Completed",
-    "details": "Το τσιπουράδικο - καφέ - μπάρ \"Katalonia\" βρίσκεται στον Πεζόδρομο Τριών Ναυάρχων στην Πάτρα.\nΑκριβώς κάτω απο τα σκαλιά που ενώνουν την Ιστορική Πλατεία των Υψηλών Αλωνίων με τον πεζόδρομο των Τριών Ναυάρχων, στο Project προσπαθήσαμε να διατηρήσουμε την ιστορικότητα του τοπίου με υλικά και χρωματισμούς που σέβονται τα νεοκλασικά κτίρια που υπάρχουν στο συγκεκριμένο σημείο της πόλης και να εντάξουμε αυτό το all day μέρος σαν μια προσθήκη - συνέχεια στο τοπίο και στην ιστορία της πόλης.",
-    "cover": "/images/katalonia/D5_Image%201_20231104_164315.jpg",
-    "gallery": [
-      {
-        "url": "/images/katalonia/D5_Image%201_20231104_164315.jpg",
-        "title": "D5_Image 1_20231104_164315.jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/katalonia/D5_Image%202_20231104_164146.jpg",
-        "title": "D5_Image 2_20231104_164146.jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/katalonia/D5_Image%203_20231104_164024.jpg",
-        "title": "D5_Image 3_20231104_164024.jpg",
-        "alt": ""
-      },
-      {
-        "url": "/images/katalonia/D5_Image_20231104_164440.jpg",
-        "title": "D5_Image_20231104_164440.jpg",
-        "alt": ""
-      }
-    ]
-  },
-  {
     "title": "Rodini Vacation House",
     "slug": "rodini-vacation-house",
     "order": null,
@@ -456,6 +490,41 @@
     ]
   },
   {
+    "title": "Katalonia",
+    "slug": "katalonia",
+    "project_id": "",
+    "category": "Commercial",
+    "client": "",
+    "location": "Trion Navarchon, Patras",
+    "year": "2023",
+    "area": "",
+    "status": "Completed",
+    "details": "Το τσιπουράδικο - καφέ - μπάρ \"Katalonia\" βρίσκεται στον Πεζόδρομο Τριών Ναυάρχων στην Πάτρα.\nΑκριβώς κάτω απο τα σκαλιά που ενώνουν την Ιστορική Πλατεία των Υψηλών Αλωνίων με τον πεζόδρομο των Τριών Ναυάρχων, στο Project προσπαθήσαμε να διατηρήσουμε την ιστορικότητα του τοπίου με υλικά και χρωματισμούς που σέβονται τα νεοκλασικά κτίρια που υπάρχουν στο συγκεκριμένο σημείο της πόλης και να εντάξουμε αυτό το all day μέρος σαν μια προσθήκη - συνέχεια στο τοπίο και στην ιστορία της πόλης.",
+    "cover": "/images/katalonia/D5_Image%201_20231104_164315.jpg",
+    "gallery": [
+      {
+        "url": "/images/katalonia/D5_Image%201_20231104_164315.jpg",
+        "title": "D5_Image 1_20231104_164315.jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/katalonia/D5_Image%202_20231104_164146.jpg",
+        "title": "D5_Image 2_20231104_164146.jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/katalonia/D5_Image%203_20231104_164024.jpg",
+        "title": "D5_Image 3_20231104_164024.jpg",
+        "alt": ""
+      },
+      {
+        "url": "/images/katalonia/D5_Image_20231104_164440.jpg",
+        "title": "D5_Image_20231104_164440.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  {
     "title": "Marmo",
     "slug": "marmo",
     "order": null,
@@ -528,75 +597,6 @@
       {
         "url": "/images/marmo/MAT_3008.jpg",
         "title": "MAT_3008.jpg",
-        "alt": ""
-      }
-    ]
-  },
-  {
-    "title": "U Shaped Villa",
-    "slug": "u-shaped-villa",
-    "order": null,
-    "hidden": false,
-    "seo_title": "",
-    "seo_description": "",
-    "project_id": "",
-    "category": "Residential",
-    "subcategory": "Villa",
-    "client": "",
-    "location": "Manolada",
-    "year": "2026",
-    "area": "230",
-    "status": "Proposal",
-    "featured": false,
-    "details": "",
-    "cover": "/images/Scene 7 - Moody.png",
-    "cover_alt": "",
-    "hero": "/images/Scene 7 - Moody.png",
-    "hero_alt": "",
-    "gallery": [
-      {
-        "url": "/images/Scene 2 - Moody.png",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 3 - Moody.png",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 4 - Moody.png",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 5 - Moody.png",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 6 - Moody.png",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 7 - Moody.png",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 8 - Moody.png",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 9 - Moody.png",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 10 - Moody.png",
-        "title": "",
         "alt": ""
       }
     ]
