@@ -42,6 +42,13 @@ const heroAlt =
   project.cover_alt ||
   project.title;
 
+const heroMeta = [
+  project.category,
+  project.subcategory,
+  project.location,
+  project.year,
+].filter(Boolean);
+
 const gallery = project.gallery || [];
 
 const detailParagraphs = project.details
@@ -71,12 +78,20 @@ const pageTitle = project.seo_title || project.title;
       ) : (
         <div class="project-hero-placeholder"></div>
       )}
+
+      <div class="project-hero-content">
+        <h1>{project.title}</h1>
+
+        {heroMeta.length > 0 && (
+          <p>{heroMeta.join(' / ')}</p>
+        )}
+      </div>
     </section>
 
     <section class="project-intro reveal-item">
       <div class="project-title-block">
         <p class="project-kicker">Project</p>
-        <h1>{project.title}</h1>
+        <h2>{project.title}</h2>
       </div>
 
       <div class="project-info">
@@ -111,18 +126,22 @@ const pageTitle = project.seo_title || project.title;
 
     {gallery.length > 0 && (
       <section class="project-gallery">
-        {gallery.map((img, index) => (
-          <figure
-            class={`project-gallery-item project-gallery-item-${(index % 6) + 1} reveal-item`}
-            style={`--reveal-delay: ${Math.min(index * 55, 420)}ms`}
-          >
-            <img
-              src={img.url}
-              alt={img.alt || project.title}
-              loading={index < 2 ? 'eager' : 'lazy'}
-            />
-          </figure>
-        ))}
+        {gallery.map((img, index) => {
+          const layout = img.layout || 'auto';
+
+          return (
+            <figure
+              class={`project-gallery-item project-gallery-item-${layout} reveal-item`}
+              style={`--reveal-delay: ${Math.min(index * 55, 420)}ms`}
+            >
+              <img
+                src={img.url}
+                alt={img.alt || project.title}
+                loading={index < 2 ? 'eager' : 'lazy'}
+              />
+            </figure>
+          );
+        })}
       </section>
     )}
 
