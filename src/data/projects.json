@@ -15,6 +15,16 @@
     "area": "230",
     "status": "Proposal",
     "featured": true,
+    "collaborators": {
+      "architect_engineer": "Konstantinos Kostaras",
+      "civil_engineer": "",
+      "mechanical_engineer": "",
+      "construction": "",
+      "photographer": "",
+      "artist_3d": "Konstantinos Kostaras",
+      "decoration": "Konstantinos Kostaras",
+      "lighting_design": "Konstantinos Kostaras"
+    },
     "details": "",
     "cover": "/images/Scene 7 - Moody.png",
     "cover_alt": "",
