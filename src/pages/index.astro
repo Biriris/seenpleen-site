@@ -28,12 +28,16 @@ const featuredAlt =
   featuredProject?.cover_alt ||
   featuredProject?.title;
 
+const IMAGE_WIDTHS = [480, 768, 1024, 1440, 1920, 2560];
+
 const optimizedImage = (src) => {
   if (!src || !/\.(jpe?g|png)$/i.test(src)) {
     return {
       original: src,
       avif: null,
       webp: null,
+      avifSrcset: null,
+      webpSrcset: null,
     };
   }
 
@@ -43,6 +47,8 @@ const optimizedImage = (src) => {
     original: src,
     avif: `${withoutExtension}.avif`,
     webp: `${withoutExtension}.webp`,
+    avifSrcset: IMAGE_WIDTHS.map((width) => `${withoutExtension}-${width}.avif ${width}w`).join(', '),
+    webpSrcset: IMAGE_WIDTHS.map((width) => `${withoutExtension}-${width}.webp ${width}w`).join(', '),
   };
 };
 ---
@@ -52,21 +58,35 @@ const optimizedImage = (src) => {
 
   {featuredProject && featuredImage && (
     <section class="home-hero is-revealed">
-      <picture>
-        {optimizedImage(featuredImage).avif && (
-          <source srcset={optimizedImage(featuredImage).avif} type="image/avif" />
-        )}
-        {optimizedImage(featuredImage).webp && (
-          <source srcset={optimizedImage(featuredImage).webp} type="image/webp" />
-        )}
-        <img
-          src={featuredImage}
-          alt={featuredAlt}
-          class="home-hero-image"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </picture>
+      {(() => {
+        const heroSources = optimizedImage(featuredImage);
+
+        return (
+          <picture>
+            {heroSources.avifSrcset && (
+              <source
+                srcset={heroSources.avifSrcset}
+                sizes="100vw"
+                type="image/avif"
+              />
+            )}
+            {heroSources.webpSrcset && (
+              <source
+                srcset={heroSources.webpSrcset}
+                sizes="100vw"
+                type="image/webp"
+              />
+            )}
+            <img
+              src={featuredImage}
+              alt={featuredAlt}
+              class="home-hero-image"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </picture>
+        );
+      })()}
 
       <div class="home-hero-overlay">
         <a href={`/projects/${featuredProject.slug}/`} class="home-hero-link">
@@ -118,11 +138,19 @@ const optimizedImage = (src) => {
             <div class="project-card-image">
               {p.cover ? (
                 <picture>
-                  {coverSources.avif && (
-                    <source srcset={coverSources.avif} type="image/avif" />
+                  {coverSources.avifSrcset && (
+                    <source
+                      srcset={coverSources.avifSrcset}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      type="image/avif"
+                    />
                   )}
-                  {coverSources.webp && (
-                    <source srcset={coverSources.webp} type="image/webp" />
+                  {coverSources.webpSrcset && (
+                    <source
+                      srcset={coverSources.webpSrcset}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      type="image/webp"
+                    />
                   )}
                   <img
                     src={p.cover}

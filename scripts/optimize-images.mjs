@@ -2,13 +2,13 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
-const projectRoot = process.cwd();
-const imagesDir = path.join(projectRoot, 'public', 'images');
-const supportedExtensions = new Set(['.jpg', '.jpeg', '.png']);
+const ROOT_DIR = process.cwd();
+const IMAGES_DIR = path.join(ROOT_DIR, 'public', 'images');
+const SOURCE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png']);
+const RESPONSIVE_WIDTHS = [480, 768, 1024, 1440, 1920, 2560];
 
-const maxWidth = 2560;
-const webpQuality = 82;
-const avifQuality = 62;
+const AVIF_QUALITY = 58;
+const WEBP_QUALITY = 76;
 
 async function pathExists(filePath) {
   try {
@@ -19,7 +19,7 @@ async function pathExists(filePath) {
   }
 }
 
-async function getFiles(dir) {
+async function walk(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
   const files = [];
 
@@ -27,15 +27,14 @@ async function getFiles(dir) {
     const fullPath = path.join(dir, entry.name);
 
     if (entry.isDirectory()) {
-      files.push(...await getFiles(fullPath));
+      files.push(...await walk(fullPath));
       continue;
     }
 
     if (!entry.isFile()) continue;
 
     const ext = path.extname(entry.name).toLowerCase();
-
-    if (supportedExtensions.has(ext)) {
+    if (SOURCE_EXTENSIONS.has(ext)) {
       files.push(fullPath);
     }
   }
@@ -43,103 +42,68 @@ async function getFiles(dir) {
   return files;
 }
 
-async function outputIsFresh(sourcePath, outputPath) {
-  if (!await pathExists(outputPath)) return false;
-
-  const sourceStat = await fs.stat(sourcePath);
-  const outputStat = await fs.stat(outputPath);
-
-  return outputStat.mtimeMs >= sourceStat.mtimeMs;
+function outputPathFor(sourcePath, suffix, format) {
+  const parsed = path.parse(sourcePath);
+  return path.join(parsed.dir, `${parsed.name}${suffix}.${format}`);
 }
 
 async function optimizeImage(sourcePath) {
-  const parsed = path.parse(sourcePath);
-  const avifPath = path.join(parsed.dir, `${parsed.name}.avif`);
-  const webpPath = path.join(parsed.dir, `${parsed.name}.webp`);
-
-  const image = sharp(sourcePath, {
-    failOn: 'none',
-    limitInputPixels: false,
-  }).rotate();
-
+  const image = sharp(sourcePath, { failOn: 'none' }).rotate();
   const metadata = await image.metadata();
-  const shouldResize = metadata.width && metadata.width > maxWidth;
+  const originalWidth = metadata.width || 0;
 
-  const pipeline = image.clone().resize({
-    width: shouldResize ? maxWidth : undefined,
-    withoutEnlargement: true,
-  });
-
-  const tasks = [];
-
-  if (!await outputIsFresh(sourcePath, avifPath)) {
-    tasks.push(
-      pipeline
-        .clone()
-        .avif({ quality: avifQuality, effort: 6 })
-        .toFile(avifPath)
-    );
-  }
-
-  if (!await outputIsFresh(sourcePath, webpPath)) {
-    tasks.push(
-      pipeline
-        .clone()
-        .webp({ quality: webpQuality, effort: 6 })
-        .toFile(webpPath)
-    );
-  }
-
-  await Promise.all(tasks);
-
-  return {
-    sourcePath,
-    avifPath,
-    webpPath,
-    skipped: tasks.length === 0,
-  };
-}
-
-async function main() {
-  if (!await pathExists(imagesDir)) {
-    console.error(`Images folder not found: ${imagesDir}`);
-    process.exit(1);
-  }
-
-  const files = await getFiles(imagesDir);
-
-  if (files.length === 0) {
-    console.log('No JPG, JPEG, or PNG images found in public/images.');
+  if (!originalWidth) {
+    console.warn(`Skipped unreadable image: ${sourcePath}`);
     return;
   }
 
-  console.log(`Found ${files.length} source images.`);
-  console.log('Generating AVIF and WebP versions...');
+  const widths = RESPONSIVE_WIDTHS.filter((width) => width < originalWidth);
+  widths.push(originalWidth);
 
-  let optimizedCount = 0;
-  let skippedCount = 0;
+  const uniqueWidths = [...new Set(widths)].sort((a, b) => a - b);
 
-  for (const file of files) {
-    try {
-      const result = await optimizeImage(file);
-      const relative = path.relative(projectRoot, result.sourcePath);
+  for (const width of uniqueWidths) {
+    const suffix = width === originalWidth ? '' : `-${width}`;
+    const avifPath = outputPathFor(sourcePath, suffix, 'avif');
+    const webpPath = outputPathFor(sourcePath, suffix, 'webp');
 
-      if (result.skipped) {
-        skippedCount += 1;
-        console.log(`Skipped:   ${relative}`);
-      } else {
-        optimizedCount += 1;
-        console.log(`Optimized: ${relative}`);
-      }
-    } catch (error) {
-      console.error(`Failed: ${path.relative(projectRoot, file)}`);
-      console.error(error.message);
+    if (!(await pathExists(avifPath))) {
+      await sharp(sourcePath, { failOn: 'none' })
+        .rotate()
+        .resize({ width, withoutEnlargement: true })
+        .avif({ quality: AVIF_QUALITY, effort: 6 })
+        .toFile(avifPath);
+    }
+
+    if (!(await pathExists(webpPath))) {
+      await sharp(sourcePath, { failOn: 'none' })
+        .rotate()
+        .resize({ width, withoutEnlargement: true })
+        .webp({ quality: WEBP_QUALITY, effort: 5 })
+        .toFile(webpPath);
     }
   }
-
-  console.log('');
-  console.log(`Done. Optimized: ${optimizedCount}. Skipped fresh files: ${skippedCount}.`);
-  console.log('Original JPG/PNG files were not modified.');
 }
 
-main();
+async function main() {
+  if (!(await pathExists(IMAGES_DIR))) {
+    console.error('Missing public/images directory.');
+    process.exit(1);
+  }
+
+  const files = await walk(IMAGES_DIR);
+  console.log(`Found ${files.length} source images.`);
+
+  for (const [index, file] of files.entries()) {
+    const relativePath = path.relative(ROOT_DIR, file);
+    console.log(`[${index + 1}/${files.length}] Optimizing ${relativePath}`);
+    await optimizeImage(file);
+  }
+
+  console.log('Image optimization complete.');
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

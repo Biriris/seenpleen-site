@@ -1,12 +1,16 @@
 ---
 const { projects } = Astro.props;
 
+const IMAGE_WIDTHS = [480, 768, 1024, 1440, 1920, 2560];
+
 const optimizedImage = (src) => {
   if (!src || !/\.(jpe?g|png)$/i.test(src)) {
     return {
       original: src,
       avif: null,
       webp: null,
+      avifSrcset: null,
+      webpSrcset: null,
     };
   }
 
@@ -16,6 +20,8 @@ const optimizedImage = (src) => {
     original: src,
     avif: `${withoutExtension}.avif`,
     webp: `${withoutExtension}.webp`,
+    avifSrcset: IMAGE_WIDTHS.map((width) => `${withoutExtension}-${width}.avif ${width}w`).join(', '),
+    webpSrcset: IMAGE_WIDTHS.map((width) => `${withoutExtension}-${width}.webp ${width}w`).join(', '),
   };
 };
 ---
@@ -28,16 +34,18 @@ const optimizedImage = (src) => {
       <a class="project-card" href={`/projects/${p.slug}/`}>
         <div class="project-card-image">
           <picture>
-            {imageSources.avif && (
+            {imageSources.avifSrcset && (
               <source
-                srcset={imageSources.avif}
+                srcset={imageSources.avifSrcset}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 type="image/avif"
               />
             )}
 
-            {imageSources.webp && (
+            {imageSources.webpSrcset && (
               <source
-                srcset={imageSources.webp}
+                srcset={imageSources.webpSrcset}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 type="image/webp"
               />
             )}

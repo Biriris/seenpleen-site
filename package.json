@@ -7,9 +7,8 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "latest",
-    "astro": "latest"
-  },
-  "devDependencies": {
+    "astro": "latest",
     "sharp": "latest"
-  }
+  },
+  "devDependencies": {}
 }

@@ -52,7 +52,8 @@ const heroMeta = [
 const gallery = project.gallery || [];
 
 const detailParagraphs = project.details
-  ? project.details.split('\n').filter((paragraph) => paragraph.trim().length > 0)
+  ? project.details.split('
+').filter((paragraph) => paragraph.trim().length > 0)
   : [];
 
 const projectMeta = [
@@ -78,12 +79,16 @@ const projectCollaborators = [
   { label: 'Lighting Design', value: collaborators.lighting_design },
 ].filter((item) => item.value && String(item.value).trim().length > 0);
 
+const IMAGE_WIDTHS = [480, 768, 1024, 1440, 1920, 2560];
+
 const optimizedImage = (src) => {
   if (!src || !/\.(jpe?g|png)$/i.test(src)) {
     return {
       original: src,
       avif: null,
       webp: null,
+      avifSrcset: null,
+      webpSrcset: null,
     };
   }
 
@@ -93,6 +98,8 @@ const optimizedImage = (src) => {
     original: src,
     avif: `${withoutExtension}.avif`,
     webp: `${withoutExtension}.webp`,
+    avifSrcset: IMAGE_WIDTHS.map((width) => `${withoutExtension}-${width}.avif ${width}w`).join(', '),
+    webpSrcset: IMAGE_WIDTHS.map((width) => `${withoutExtension}-${width}.webp ${width}w`).join(', '),
   };
 };
 
@@ -107,11 +114,19 @@ const pageTitle = project.seo_title || project.title;
     <section class="project-hero is-revealed">
       {heroImage ? (
         <picture>
-          {heroSources.avif && (
-            <source srcset={heroSources.avif} type="image/avif" />
+          {heroSources.avifSrcset && (
+            <source
+              srcset={heroSources.avifSrcset}
+              sizes="100vw"
+              type="image/avif"
+            />
           )}
-          {heroSources.webp && (
-            <source srcset={heroSources.webp} type="image/webp" />
+          {heroSources.webpSrcset && (
+            <source
+              srcset={heroSources.webpSrcset}
+              sizes="100vw"
+              type="image/webp"
+            />
           )}
           <img
             src={heroImage}
@@ -192,11 +207,19 @@ const pageTitle = project.seo_title || project.title;
               style={`--reveal-delay: ${Math.min(index * 55, 420)}ms`}
             >
               <picture>
-                {gallerySources.avif && (
-                  <source srcset={gallerySources.avif} type="image/avif" />
+                {gallerySources.avifSrcset && (
+                  <source
+                    srcset={gallerySources.avifSrcset}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    type="image/avif"
+                  />
                 )}
-                {gallerySources.webp && (
-                  <source srcset={gallerySources.webp} type="image/webp" />
+                {gallerySources.webpSrcset && (
+                  <source
+                    srcset={gallerySources.webpSrcset}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    type="image/webp"
+                  />
                 )}
                 <img
                   src={img.url}
