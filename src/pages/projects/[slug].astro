@@ -52,8 +52,7 @@ const heroMeta = [
 const gallery = project.gallery || [];
 
 const detailParagraphs = project.details
-  ? project.details.split('
-').filter((paragraph) => paragraph.trim().length > 0)
+  ? project.details.split('\n').filter((paragraph) => paragraph.trim().length > 0)
   : [];
 
 const projectMeta = [
@@ -105,9 +104,14 @@ const optimizedImage = (src) => {
 
 const heroSources = optimizedImage(heroImage);
 const pageTitle = project.seo_title || project.title;
+const pageDescription =
+  project.seo_description ||
+  [project.category, project.subcategory, project.location, project.year]
+    .filter(Boolean)
+    .join(' / ');
 ---
 
-<BaseLayout title={`${pageTitle} | SeenPleen Studio`}>
+<BaseLayout title={`${pageTitle} | SeenPleen Studio`} description={pageDescription}>
   <Header />
 
   <main class="project-page">
@@ -121,6 +125,7 @@ const pageTitle = project.seo_title || project.title;
               type="image/avif"
             />
           )}
+
           {heroSources.webpSrcset && (
             <source
               srcset={heroSources.webpSrcset}
@@ -128,6 +133,15 @@ const pageTitle = project.seo_title || project.title;
               type="image/webp"
             />
           )}
+
+          {heroSources.avif && (
+            <source srcset={heroSources.avif} type="image/avif" />
+          )}
+
+          {heroSources.webp && (
+            <source srcset={heroSources.webp} type="image/webp" />
+          )}
+
           <img
             src={heroImage}
             alt={heroAlt}
@@ -214,6 +228,7 @@ const pageTitle = project.seo_title || project.title;
                     type="image/avif"
                   />
                 )}
+
                 {gallerySources.webpSrcset && (
                   <source
                     srcset={gallerySources.webpSrcset}
@@ -221,6 +236,15 @@ const pageTitle = project.seo_title || project.title;
                     type="image/webp"
                   />
                 )}
+
+                {gallerySources.avif && (
+                  <source srcset={gallerySources.avif} type="image/avif" />
+                )}
+
+                {gallerySources.webp && (
+                  <source srcset={gallerySources.webp} type="image/webp" />
+                )}
+
                 <img
                   src={img.url}
                   alt={img.alt || project.title}

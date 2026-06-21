@@ -1,0 +1,236 @@
+backend:
+  name: github
+  repo: Biriris/seenpleen-site
+  branch: main
+  base_url: https://sveltia-cms-auth.kostantinoskostaras.workers.dev
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "site_data"
+    label: "Site Data"
+    files:
+      - name: "projects"
+        label: "Projects"
+        file: "src/data/projects.json"
+        format: "json"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            root: true
+            summary: "{{fields.title}}"
+            collapsed: true
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+
+              - label: "Slug"
+                name: "slug"
+                widget: "string"
+                hint: "Lowercase English words with hyphens, e.g. the-matchbox-house."
+
+              - label: "Order"
+                name: "order"
+                widget: "number"
+                required: false
+                value_type: "int"
+
+              - label: "Hide Project"
+                name: "hidden"
+                widget: "boolean"
+                required: false
+                default: false
+
+              - label: "SEO Title"
+                name: "seo_title"
+                widget: "string"
+                required: false
+
+              - label: "SEO Description"
+                name: "seo_description"
+                widget: "text"
+                required: false
+
+              - label: "Subtitle / Legacy Project Info"
+                name: "project_id"
+                widget: "string"
+                required: false
+
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                required: false
+                options:
+                  - Residential
+                  - Commercial
+                  - Hospitality
+                  - Interior Design
+                  - Renovation
+                  - Mixed Use
+                  - Concept
+
+              - label: "Subcategory"
+                name: "subcategory"
+                widget: "select"
+                required: false
+                options:
+                  - House
+                  - Apartment
+                  - Villa
+                  - Cafe
+                  - Restaurant
+                  - Bar
+                  - Hotel
+                  - Office
+                  - Retail
+                  - Workspace
+                  - Vacation House
+
+              - label: "Client"
+                name: "client"
+                widget: "string"
+                required: false
+
+              - label: "Location"
+                name: "location"
+                widget: "string"
+                required: false
+
+              - label: "Year"
+                name: "year"
+                widget: "string"
+                required: false
+
+              - label: "Area"
+                name: "area"
+                widget: "string"
+                required: false
+
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                required: false
+                options:
+                  - Completed
+                  - Under Construction
+                  - In Progress
+                  - Concept
+                  - Proposal
+
+              - label: "Featured Project"
+                name: "featured"
+                widget: "boolean"
+                required: false
+                default: false
+
+              - label: "Collaborators"
+                name: "collaborators"
+                widget: "object"
+                required: false
+                collapsed: true
+                fields:
+                  - label: "Architect Engineer"
+                    name: "architect_engineer"
+                    widget: "string"
+                    required: false
+
+                  - label: "Civil Engineer"
+                    name: "civil_engineer"
+                    widget: "string"
+                    required: false
+
+                  - label: "Mechanical Engineer"
+                    name: "mechanical_engineer"
+                    widget: "string"
+                    required: false
+
+                  - label: "Construction"
+                    name: "construction"
+                    widget: "string"
+                    required: false
+
+                  - label: "Photographer"
+                    name: "photographer"
+                    widget: "string"
+                    required: false
+
+                  - label: "3D Artist"
+                    name: "artist_3d"
+                    widget: "string"
+                    required: false
+
+                  - label: "Decoration"
+                    name: "decoration"
+                    widget: "string"
+                    required: false
+
+                  - label: "Lighting Design"
+                    name: "lighting_design"
+                    widget: "string"
+                    required: false
+
+              - label: "Description"
+                name: "details"
+                widget: "text"
+                required: false
+
+              - label: "Cover Image"
+                name: "cover"
+                widget: "image"
+                required: false
+
+              - label: "Cover Alt Text"
+                name: "cover_alt"
+                widget: "string"
+                required: false
+
+              - label: "Hero Image"
+                name: "hero"
+                widget: "image"
+                required: false
+
+              - label: "Hero Alt Text"
+                name: "hero_alt"
+                widget: "string"
+                required: false
+
+              - label: "Gallery"
+                name: "gallery"
+                widget: "list"
+                required: false
+                collapsed: true
+                summary: "{{fields.title}}"
+                fields:
+                  - label: "Image"
+                    name: "url"
+                    widget: "image"
+
+                  - label: "Image Layout"
+                    name: "layout"
+                    widget: "select"
+                    required: false
+                    default: "auto"
+                    options:
+                      - label: "Auto"
+                        value: "auto"
+                      - label: "Portrait"
+                        value: "portrait"
+                      - label: "Landscape"
+                        value: "landscape"
+                      - label: "Wide"
+                        value: "wide"
+                      - label: "Full Width"
+                        value: "full"
+
+                  - label: "Title"
+                    name: "title"
+                    widget: "string"
+                    required: false
+
+                  - label: "Alt Text"
+                    name: "alt"
+                    widget: "string"
+                    required: false
