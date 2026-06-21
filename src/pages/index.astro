@@ -27,6 +27,24 @@ const featuredAlt =
   featuredProject?.hero_alt ||
   featuredProject?.cover_alt ||
   featuredProject?.title;
+
+const optimizedImage = (src) => {
+  if (!src || !/\.(jpe?g|png)$/i.test(src)) {
+    return {
+      original: src,
+      avif: null,
+      webp: null,
+    };
+  }
+
+  const withoutExtension = src.replace(/\.(jpe?g|png)$/i, '');
+
+  return {
+    original: src,
+    avif: `${withoutExtension}.avif`,
+    webp: `${withoutExtension}.webp`,
+  };
+};
 ---
 
 <BaseLayout title="SeenPleen Studio">
@@ -34,12 +52,21 @@ const featuredAlt =
 
   {featuredProject && featuredImage && (
     <section class="home-hero is-revealed">
-      <img
-        src={featuredImage}
-        alt={featuredAlt}
-        class="home-hero-image"
-        loading="eager"
-      />
+      <picture>
+        {optimizedImage(featuredImage).avif && (
+          <source srcset={optimizedImage(featuredImage).avif} type="image/avif" />
+        )}
+        {optimizedImage(featuredImage).webp && (
+          <source srcset={optimizedImage(featuredImage).webp} type="image/webp" />
+        )}
+        <img
+          src={featuredImage}
+          alt={featuredAlt}
+          class="home-hero-image"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </picture>
 
       <div class="home-hero-overlay">
         <a href={`/projects/${featuredProject.slug}/`} class="home-hero-link">
@@ -79,6 +106,8 @@ const featuredAlt =
           p.year,
         ].filter(Boolean);
 
+        const coverSources = optimizedImage(p.cover);
+
         return (
           <a
             class="project-card reveal-item"
@@ -88,11 +117,19 @@ const featuredAlt =
           >
             <div class="project-card-image">
               {p.cover ? (
-                <img
-                  src={p.cover}
-                  alt={p.cover_alt || p.title}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                />
+                <picture>
+                  {coverSources.avif && (
+                    <source srcset={coverSources.avif} type="image/avif" />
+                  )}
+                  {coverSources.webp && (
+                    <source srcset={coverSources.webp} type="image/webp" />
+                  )}
+                  <img
+                    src={p.cover}
+                    alt={p.cover_alt || p.title}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
+                </picture>
               ) : (
                 <div class="project-card-placeholder"></div>
               )}

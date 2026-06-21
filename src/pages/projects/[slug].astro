@@ -78,6 +78,25 @@ const projectCollaborators = [
   { label: 'Lighting Design', value: collaborators.lighting_design },
 ].filter((item) => item.value && String(item.value).trim().length > 0);
 
+const optimizedImage = (src) => {
+  if (!src || !/\.(jpe?g|png)$/i.test(src)) {
+    return {
+      original: src,
+      avif: null,
+      webp: null,
+    };
+  }
+
+  const withoutExtension = src.replace(/\.(jpe?g|png)$/i, '');
+
+  return {
+    original: src,
+    avif: `${withoutExtension}.avif`,
+    webp: `${withoutExtension}.webp`,
+  };
+};
+
+const heroSources = optimizedImage(heroImage);
 const pageTitle = project.seo_title || project.title;
 ---
 
@@ -87,7 +106,20 @@ const pageTitle = project.seo_title || project.title;
   <main class="project-page">
     <section class="project-hero is-revealed">
       {heroImage ? (
-        <img src={heroImage} alt={heroAlt} loading="eager" />
+        <picture>
+          {heroSources.avif && (
+            <source srcset={heroSources.avif} type="image/avif" />
+          )}
+          {heroSources.webp && (
+            <source srcset={heroSources.webp} type="image/webp" />
+          )}
+          <img
+            src={heroImage}
+            alt={heroAlt}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </picture>
       ) : (
         <div class="project-hero-placeholder"></div>
       )}
@@ -152,17 +184,26 @@ const pageTitle = project.seo_title || project.title;
       <section class="project-gallery">
         {gallery.map((img, index) => {
           const layout = img.layout || 'auto';
+          const gallerySources = optimizedImage(img.url);
 
           return (
             <figure
               class={`project-gallery-item project-gallery-item-${layout} reveal-item`}
               style={`--reveal-delay: ${Math.min(index * 55, 420)}ms`}
             >
-              <img
-                src={img.url}
-                alt={img.alt || project.title}
-                loading={index < 2 ? 'eager' : 'lazy'}
-              />
+              <picture>
+                {gallerySources.avif && (
+                  <source srcset={gallerySources.avif} type="image/avif" />
+                )}
+                {gallerySources.webp && (
+                  <source srcset={gallerySources.webp} type="image/webp" />
+                )}
+                <img
+                  src={img.url}
+                  alt={img.alt || project.title}
+                  loading={index < 2 ? 'eager' : 'lazy'}
+                />
+              </picture>
             </figure>
           );
         })}
