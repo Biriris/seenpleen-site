@@ -126,6 +126,52 @@ collections:
                 required: false
                 default: false
 
+              - label: "Collaborators"
+                name: "collaborators"
+                widget: "object"
+                required: false
+                collapsed: true
+                fields:
+                  - label: "Architect Engineer"
+                    name: "architect_engineer"
+                    widget: "string"
+                    required: false
+
+                  - label: "Civil Engineer"
+                    name: "civil_engineer"
+                    widget: "string"
+                    required: false
+
+                  - label: "Mechanical Engineer"
+                    name: "mechanical_engineer"
+                    widget: "string"
+                    required: false
+
+                  - label: "Construction"
+                    name: "construction"
+                    widget: "string"
+                    required: false
+
+                  - label: "Photographer"
+                    name: "photographer"
+                    widget: "string"
+                    required: false
+
+                  - label: "3D Artist"
+                    name: "artist_3d"
+                    widget: "string"
+                    required: false
+
+                  - label: "Decoration"
+                    name: "decoration"
+                    widget: "string"
+                    required: false
+
+                  - label: "Lighting Design"
+                    name: "lighting_design"
+                    widget: "string"
+                    required: false
+
               - label: "Description"
                 name: "details"
                 widget: "text"

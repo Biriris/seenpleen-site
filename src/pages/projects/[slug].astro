@@ -63,7 +63,20 @@ const projectMeta = [
   { label: 'Year', value: project.year },
   { label: 'Area', value: project.area },
   { label: 'Status', value: project.status },
-].filter((item) => item.value);
+].filter((item) => item.value && String(item.value).trim().length > 0);
+
+const collaborators = project.collaborators || {};
+
+const projectCollaborators = [
+  { label: 'Architect Engineer', value: collaborators.architect_engineer },
+  { label: 'Civil Engineer', value: collaborators.civil_engineer },
+  { label: 'Mechanical Engineer', value: collaborators.mechanical_engineer },
+  { label: 'Construction', value: collaborators.construction },
+  { label: 'Photographer', value: collaborators.photographer },
+  { label: '3D Artist', value: collaborators.artist_3d },
+  { label: 'Decoration', value: collaborators.decoration },
+  { label: 'Lighting Design', value: collaborators.lighting_design },
+].filter((item) => item.value && String(item.value).trim().length > 0);
 
 const pageTitle = project.seo_title || project.title;
 ---
@@ -102,6 +115,17 @@ const pageTitle = project.seo_title || project.title;
         {projectMeta.length > 0 && (
           <dl class="project-meta-list">
             {projectMeta.map((item) => (
+              <div class="project-meta-item">
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+
+        {projectCollaborators.length > 0 && (
+          <dl class="project-meta-list project-collaborators-list">
+            {projectCollaborators.map((item) => (
               <div class="project-meta-item">
                 <dt>{item.label}</dt>
                 <dd>{item.value}</dd>

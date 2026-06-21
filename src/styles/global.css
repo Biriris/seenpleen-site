@@ -599,6 +599,10 @@ img {
   border-top: 1px solid rgba(17, 17, 17, 0.12);
 }
 
+.project-collaborators-list {
+  margin-top: -18px;
+}
+
 .project-meta-item {
   display: grid;
   grid-template-columns: minmax(110px, 0.34fr) 1fr;
@@ -977,6 +981,10 @@ img {
 
   .project-meta-list {
     margin-bottom: 36px;
+  }
+
+  .project-collaborators-list {
+    margin-top: -12px;
   }
 
   .project-meta-item {
