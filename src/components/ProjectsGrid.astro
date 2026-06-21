@@ -1,18 +1,60 @@
-<div class="projects-grid">
-  {projects.map((p) => (
-    <a class="project-card" href={`/projects/${p.slug}/`}>
-      <div class="project-card-image">
-        <img
-          src={p.cover}
-          alt={p.title}
-          loading="lazy"
-        />
-      </div>
+---
+const { projects } = Astro.props;
 
-      <div class="project-card-meta">
-        <h3>{p.title}</h3>
-        <span>{p.year || p.project_id}</span>
-      </div>
-    </a>
-  ))}
+const optimizedImage = (src) => {
+  if (!src || !/\.(jpe?g|png)$/i.test(src)) {
+    return {
+      original: src,
+      avif: null,
+      webp: null,
+    };
+  }
+
+  const withoutExtension = src.replace(/\.(jpe?g|png)$/i, '');
+
+  return {
+    original: src,
+    avif: `${withoutExtension}.avif`,
+    webp: `${withoutExtension}.webp`,
+  };
+};
+---
+
+<div class="projects-grid">
+  {projects.map((p) => {
+    const imageSources = optimizedImage(p.cover);
+
+    return (
+      <a class="project-card" href={`/projects/${p.slug}/`}>
+        <div class="project-card-image">
+          <picture>
+            {imageSources.avif && (
+              <source
+                srcset={imageSources.avif}
+                type="image/avif"
+              />
+            )}
+
+            {imageSources.webp && (
+              <source
+                srcset={imageSources.webp}
+                type="image/webp"
+              />
+            )}
+
+            <img
+              src={p.cover}
+              alt={p.title}
+              loading="lazy"
+            />
+          </picture>
+        </div>
+
+        <div class="project-card-meta">
+          <h3>{p.title}</h3>
+          <span>{p.year || p.project_id}</span>
+        </div>
+      </a>
+    );
+  })}
 </div>
