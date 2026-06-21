@@ -246,21 +246,25 @@
     "gallery": [
       {
         "url": "/images/elefante/DSC_6528%20(2).jpg",
+        "layout": "auto",
         "title": "DSC_6528 (2).jpg",
         "alt": ""
       },
       {
         "url": "/images/elefante/DSC_6569%20(1).jpg",
+        "layout": "auto",
         "title": "DSC_6569 (1).jpg",
         "alt": ""
       },
       {
         "url": "/images/elefante/DSC_6606.jpg",
+        "layout": "auto",
         "title": "DSC_6606.jpg",
         "alt": ""
       },
       {
         "url": "/images/elefante/DSC_6607%20(3).jpg",
+        "layout": "auto",
         "title": "DSC_6607 (3).jpg",
         "alt": ""
       },
