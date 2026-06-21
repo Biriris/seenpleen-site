@@ -102,31 +102,37 @@
     "gallery": [
       {
         "url": "/images/Fratello Post-2.JPEG",
+        "layout": "portrait",
         "title": "",
         "alt": ""
       },
       {
         "url": "/images/1765E572-B133-4B83-9970-37DEDFB525FD.JPEG",
+        "layout": "portrait",
         "title": "",
         "alt": ""
       },
       {
         "url": "/images/Fratello Post-4.JPEG",
+        "layout": "portrait",
         "title": "",
         "alt": ""
       },
       {
         "url": "/images/Fratello Post-17.JPEG",
+        "layout": "portrait",
         "title": "",
         "alt": ""
       },
       {
         "url": "/images/Fratello Post-5.JPEG",
+        "layout": "portrait",
         "title": "",
         "alt": ""
       },
       {
         "url": "/images/Fratello Post-9.JPEG",
+        "layout": "portrait",
         "title": "",
         "alt": ""
       }
