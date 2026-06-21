@@ -143,7 +143,7 @@ const pageDescription =
           )}
 
           <img
-            src={heroImage}
+            src={heroSources.webp || heroImage}
             alt={heroAlt}
             loading="eager"
             fetchpriority="high"
@@ -246,7 +246,7 @@ const pageDescription =
                 )}
 
                 <img
-                  src={img.url}
+                  src={gallerySources.webp || img.url}
                   alt={img.alt || project.title}
                   loading={index < 2 ? 'eager' : 'lazy'}
                 />
