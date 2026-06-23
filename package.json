@@ -6,6 +6,7 @@
     "detect-gallery-layouts": "node scripts/detect-gallery-layouts.mjs",
     "sanity:dev": "sanity dev",
     "sanity:build:admin": "sanity build public/admin --yes && node scripts/patch-sanity-admin-paths.mjs",
+    "sanity:create-deploy-webhook": "node scripts/create-sanity-cloudflare-webhook.mjs",
     "sanity:deploy": "sanity deploy",
     "sanity:import-projects": "node scripts/import-projects-to-sanity.mjs",
     "optimize-images": "node scripts/optimize-images.mjs"
