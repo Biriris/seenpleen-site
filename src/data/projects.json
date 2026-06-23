@@ -236,6 +236,56 @@
     ]
   },
   {
+    "title": "The L House",
+    "slug": "the-l-house",
+    "order": null,
+    "hidden": false,
+    "seo_title": "",
+    "seo_description": "",
+    "project_id": "",
+    "category": "Residential",
+    "subcategory": "House",
+    "client": "",
+    "location": "Varda",
+    "year": "2024",
+    "area": "175",
+    "status": "Under Construction",
+    "featured": false,
+    "collaborators": null,
+    "details": "",
+    "quotes": [],
+    "cover": "/images/the-l-house/Scene%201%20-%20Professional%20Photorealistic%20Render.png",
+    "cover_alt": "",
+    "hero": "/images/the-l-house/Scene%201%20-%20Professional%20Photorealistic%20Render.png",
+    "hero_alt": "",
+    "gallery": [
+      {
+        "url": "/images/the-l-house/Scene%202%20-%20Professional%20Photorealistic%20Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/the-l-house/Scene%203%20-%20Professional%20Photorealistic%20Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 4 - Professional Photorealistic Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 5 - Professional Photorealistic Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      }
+    ]
+  },
+  {
     "title": "Elefante",
     "slug": "elefante",
     "order": null,
@@ -443,56 +493,6 @@
       {
         "url": "/images/uploads/alesskikinas.com-1071.avif",
         "layout": "portrait",
-        "title": "",
-        "alt": ""
-      }
-    ]
-  },
-  {
-    "title": "The L House",
-    "slug": "the-l-house",
-    "order": null,
-    "hidden": false,
-    "seo_title": "",
-    "seo_description": "",
-    "project_id": "",
-    "category": "Residential",
-    "subcategory": "House",
-    "client": "",
-    "location": "Varda",
-    "year": "2024",
-    "area": "175",
-    "status": "Under Construction",
-    "featured": false,
-    "collaborators": null,
-    "details": "",
-    "quotes": [],
-    "cover": "/images/the-l-house/Scene%201%20-%20Professional%20Photorealistic%20Render.png",
-    "cover_alt": "",
-    "hero": "/images/the-l-house/Scene%201%20-%20Professional%20Photorealistic%20Render.png",
-    "hero_alt": "",
-    "gallery": [
-      {
-        "url": "/images/the-l-house/Scene%202%20-%20Professional%20Photorealistic%20Render.png",
-        "layout": "landscape",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/the-l-house/Scene%203%20-%20Professional%20Photorealistic%20Render.png",
-        "layout": "landscape",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 4 - Professional Photorealistic Render.png",
-        "layout": "landscape",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 5 - Professional Photorealistic Render.png",
-        "layout": "landscape",
         "title": "",
         "alt": ""
       }
