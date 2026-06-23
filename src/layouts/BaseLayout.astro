@@ -1,5 +1,6 @@
 ---
-import '../styles/global.css';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const {
   title = 'SeenPleen Studio | Konstantinos Kostaras',
@@ -56,6 +57,7 @@ const websiteSchema = {
 };
 
 const jsonLd = [studioSchema, websiteSchema, ...schemaItems.filter(Boolean)];
+const globalCss = fs.readFileSync(path.join(process.cwd(), 'src', 'styles', 'global.css'), 'utf8');
 ---
 
 <html lang={lang}>
@@ -68,9 +70,6 @@ const jsonLd = [studioSchema, websiteSchema, ...schemaItems.filter(Boolean)];
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <meta property="og:site_name" content="SeenPleen Studio" />
   <meta property="og:title" content={title} />
@@ -87,6 +86,7 @@ const jsonLd = [studioSchema, websiteSchema, ...schemaItems.filter(Boolean)];
   {socialImage && <meta name="twitter:image" content={socialImage} />}
 
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <style is:global set:html={globalCss}></style>
 </head>
 
 <body>

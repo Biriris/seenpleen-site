@@ -96,6 +96,17 @@ const publicImageExists = (src) => {
   }
 };
 
+const encodeImageUrl = (src) => {
+  if (!src || !src.startsWith('/')) {
+    return src;
+  }
+
+  return src
+    .split('/')
+    .map((part, index) => (index === 0 ? part : encodeURIComponent(decodeURIComponent(part))))
+    .join('/');
+};
+
 const gallery = (project.gallery || []).filter((img) => publicImageExists(img.url));
 
 const optimizedImage = (src) => {
@@ -118,18 +129,18 @@ const optimizedImage = (src) => {
   const avifSrcset = IMAGE_WIDTHS
     .map((width) => `${withoutExtension}-${width}.avif`)
     .filter(publicImageExists)
-    .map((image) => `${image} ${image.match(/-(480|768|1024|1440|1920|2560)\.avif$/i)?.[1]}w`)
+    .map((image) => `${encodeImageUrl(image)} ${image.match(/-(480|768|1024|1440|1920|2560)\.avif$/i)?.[1]}w`)
     .join(', ');
   const webpSrcset = IMAGE_WIDTHS
     .map((width) => `${withoutExtension}-${width}.webp`)
     .filter(publicImageExists)
-    .map((image) => `${image} ${image.match(/-(480|768|1024|1440|1920|2560)\.webp$/i)?.[1]}w`)
+    .map((image) => `${encodeImageUrl(image)} ${image.match(/-(480|768|1024|1440|1920|2560)\.webp$/i)?.[1]}w`)
     .join(', ');
 
   return {
-    original: src,
-    avif: publicImageExists(avif) ? avif : null,
-    webp: publicImageExists(webp) ? webp : null,
+    original: encodeImageUrl(src),
+    avif: publicImageExists(avif) ? encodeImageUrl(avif) : null,
+    webp: publicImageExists(webp) ? encodeImageUrl(webp) : null,
     avifSrcset: avifSrcset || null,
     webpSrcset: webpSrcset || null,
   };
