@@ -33,39 +33,39 @@
     "gallery": [
       {
         "url": "/images/Scene 2 - Moody-1920.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/Scene 3 - Moody-1920.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/Scene 4 - Moody-1920.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/Scene 5 - Moody.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/Scene 6 - Moody.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/Scene 7 - Moody.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       }
     ]
   },
@@ -151,87 +151,87 @@
     "gallery": [
       {
         "url": "/images/the-matchbox-house/1.avif",
+        "layout": "landscape",
         "title": "1.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%201_20240119_030719.avif",
+        "layout": "landscape",
         "title": "D5_Image 1_20240119_030719.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%202_20240119_030652.avif",
+        "layout": "landscape",
         "title": "D5_Image 2_20240119_030652.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%203_20240119_030624.avif",
+        "layout": "landscape",
         "title": "D5_Image 3_20240119_030624.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%204_20240119_030556.avif",
+        "layout": "landscape",
         "title": "D5_Image 4_20240119_030556.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%205_20240119_030529.avif",
+        "layout": "landscape",
         "title": "D5_Image 5_20240119_030529.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%206_20240119_030501.avif",
+        "layout": "landscape",
         "title": "D5_Image 6_20240119_030501.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%207_20240119_030433.avif",
+        "layout": "landscape",
         "title": "D5_Image 7_20240119_030433.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%208_20240119_030406.avif",
+        "layout": "landscape",
         "title": "D5_Image 8_20240119_030406.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%209_20240119_030338.avif",
+        "layout": "landscape",
         "title": "D5_Image 9_20240119_030338.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%2010_20240119_030311.avif",
+        "layout": "landscape",
         "title": "D5_Image 10_20240119_030311.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image%2011_20240119_030243.avif",
+        "layout": "landscape",
         "title": "D5_Image 11_20240119_030243.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/D5_Image_20240119_030747.avif",
+        "layout": "landscape",
         "title": "D5_Image_20240119_030747.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/the-matchbox-house/print.avif",
+        "layout": "landscape",
         "title": "print.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       }
     ]
   },
@@ -340,111 +340,111 @@
     "gallery": [
       {
         "url": "/images/uploads/1.avif",
+        "layout": "portrait",
         "title": "",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/uploads/2.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/3.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/4.avif",
+        "layout": "portrait",
         "title": "",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/uploads/5.avif",
+        "layout": "portrait",
         "title": "",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/uploads/6.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/7.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/8.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/9.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/10.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/13.avif",
+        "layout": "portrait",
         "title": "",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/uploads/15.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/alesskikinas.com-1002.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/alesskikinas.com-1026.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/alesskikinas.com-1036.avif",
+        "layout": "portrait",
         "title": "",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/uploads/alesskikinas.com-1053.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/alesskikinas.com-1068.avif",
+        "layout": "landscape",
         "title": "",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/uploads/alesskikinas.com-1071.avif",
+        "layout": "portrait",
         "title": "",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       }
     ]
   },
@@ -475,87 +475,87 @@
       },
       {
         "url": "/images/rodini-vacation-house/Pic-4.avif",
+        "layout": "landscape",
         "title": "Pic-4.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-7.avif",
+        "layout": "portrait",
         "title": "Pic-7.jpg",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-11.avif",
+        "layout": "landscape",
         "title": "Pic-11.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-12.avif",
+        "layout": "landscape",
         "title": "Pic-12.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-14.avif",
+        "layout": "landscape",
         "title": "Pic-14.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-15.avif",
+        "layout": "landscape",
         "title": "Pic-15.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-16.avif",
+        "layout": "portrait",
         "title": "Pic-16.jpg",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-17.avif",
+        "layout": "landscape",
         "title": "Pic-17.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-18.avif",
+        "layout": "landscape",
         "title": "Pic-18.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-19.avif",
+        "layout": "landscape",
         "title": "Pic-19.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-20.avif",
+        "layout": "landscape",
         "title": "Pic-20.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-21.avif",
+        "layout": "portrait",
         "title": "Pic-21.jpg",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-23.avif",
+        "layout": "portrait",
         "title": "Pic-23.jpg",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/rodini-vacation-house/Pic-24.avif",
+        "layout": "portrait",
         "title": "Pic-24.jpg",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       }
     ]
   },
@@ -574,27 +574,27 @@
     "gallery": [
       {
         "url": "/images/katalonia/D5_Image%201_20231104_164315.avif",
+        "layout": "landscape",
         "title": "D5_Image 1_20231104_164315.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/katalonia/D5_Image%202_20231104_164146.avif",
+        "layout": "landscape",
         "title": "D5_Image 2_20231104_164146.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/katalonia/D5_Image%203_20231104_164024.avif",
+        "layout": "landscape",
         "title": "D5_Image 3_20231104_164024.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/katalonia/D5_Image_20231104_164440.avif",
+        "layout": "landscape",
         "title": "D5_Image_20231104_164440.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       }
     ]
   },
@@ -620,69 +620,119 @@
     "gallery": [
       {
         "url": "/images/marmo/IMG_1784.avif",
+        "layout": "landscape",
         "title": "IMG_1784.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/marmo/IMG_1786.avif",
+        "layout": "portrait",
         "title": "IMG_1786.jpg",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/marmo/IMG_1793.avif",
+        "layout": "landscape",
         "title": "IMG_1793.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/marmo/MAT_2898.avif",
+        "layout": "portrait",
         "title": "MAT_2898.jpg",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/marmo/MAT_2901.avif",
+        "layout": "landscape",
         "title": "MAT_2901.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/marmo/MAT_2929.avif",
+        "layout": "landscape",
         "title": "MAT_2929.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/marmo/MAT_2935.avif",
+        "layout": "landscape",
         "title": "MAT_2935.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/marmo/MAT_2937.avif",
+        "layout": "portrait",
         "title": "MAT_2937.jpg",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/marmo/MAT_2962.avif",
+        "layout": "landscape",
         "title": "MAT_2962.jpg",
-        "alt": "",
-        "layout": "landscape"
+        "alt": ""
       },
       {
         "url": "/images/marmo/MAT_2981.avif",
+        "layout": "portrait",
         "title": "MAT_2981.jpg",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
       },
       {
         "url": "/images/marmo/MAT_3008.avif",
+        "layout": "portrait",
         "title": "MAT_3008.jpg",
-        "alt": "",
-        "layout": "portrait"
+        "alt": ""
+      }
+    ]
+  },
+  {
+    "title": "The L House",
+    "slug": "the-l-house",
+    "order": null,
+    "hidden": false,
+    "seo_title": "",
+    "seo_description": "",
+    "project_id": "",
+    "category": "Residential",
+    "subcategory": "House",
+    "client": "",
+    "location": "Varda",
+    "year": "2024",
+    "area": "175",
+    "status": "Under Construction",
+    "featured": false,
+    "collaborators": null,
+    "details": "",
+    "quotes": [],
+    "cover": "/images/Scene 1 - Professional Photorealistic Render.png",
+    "cover_alt": "",
+    "hero": "/images/Scene 1 - Professional Photorealistic Render.png",
+    "hero_alt": "",
+    "gallery": [
+      {
+        "url": "/images/Scene 2 - Professional Photorealistic Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 3 - Professional Photorealistic Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 4 - Professional Photorealistic Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 5 - Professional Photorealistic Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
       }
     ]
   }
