@@ -1,4 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
+import { BulkGalleryUploadInput } from '../components/BulkGalleryUploadInput';
 
 const statusOptions = [
   'Completed',
@@ -212,6 +213,9 @@ export const projectType = defineType({
       name: 'gallery_uploads',
       title: 'Bulk Gallery Upload',
       type: 'array',
+      components: {
+        input: BulkGalleryUploadInput,
+      },
       of: [
         defineArrayMember({
           type: 'image',
