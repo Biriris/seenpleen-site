@@ -60,8 +60,10 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--bg);
-  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+  background: rgba(247, 244, 238, 0.58);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+  backdrop-filter: blur(18px) saturate(1.22);
+  -webkit-backdrop-filter: blur(18px) saturate(1.22);
 }
 
 .site-logo {
@@ -80,6 +82,10 @@ img {
   display: flex;
   align-items: center;
   gap: 34px;
+}
+
+.site-menu-toggle {
+  display: none;
 }
 
 .site-nav a {
@@ -793,23 +799,69 @@ img {
     height: auto;
     min-height: 74px;
     padding: 22px 6vw;
-    align-items: flex-start;
-    gap: 28px;
+    align-items: center;
+    gap: 20px;
   }
 
   .site-logo {
     font-size: 15px;
   }
 
+  .site-menu-toggle {
+    width: 34px;
+    height: 34px;
+    margin-left: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    background: rgba(247, 244, 238, 0.52);
+    color: var(--text);
+    backdrop-filter: blur(14px) saturate(1.18);
+    -webkit-backdrop-filter: blur(14px) saturate(1.18);
+    cursor: pointer;
+  }
+
+  .site-menu-toggle span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
   .site-nav {
-    gap: 18px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 6vw;
+    width: min(220px, 70vw);
+    padding: 16px;
+    display: grid;
+    gap: 14px;
+    justify-items: end;
+    background: rgba(247, 244, 238, 0.78);
+    border: 1px solid rgba(17, 17, 17, 0.1);
+    backdrop-filter: blur(20px) saturate(1.24);
+    -webkit-backdrop-filter: blur(20px) saturate(1.24);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease;
+  }
+
+  .site-header.is-menu-open .site-nav {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .site-nav a {
-    font-size: 11px;
-    letter-spacing: 0.1em;
+    font-size: 12px;
+    letter-spacing: 0.12em;
   }
 
   .site-nav a::after {
