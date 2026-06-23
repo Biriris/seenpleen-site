@@ -80,9 +80,18 @@ const optimizedImage = (src) => {
     webpSrcset: webpSrcset || null,
   };
 };
+
+const featuredSocialSources = optimizedImage(featuredImage);
+const homeDescription =
+  'Selected architecture, interior design and visualization projects by SeenPleen Studio in Patras, Greece.';
 ---
 
-<BaseLayout title="SeenPleen Studio">
+<BaseLayout
+  title="SeenPleen Studio | Architecture & Interior Design"
+  description={homeDescription}
+  image={featuredSocialSources.avif || featuredSocialSources.webp || featuredImage}
+  imageAlt={featuredAlt}
+>
   <Header />
 
   {featuredProject && featuredImage && (

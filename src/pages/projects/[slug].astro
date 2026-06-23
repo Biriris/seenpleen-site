@@ -227,12 +227,54 @@ const heroSources = optimizedImage(heroImage);
 const pageTitle = project.seo_title || project.title;
 const pageDescription =
   project.seo_description ||
-  [project.category, project.subcategory, project.location, project.year]
+  [`${project.title} by SeenPleen Studio`, project.category, project.subcategory, project.location, project.year]
     .filter(Boolean)
     .join(' / ');
+
+const siteUrl = (Astro.site?.toString() || 'https://seenpleen.com').replace(/\/$/, '');
+const projectUrl = new URL(`/projects/${project.slug}/`, siteUrl).toString();
+const projectImage = heroSources.avif || heroSources.webp || heroImage;
+const projectStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: project.title,
+  description: pageDescription,
+  url: projectUrl,
+  image: projectImage ? new URL(projectImage, siteUrl).toString() : undefined,
+  creator: {
+    '@id': `${siteUrl}/#studio`,
+  },
+};
+
+const breadcrumbStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Projects',
+      item: `${siteUrl}/#projects`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: project.title,
+      item: projectUrl,
+    },
+  ],
+};
 ---
 
-<BaseLayout title={`${pageTitle} | SeenPleen Studio`} description={pageDescription}>
+<BaseLayout
+  title={`${pageTitle} | SeenPleen Studio`}
+  description={pageDescription}
+  canonical={`/projects/${project.slug}/`}
+  image={projectImage}
+  imageAlt={heroAlt}
+  type="article"
+  structuredData={[projectStructuredData, breadcrumbStructuredData]}
+>
   <Header />
 
   <main class="project-page">

@@ -3,17 +3,90 @@ import '../styles/global.css';
 
 const {
   title = 'SeenPleen Studio | Konstantinos Kostaras',
-  description = 'Architecture, Interior Design & Visualization studio based in Patras, Greece.'
+  description = 'Architecture, interior design and architectural visualization studio based in Patras, Greece.',
+  canonical,
+  image,
+  imageAlt = 'SeenPleen Studio project image',
+  type = 'website',
+  lang = 'en',
+  robots = 'index, follow',
+  structuredData = [],
 } = Astro.props;
+
+const siteUrl = (Astro.site?.toString() || 'https://seenpleen.com').replace(/\/$/, '');
+const canonicalUrl = canonical
+  ? new URL(canonical, siteUrl).toString()
+  : new URL(Astro.url.pathname, siteUrl).toString();
+const socialImage = image ? new URL(image, siteUrl).toString() : null;
+const schemaItems = Array.isArray(structuredData) ? structuredData : [structuredData];
+
+const studioSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${siteUrl}/#studio`,
+  name: 'SeenPleen Studio',
+  alternateName: 'SeenPleen Studio | Konstantinos Kostaras',
+  url: siteUrl,
+  description,
+  email: 'mailto:kfkostaras@gmail.com',
+  telephone: '+306948232696',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: "Pl. Georgiou A' 50",
+    postalCode: '26221',
+    addressLocality: 'Patras',
+    addressCountry: 'GR',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Greece',
+  },
+  sameAs: ['https://www.instagram.com/seenpleen_studio/'],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  name: 'SeenPleen Studio',
+  url: siteUrl,
+  publisher: {
+    '@id': `${siteUrl}/#studio`,
+  },
+};
+
+const jsonLd = [studioSchema, websiteSchema, ...schemaItems.filter(Boolean)];
 ---
 
-<html lang="el">
+<html lang={lang}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content={robots} />
+  <meta name="theme-color" content="#f7f4ee" />
 
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <meta property="og:site_name" content="SeenPleen Studio" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:locale" content="en_US" />
+  {socialImage && <meta property="og:image" content={socialImage} />}
+  {socialImage && <meta property="og:image:alt" content={imageAlt} />}
+
+  <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  {socialImage && <meta name="twitter:image" content={socialImage} />}
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </head>
 
 <body>
