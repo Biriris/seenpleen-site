@@ -31,7 +31,7 @@ const featuredAlt =
 const IMAGE_WIDTHS = [480, 768, 1024, 1440, 1920, 2560];
 
 const optimizedImage = (src) => {
-  if (!src || !/\.(jpe?g|png)$/i.test(src)) {
+  if (!src || !/\.(jpe?g|png|webp|avif)$/i.test(src)) {
     return {
       original: src,
       avif: null,
@@ -41,11 +41,14 @@ const optimizedImage = (src) => {
     };
   }
 
-  const withoutExtension = src.replace(/\.(jpe?g|png)$/i, '');
+  const withoutExtension = src
+    .replace(/\.(jpe?g|png|webp|avif)$/i, '')
+    .replace(/-(480|768|1024|1440|1920|2560)$/i, '');
+  const isAvif = /\.avif$/i.test(src);
 
   return {
     original: src,
-    avif: `${withoutExtension}.avif`,
+    avif: isAvif ? src : `${withoutExtension}.avif`,
     webp: `${withoutExtension}.webp`,
     avifSrcset: IMAGE_WIDTHS.map((width) => `${withoutExtension}-${width}.avif ${width}w`).join(', '),
     webpSrcset: IMAGE_WIDTHS.map((width) => `${withoutExtension}-${width}.webp ${width}w`).join(', '),
@@ -78,7 +81,7 @@ const optimizedImage = (src) => {
               />
             )}
             <img
-              src={heroSources.webp || featuredImage}
+              src={heroSources.avif || featuredImage}
               alt={featuredAlt}
               class="home-hero-image"
               loading="eager"
@@ -153,7 +156,7 @@ const optimizedImage = (src) => {
                     />
                   )}
                   <img
-                    src={coverSources.webp || p.cover}
+                    src={coverSources.avif || p.cover}
                     alt={p.cover_alt || p.title}
                     loading={index === 0 ? 'eager' : 'lazy'}
                   />
