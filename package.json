@@ -8,7 +8,6 @@
     "sanity:build:admin": "sanity build public/admin --yes && node scripts/patch-sanity-admin-paths.mjs",
     "sanity:deploy": "sanity deploy",
     "sanity:import-projects": "node scripts/import-projects-to-sanity.mjs",
-    "organize-cms-uploads": "node scripts/organize-cms-uploads.mjs",
     "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
