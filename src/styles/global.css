@@ -52,18 +52,20 @@ img {
 /* Header */
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   height: 78px;
   padding: 0 6vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(247, 244, 238, 0.58);
-  border-bottom: 1px solid rgba(17, 17, 17, 0.1);
-  backdrop-filter: blur(18px) saturate(1.22);
-  -webkit-backdrop-filter: blur(18px) saturate(1.22);
+  background: rgba(247, 244, 238, 0.16);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.045);
+  backdrop-filter: blur(22px) saturate(1.28);
+  -webkit-backdrop-filter: blur(22px) saturate(1.28);
 }
 
 .site-logo {
@@ -83,11 +85,11 @@ img {
   align-items: center;
   gap: 24px;
   padding: 13px 18px;
-  border: 1px solid rgba(17, 17, 17, 0.08);
+  border: 1px solid rgba(17, 17, 17, 0.045);
   border-radius: 999px;
-  background: rgba(247, 244, 238, 0.38);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  background: rgba(247, 244, 238, 0.12);
+  backdrop-filter: blur(18px) saturate(1.24);
+  -webkit-backdrop-filter: blur(18px) saturate(1.24);
 }
 
 .site-menu-toggle {
@@ -127,7 +129,7 @@ img {
 
 .home-hero {
   position: relative;
-  height: calc(100vh - 78px);
+  height: 100vh;
   min-height: 680px;
   overflow: hidden;
   background: #111;
@@ -394,6 +396,7 @@ img {
 
 .studio-page {
   min-height: calc(100vh - 78px);
+  padding-top: 78px;
 }
 
 .studio-page-hero {
@@ -530,7 +533,7 @@ img {
 .project-hero img,
 .project-hero-placeholder {
   width: 100%;
-  height: calc(100vh - 78px);
+  height: 100vh;
   min-height: 680px;
   object-fit: cover;
   display: block;
@@ -823,19 +826,32 @@ img {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 3px;
-    background: rgba(247, 244, 238, 0.52);
+    position: relative;
+    background: rgba(247, 244, 238, 0.14);
     color: var(--text);
-    backdrop-filter: blur(14px) saturate(1.18);
-    -webkit-backdrop-filter: blur(14px) saturate(1.18);
+    backdrop-filter: blur(18px) saturate(1.24);
+    -webkit-backdrop-filter: blur(18px) saturate(1.24);
     cursor: pointer;
   }
 
   .site-menu-toggle span {
+    position: absolute;
     width: 4px;
     height: 4px;
     border-radius: 50%;
     background: currentColor;
+  }
+
+  .site-menu-toggle span:nth-child(1) {
+    transform: translateY(-5px);
+  }
+
+  .site-menu-toggle span:nth-child(2) {
+    transform: translate(-4.5px, 3px);
+  }
+
+  .site-menu-toggle span:nth-child(3) {
+    transform: translate(4.5px, 3px);
   }
 
   .site-nav {
@@ -847,11 +863,11 @@ img {
     display: grid;
     gap: 14px;
     justify-items: end;
-    background: rgba(247, 244, 238, 0.78);
-    border: 1px solid rgba(17, 17, 17, 0.1);
+    background: rgba(247, 244, 238, 0.2);
+    border: 1px solid rgba(17, 17, 17, 0.06);
     border-radius: 0;
-    backdrop-filter: blur(20px) saturate(1.24);
-    -webkit-backdrop-filter: blur(20px) saturate(1.24);
+    backdrop-filter: blur(24px) saturate(1.28);
+    -webkit-backdrop-filter: blur(24px) saturate(1.28);
     opacity: 0;
     pointer-events: none;
     transform: translateY(-8px);
@@ -876,7 +892,7 @@ img {
   }
 
   .home-hero {
-    height: calc(100vh - 74px);
+    height: 100vh;
     min-height: 580px;
   }
 
@@ -995,7 +1011,7 @@ img {
 
   .project-hero img,
   .project-hero-placeholder {
-    height: calc(86vh - 74px);
+    height: 86vh;
     min-height: 520px;
   }
 
