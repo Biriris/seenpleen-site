@@ -394,8 +394,14 @@ const pageDescription =
       const rows = document.querySelectorAll(
         '.project-gallery-row-count-2, .project-gallery-row-count-3'
       );
+      const isMobileGallery = window.matchMedia('(max-width: 768px)').matches;
 
       rows.forEach((row) => {
+        if (isMobileGallery) {
+          row.style.height = '';
+          return;
+        }
+
         const images = [...row.querySelectorAll('img')];
 
         if (images.length === 0 || images.some((image) => !image.naturalWidth || !image.naturalHeight)) {

@@ -976,7 +976,7 @@ img {
   }
 
   .project-gallery-row {
-    height: auto;
+    height: auto !important;
     flex-direction: column;
     gap: 24px;
   }
@@ -985,7 +985,7 @@ img {
   .project-gallery-row-count-3 .project-gallery-item,
   .project-gallery-row-full .project-gallery-item {
     width: 100%;
-    height: auto;
+    height: auto !important;
     flex: none;
   }
 
@@ -996,7 +996,7 @@ img {
   .project-gallery-row-count-3 img,
   .project-gallery-row-full img {
     width: 100%;
-    height: auto;
+    height: auto !important;
     min-height: auto;
     aspect-ratio: auto;
     object-fit: contain;
