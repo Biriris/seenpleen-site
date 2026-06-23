@@ -51,8 +51,6 @@ const heroMeta = [
   project.year,
 ].filter(Boolean);
 
-const gallery = project.gallery || [];
-
 const detailParagraphs = project.details
   ? project.details.split('\n').filter((paragraph) => paragraph.trim().length > 0)
   : [];
@@ -97,6 +95,8 @@ const publicImageExists = (src) => {
     return false;
   }
 };
+
+const gallery = (project.gallery || []).filter((img) => publicImageExists(img.url));
 
 const optimizedImage = (src) => {
   if (!src || !/\.(jpe?g|png|webp|avif)$/i.test(src)) {

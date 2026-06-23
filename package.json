@@ -4,6 +4,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "detect-gallery-layouts": "node scripts/detect-gallery-layouts.mjs",
+    "organize-cms-uploads": "node scripts/organize-cms-uploads.mjs",
     "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
