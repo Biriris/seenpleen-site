@@ -1,7 +1,22 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
+
 const { projects } = Astro.props;
 
 const IMAGE_WIDTHS = [480, 768, 1024, 1440, 1920, 2560];
+
+const publicImageExists = (src) => {
+  if (!src || !src.startsWith('/')) {
+    return false;
+  }
+
+  try {
+    return fs.existsSync(path.join(process.cwd(), 'public', decodeURIComponent(src).replace(/^\/+/, '')));
+  } catch {
+    return false;
+  }
+};
 
 const optimizedImage = (src) => {
   if (!src || !/\.(jpe?g|png|webp|avif)$/i.test(src)) {
@@ -18,13 +33,25 @@ const optimizedImage = (src) => {
     .replace(/\.(jpe?g|png|webp|avif)$/i, '')
     .replace(/-(480|768|1024|1440|1920|2560)$/i, '');
   const isAvif = /\.avif$/i.test(src);
+  const avif = isAvif ? src : `${withoutExtension}.avif`;
+  const webp = `${withoutExtension}.webp`;
+  const avifSrcset = IMAGE_WIDTHS
+    .map((width) => `${withoutExtension}-${width}.avif`)
+    .filter(publicImageExists)
+    .map((image) => `${image} ${image.match(/-(480|768|1024|1440|1920|2560)\.avif$/i)?.[1]}w`)
+    .join(', ');
+  const webpSrcset = IMAGE_WIDTHS
+    .map((width) => `${withoutExtension}-${width}.webp`)
+    .filter(publicImageExists)
+    .map((image) => `${image} ${image.match(/-(480|768|1024|1440|1920|2560)\.webp$/i)?.[1]}w`)
+    .join(', ');
 
   return {
     original: src,
-    avif: isAvif ? src : `${withoutExtension}.avif`,
-    webp: `${withoutExtension}.webp`,
-    avifSrcset: IMAGE_WIDTHS.map((width) => `${withoutExtension}-${width}.avif ${width}w`).join(', '),
-    webpSrcset: IMAGE_WIDTHS.map((width) => `${withoutExtension}-${width}.webp ${width}w`).join(', '),
+    avif: publicImageExists(avif) ? avif : null,
+    webp: publicImageExists(webp) ? webp : null,
+    avifSrcset: avifSrcset || null,
+    webpSrcset: webpSrcset || null,
   };
 };
 ---
@@ -54,7 +81,7 @@ const optimizedImage = (src) => {
             )}
 
             <img
-              src={imageSources.avif || p.cover}
+              src={imageSources.avif || imageSources.webp || p.cover}
               alt={p.title}
               loading="lazy"
             />

@@ -177,6 +177,18 @@ collections:
                 widget: "text"
                 required: false
 
+              - label: "Gallery Quotes"
+                name: "quotes"
+                widget: "list"
+                required: false
+                collapsed: true
+                summary: "{{fields.quote}}"
+                hint: "Short architectural idea quotes. Each quote appears once inside the project gallery."
+                fields:
+                  - label: "Quote"
+                    name: "quote"
+                    widget: "text"
+
               - label: "Cover Image"
                 name: "cover"
                 widget: "image"
