@@ -34,7 +34,13 @@ const featuredAlt =
 
 const IMAGE_WIDTHS = [480, 768, 1024, 1440, 1920, 2560];
 
+const isExternalImage = (src) => /^https?:\/\//i.test(src || '');
+
 const publicImageExists = (src) => {
+  if (isExternalImage(src)) {
+    return true;
+  }
+
   if (!src || !src.startsWith('/')) {
     return false;
   }
@@ -58,6 +64,18 @@ const encodeImageUrl = (src) => {
 };
 
 const optimizedImage = (src) => {
+  if (isExternalImage(src)) {
+    return {
+      original: src,
+      avif: null,
+      webp: null,
+      avifSrcset: null,
+      webpSrcset: null,
+      thumbnailAvif: null,
+      thumbnailWebp: null,
+    };
+  }
+
   if (!src || !/\.(jpe?g|png|webp|avif)$/i.test(src)) {
     return {
       original: src,

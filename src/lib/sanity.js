@@ -8,7 +8,7 @@ export const sanityConfig = {
     import.meta.env.SANITY_DATASET ||
     import.meta.env.PUBLIC_SANITY_DATASET ||
     'production',
-  apiVersion: import.meta.env.SANITY_API_VERSION || '2026-06-24',
+  apiVersion: import.meta.env.SANITY_API_VERSION || '2025-01-01',
   useCdn: true,
 };
 

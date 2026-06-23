@@ -20,7 +20,7 @@ const client = createClient({
   projectId,
   dataset,
   token,
-  apiVersion: '2026-06-24',
+  apiVersion: '2025-01-01',
   useCdn: false,
 });
 
