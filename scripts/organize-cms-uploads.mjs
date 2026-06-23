@@ -54,13 +54,34 @@ const normalizeImageUrl = (url) => {
   }
 };
 
-const dedupeProjectGalleryUploads = (project) => {
-  if (!Array.isArray(project.gallery_uploads)) {
-    return false;
+const dedupeProjectGalleries = (project) => {
+  let changed = false;
+  const seenUrls = new Set();
+
+  if (Array.isArray(project.gallery_uploads)) {
+    const uniqueUploads = project.gallery_uploads.filter((url) => {
+      const normalizedUrl = normalizeImageUrl(url);
+
+      if (!normalizedUrl || seenUrls.has(normalizedUrl)) {
+        return false;
+      }
+
+      seenUrls.add(normalizedUrl);
+      return true;
+    });
+
+    if (uniqueUploads.length !== project.gallery_uploads.length) {
+      project.gallery_uploads = uniqueUploads;
+      changed = true;
+    }
   }
 
-  const seenUrls = new Set();
-  const uniqueUploads = project.gallery_uploads.filter((url) => {
+  if (!Array.isArray(project.gallery)) {
+    return changed;
+  }
+
+  const uniqueGallery = project.gallery.filter((image) => {
+    const url = image?.url;
     const normalizedUrl = normalizeImageUrl(url);
 
     if (!normalizedUrl || seenUrls.has(normalizedUrl)) {
@@ -71,12 +92,12 @@ const dedupeProjectGalleryUploads = (project) => {
     return true;
   });
 
-  if (uniqueUploads.length === project.gallery_uploads.length) {
-    return false;
+  if (uniqueGallery.length !== project.gallery.length) {
+    project.gallery = uniqueGallery;
+    changed = true;
   }
 
-  project.gallery_uploads = uniqueUploads;
-  return true;
+  return changed;
 };
 
 const imageFieldsForProject = (project) => {
@@ -225,7 +246,7 @@ async function main() {
   let dedupedAny = false;
 
   projects.forEach((project) => {
-    dedupedAny = dedupeProjectGalleryUploads(project) || dedupedAny;
+    dedupedAny = dedupeProjectGalleries(project) || dedupedAny;
   });
 
   if (rootUploads.length > 0) {
