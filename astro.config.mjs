@@ -1,3 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-export default defineConfig({ site: 'https://seenpleen.com', integrations: [sitemap()] });
+import cloudflare from '@astrojs/cloudflare';
+export default defineConfig({
+  site: 'https://seenpleen.com',
+  integrations: [sitemap()],
+  adapter: cloudflare()
+});
