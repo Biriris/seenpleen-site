@@ -1,10 +1,11 @@
 {
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run sanity:build:admin && astro build",
     "preview": "astro preview",
     "detect-gallery-layouts": "node scripts/detect-gallery-layouts.mjs",
     "sanity:dev": "sanity dev",
+    "sanity:build:admin": "sanity build public/admin --yes && node scripts/patch-sanity-admin-paths.mjs",
     "sanity:deploy": "sanity deploy",
     "sanity:import-projects": "node scripts/import-projects-to-sanity.mjs",
     "organize-cms-uploads": "node scripts/organize-cms-uploads.mjs",
