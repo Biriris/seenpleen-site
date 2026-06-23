@@ -4,13 +4,17 @@
     "build": "astro build",
     "preview": "astro preview",
     "detect-gallery-layouts": "node scripts/detect-gallery-layouts.mjs",
+    "sanity:dev": "sanity dev",
+    "sanity:deploy": "sanity deploy",
+    "sanity:import-projects": "node scripts/import-projects-to-sanity.mjs",
     "organize-cms-uploads": "node scripts/organize-cms-uploads.mjs",
     "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "latest",
+    "@sanity/client": "^7.23.0",
     "astro": "latest",
+    "sanity": "^6.1.0",
     "sharp": "latest"
-  },
-  "devDependencies": {}
+  }
 }
