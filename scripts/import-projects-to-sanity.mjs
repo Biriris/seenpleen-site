@@ -26,6 +26,18 @@ const client = createClient({
 
 const assetCache = new Map();
 
+const slugifyKey = (value) =>
+  String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80);
+
+const itemKey = (...parts) => {
+  const key = slugifyKey(parts.filter(Boolean).join('-'));
+  return key || `item-${Date.now().toString(36)}`;
+};
+
 const decodePublicImagePath = (url) => {
   if (!url || typeof url !== 'string' || !url.startsWith('/')) {
     return null;
@@ -72,18 +84,19 @@ const uploadImageAsset = async (url) => {
   return reference;
 };
 
-const imageValue = async (url, alt = '') => {
+const imageValue = async (url, alt = '', key = '') => {
   const asset = await uploadImageAsset(url);
 
   if (!asset) {
     return undefined;
   }
 
-  return {
+  return cleanObject({
+    _key: key,
     _type: 'image',
     asset,
     alt,
-  };
+  });
 };
 
 const cleanObject = (value) =>
@@ -115,12 +128,16 @@ for (const [index, project] of projects.entries()) {
   const hero = await imageValue(project.hero, project.hero_alt);
 
   const galleryUploads = (
-    await Promise.all((project.gallery_uploads || []).map((url) => imageValue(url)))
+    await Promise.all(
+      (project.gallery_uploads || []).map((url, uploadIndex) =>
+        imageValue(url, '', itemKey('upload', project.slug, url, uploadIndex))
+      )
+    )
   ).filter(Boolean);
 
   const detailedGallery = (
     await Promise.all(
-      (project.gallery || []).map(async (image) => {
+      (project.gallery || []).map(async (image, imageIndex) => {
         const imageAsset = await imageValue(image.url, image.alt);
 
         if (!imageAsset) {
@@ -128,6 +145,7 @@ for (const [index, project] of projects.entries()) {
         }
 
         return cleanObject({
+          _key: itemKey('gallery', project.slug, image.url, imageIndex),
           _type: 'galleryImage',
           image: imageAsset,
           layout: image.layout || 'auto',
@@ -161,7 +179,11 @@ for (const [index, project] of projects.entries()) {
     status: project.status,
     collaborators: project.collaborators,
     details: project.details,
-    quotes: project.quotes,
+    quotes: (project.quotes || []).map((quote, quoteIndex) => ({
+      _key: itemKey('quote', project.slug, quote, quoteIndex),
+      _type: 'object',
+      quote,
+    })),
     cover,
     hero,
     gallery_uploads: galleryUploads,
