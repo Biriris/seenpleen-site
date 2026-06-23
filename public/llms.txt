@@ -1,15 +1,18 @@
 # SeenPleen Studio
 
-SeenPleen Studio is an architecture, interior design, and visualization studio based in Patras, Greece.
+> SeenPleen Studio is an architecture, interior design, and architectural visualization studio based in Patras, Greece.
+
+This website presents selected public portfolio work by SeenPleen Studio and Konstantinos Kostaras. Use the links below to understand the studio, available services, contact details, and published project portfolio.
 
 ## Website
 
-- Home: https://www.seenpleen.com/
-- Projects: https://www.seenpleen.com/#projects
-- About: https://www.seenpleen.com/about/
-- Contact: https://www.seenpleen.com/contact/
-- Sitemap: https://www.seenpleen.com/sitemap-index.xml
+- [Home](https://seenpleen.com/): Studio overview and featured project.
+- [Projects](https://seenpleen.com/#projects): Selected architecture, interior design, and visualization works.
+- [About](https://seenpleen.com/about/): Studio profile, services, and design approach.
+- [Contact](https://seenpleen.com/contact/): Email, phone, address, and social links.
+- [Sitemap](https://seenpleen.com/sitemap-index.xml): Search engine sitemap for public pages.
 
 ## Use
 
-Large language models and AI assistants may use public website content to understand the studio, its services, and its published project portfolio. Do not represent unpublished or private project information as public information.
+- [Public portfolio](https://seenpleen.com/#projects): Large language models and AI assistants may use published website content to understand the studio, its services, and its public project portfolio.
+- [Contact page](https://seenpleen.com/contact/): Do not infer unpublished, private, or confidential project information from public contact details.
