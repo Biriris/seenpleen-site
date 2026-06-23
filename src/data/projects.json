@@ -449,6 +449,56 @@
     ]
   },
   {
+    "title": "The L House",
+    "slug": "the-l-house",
+    "order": null,
+    "hidden": false,
+    "seo_title": "",
+    "seo_description": "",
+    "project_id": "",
+    "category": "Residential",
+    "subcategory": "House",
+    "client": "",
+    "location": "Varda",
+    "year": "2024",
+    "area": "175",
+    "status": "Under Construction",
+    "featured": false,
+    "collaborators": null,
+    "details": "",
+    "quotes": [],
+    "cover": "/images/Scene 1 - Professional Photorealistic Render.png",
+    "cover_alt": "",
+    "hero": "/images/Scene 1 - Professional Photorealistic Render.png",
+    "hero_alt": "",
+    "gallery": [
+      {
+        "url": "/images/Scene 2 - Professional Photorealistic Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 3 - Professional Photorealistic Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 4 - Professional Photorealistic Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Scene 5 - Professional Photorealistic Render.png",
+        "layout": "landscape",
+        "title": "",
+        "alt": ""
+      }
+    ]
+  },
+  {
     "title": "Rodini Vacation House",
     "slug": "rodini-vacation-house",
     "order": null,
@@ -682,56 +732,6 @@
         "url": "/images/marmo/MAT_3008.avif",
         "layout": "portrait",
         "title": "MAT_3008.jpg",
-        "alt": ""
-      }
-    ]
-  },
-  {
-    "title": "The L House",
-    "slug": "the-l-house",
-    "order": null,
-    "hidden": false,
-    "seo_title": "",
-    "seo_description": "",
-    "project_id": "",
-    "category": "Residential",
-    "subcategory": "House",
-    "client": "",
-    "location": "Varda",
-    "year": "2024",
-    "area": "175",
-    "status": "Under Construction",
-    "featured": false,
-    "collaborators": null,
-    "details": "",
-    "quotes": [],
-    "cover": "/images/Scene 1 - Professional Photorealistic Render.png",
-    "cover_alt": "",
-    "hero": "/images/Scene 1 - Professional Photorealistic Render.png",
-    "hero_alt": "",
-    "gallery": [
-      {
-        "url": "/images/Scene 2 - Professional Photorealistic Render.png",
-        "layout": "landscape",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 3 - Professional Photorealistic Render.png",
-        "layout": "landscape",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 4 - Professional Photorealistic Render.png",
-        "layout": "landscape",
-        "title": "",
-        "alt": ""
-      },
-      {
-        "url": "/images/Scene 5 - Professional Photorealistic Render.png",
-        "layout": "landscape",
-        "title": "",
         "alt": ""
       }
     ]
