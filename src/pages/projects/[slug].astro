@@ -37,7 +37,11 @@ export function getStaticPaths() {
 
 const { project, previousProject, nextProject } = Astro.props;
 
-const heroImage = project.hero || project.cover || project.gallery?.[0]?.url;
+const heroImage =
+  project.hero ||
+  project.cover ||
+  project.gallery_uploads?.[0] ||
+  project.gallery?.[0]?.url;
 
 const heroAlt =
   project.hero_alt ||
@@ -107,7 +111,17 @@ const encodeImageUrl = (src) => {
     .join('/');
 };
 
-const gallery = (project.gallery || []).filter((img) => publicImageExists(img.url));
+const bulkGallery = (project.gallery_uploads || [])
+  .filter(publicImageExists)
+  .map((url) => ({
+    url,
+    title: '',
+    alt: '',
+    layout: 'auto',
+  }));
+
+const detailedGallery = (project.gallery || []).filter((img) => publicImageExists(img.url));
+const gallery = [...bulkGallery, ...detailedGallery];
 
 const optimizedImage = (src) => {
   if (!src || !/\.(jpe?g|png|webp|avif)$/i.test(src)) {

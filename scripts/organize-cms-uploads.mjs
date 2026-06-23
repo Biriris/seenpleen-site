@@ -63,6 +63,19 @@ const imageFieldsForProject = (project) => {
     });
   }
 
+  (project.gallery_uploads || []).forEach((url, index) => {
+    if (!url) {
+      return;
+    }
+
+    fields.push({
+      get: () => url,
+      set: (value) => {
+        project.gallery_uploads[index] = value;
+      },
+    });
+  });
+
   (project.gallery || []).forEach((image) => {
     if (!image?.url) {
       return;

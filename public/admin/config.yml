@@ -214,6 +214,13 @@ collections:
                 widget: "string"
                 required: false
 
+              - label: "Bulk Gallery Upload"
+                name: "gallery_uploads"
+                widget: "image"
+                multiple: true
+                required: false
+                hint: "Upload or drag multiple images at once. Use the detailed Gallery field below only when you need custom layout, title, or alt text per image."
+
               - label: "Gallery"
                 name: "gallery"
                 widget: "list"
