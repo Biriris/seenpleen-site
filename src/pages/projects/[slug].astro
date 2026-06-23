@@ -111,6 +111,33 @@ const encodeImageUrl = (src) => {
     .join('/');
 };
 
+const normalizeGalleryUrl = (src) => {
+  if (!src || typeof src !== 'string') {
+    return '';
+  }
+
+  try {
+    return decodeURIComponent(src).toLowerCase();
+  } catch {
+    return src.toLowerCase();
+  }
+};
+
+const uniqueGalleryItems = (items) => {
+  const seenUrls = new Set();
+
+  return items.filter((item) => {
+    const normalizedUrl = normalizeGalleryUrl(item.url);
+
+    if (!normalizedUrl || seenUrls.has(normalizedUrl)) {
+      return false;
+    }
+
+    seenUrls.add(normalizedUrl);
+    return true;
+  });
+};
+
 const bulkGallery = (project.gallery_uploads || [])
   .filter(publicImageExists)
   .map((url) => ({
@@ -121,7 +148,7 @@ const bulkGallery = (project.gallery_uploads || [])
   }));
 
 const detailedGallery = (project.gallery || []).filter((img) => publicImageExists(img.url));
-const gallery = [...bulkGallery, ...detailedGallery];
+const gallery = uniqueGalleryItems([...bulkGallery, ...detailedGallery]);
 
 const optimizedImage = (src) => {
   if (!src || !/\.(jpe?g|png|webp|avif)$/i.test(src)) {

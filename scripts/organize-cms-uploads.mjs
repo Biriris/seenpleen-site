@@ -42,6 +42,43 @@ const decodeImagePath = (url) => {
   }
 };
 
+const normalizeImageUrl = (url) => {
+  if (!url || typeof url !== 'string') {
+    return '';
+  }
+
+  try {
+    return decodeURIComponent(url).toLowerCase();
+  } catch {
+    return url.toLowerCase();
+  }
+};
+
+const dedupeProjectGalleryUploads = (project) => {
+  if (!Array.isArray(project.gallery_uploads)) {
+    return false;
+  }
+
+  const seenUrls = new Set();
+  const uniqueUploads = project.gallery_uploads.filter((url) => {
+    const normalizedUrl = normalizeImageUrl(url);
+
+    if (!normalizedUrl || seenUrls.has(normalizedUrl)) {
+      return false;
+    }
+
+    seenUrls.add(normalizedUrl);
+    return true;
+  });
+
+  if (uniqueUploads.length === project.gallery_uploads.length) {
+    return false;
+  }
+
+  project.gallery_uploads = uniqueUploads;
+  return true;
+};
+
 const imageFieldsForProject = (project) => {
   const fields = [];
 
@@ -183,24 +220,31 @@ const moveReferencedRootUpload = async (projects, changedFile) => {
 
 async function main() {
   const rootUploads = changedFiles.filter(isRootSourceImage);
-
-  if (rootUploads.length === 0) {
-    console.log('No new root-level CMS uploads to organize.');
-    return;
-  }
-
   const projects = JSON.parse(await fs.readFile(PROJECTS_PATH, 'utf8'));
   let movedAny = false;
+  let dedupedAny = false;
 
-  for (const changedFile of rootUploads) {
-    movedAny = (await moveReferencedRootUpload(projects, changedFile)) || movedAny;
+  projects.forEach((project) => {
+    dedupedAny = dedupeProjectGalleryUploads(project) || dedupedAny;
+  });
+
+  if (rootUploads.length > 0) {
+    for (const changedFile of rootUploads) {
+      movedAny = (await moveReferencedRootUpload(projects, changedFile)) || movedAny;
+    }
+  } else {
+    console.log('No new root-level CMS uploads to organize.');
   }
 
-  if (movedAny) {
+  if (movedAny || dedupedAny) {
     await fs.writeFile(PROJECTS_PATH, `${JSON.stringify(projects, null, 2)}\n`);
   }
 
-  console.log(movedAny ? 'CMS upload organization complete.' : 'No referenced root uploads were moved.');
+  console.log(
+    movedAny || dedupedAny
+      ? 'CMS upload organization complete.'
+      : 'No referenced root uploads were moved.'
+  );
 }
 
 main().catch((error) => {
