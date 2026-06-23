@@ -2,14 +2,22 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "detect-gallery-layouts": "node scripts/detect-gallery-layouts.mjs",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "generate-types": "wrangler types",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.0.0",
     "@astrojs/sitemap": "latest",
     "astro": "latest",
     "sharp": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "wrangler": "^4.104.0"
+  },
+  "overrides": {
+    "vite": "^7"
+  }
 }
