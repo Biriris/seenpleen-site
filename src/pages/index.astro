@@ -153,7 +153,7 @@ const optimizedImage = (src) => {
                     />
                   )}
                   <img
-                    src={p.cover}
+                    src={coverSources.webp || p.cover}
                     alt={p.cover_alt || p.title}
                     loading={index === 0 ? 'eager' : 'lazy'}
                   />
