@@ -9,7 +9,7 @@ export const sanityConfig = {
     import.meta.env.PUBLIC_SANITY_DATASET ||
     'production',
   apiVersion: import.meta.env.SANITY_API_VERSION || '2025-01-01',
-  useCdn: true,
+  useCdn: false,
 };
 
 export const hasSanityConfig = Boolean(sanityConfig.projectId && sanityConfig.dataset);
