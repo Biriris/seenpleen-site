@@ -304,11 +304,60 @@
     "collaborators": null,
     "details": "",
     "quotes": [],
-    "cover": "/images/Thanos_Barlos_Photography_Jolene-38.jpg",
+    "cover": "/images/Thanos_Barlos_Photography_Jolene-16.jpg",
     "cover_alt": "",
-    "hero": "",
+    "hero": "/images/Thanos_Barlos_Photography_Jolene-13.jpg",
     "hero_alt": "",
-    "gallery": []
+    "gallery": [
+      {
+        "url": "/images/Thanos_Barlos_Photography_Jolene-3.jpg",
+        "layout": "auto",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Thanos_Barlos_Photography_Jolene-6.jpg",
+        "layout": "auto",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Thanos_Barlos_Photography_Jolene-7.jpg",
+        "layout": "auto",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Thanos_Barlos_Photography_Jolene-8.jpg",
+        "layout": "auto",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Thanos_Barlos_Photography_Jolene-13.jpg",
+        "layout": "auto",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Thanos_Barlos_Photography_Jolene-16.jpg",
+        "layout": "auto",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Thanos_Barlos_Photography_Jolene-20.jpg",
+        "layout": "auto",
+        "title": "",
+        "alt": ""
+      },
+      {
+        "url": "/images/Thanos_Barlos_Photography_Jolene-21.jpg",
+        "layout": "auto",
+        "title": "",
+        "alt": ""
+      }
+    ]
   },
   {
     "title": "Elefante",
