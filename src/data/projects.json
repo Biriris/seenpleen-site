@@ -735,5 +735,30 @@
         "alt": ""
       }
     ]
+  },
+  {
+    "title": "Jolene",
+    "slug": "jolene",
+    "order": null,
+    "hidden": false,
+    "seo_title": "",
+    "seo_description": "",
+    "project_id": "",
+    "category": "Commercial",
+    "subcategory": "Bar",
+    "client": "",
+    "location": "Patras",
+    "year": "2025",
+    "area": "250",
+    "status": "Completed",
+    "featured": false,
+    "collaborators": null,
+    "details": "",
+    "quotes": [],
+    "cover": "/images/Thanos_Barlos_Photography_Jolene-22.jpg",
+    "cover_alt": "",
+    "hero": "",
+    "hero_alt": "",
+    "gallery": []
   }
 ]
