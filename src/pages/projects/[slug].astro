@@ -484,10 +484,9 @@ const breadcrumbStructuredData = {
           (sum, image) => sum + image.naturalWidth / image.naturalHeight,
           0
         );
-        const targetHeight = parseFloat(rowStyle.height);
         const fittedHeight = availableWidth / ratioSum;
 
-        row.style.height = `${Math.min(targetHeight, fittedHeight)}px`;
+        row.style.height = `${fittedHeight}px`;
       });
     };
 
