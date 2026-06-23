@@ -18,12 +18,12 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 2
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -55,5 +55,23 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add public/images src/data/projects.json
+          if git diff --cached --quiet; then
+            echo "No image changes to commit."
+            exit 0
+          fi
+
           git commit -m "Process CMS image uploads" -m "Organize new root-level CMS image uploads into project folders and generate responsive AVIF/WebP derivatives."
-          git push
+
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+
+            if git push; then
+              exit 0
+            fi
+
+            echo "Push failed on attempt ${attempt}; retrying after a short wait."
+            sleep 5
+          done
+
+          echo "Unable to push processed images after 3 attempts."
+          exit 1
