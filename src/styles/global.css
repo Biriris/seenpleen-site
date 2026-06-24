@@ -761,16 +761,27 @@ img {
   position: relative;
   width: 100%;
   min-width: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--bg);
   text-decoration: none;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .project-navigation picture {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   overflow: hidden;
   background: #e8e4dc;
+  opacity: 0;
+  transition: opacity 0.24s ease;
 }
 
 .project-navigation img {
@@ -781,21 +792,44 @@ img {
   transition: transform 0.7s var(--ease-out);
 }
 
+.project-navigation a:hover picture {
+  opacity: 1;
+}
+
 .project-navigation a:hover img {
   transform: scale(1.025);
 }
 
+.project-navigation-copy {
+  position: relative;
+  z-index: 2;
+  width: min(80%, 360px);
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  transition: opacity 0.22s ease, transform 0.34s var(--ease-out);
+}
+
+.project-navigation a:hover .project-navigation-copy {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
 .project-navigation strong {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  max-width: calc(100% - 32px);
-  color: #fff;
-  font-size: clamp(18px, 2vw, 30px);
+  max-width: 100%;
+  color: var(--text);
+  font-size: clamp(24px, 3vw, 44px);
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   font-weight: 500;
-  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.48);
+}
+
+.project-navigation-copy span {
+  font-size: 11px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
 }
 
 /* Footer */
@@ -1151,15 +1185,21 @@ img {
   }
 
   .project-navigation picture {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: auto;
   }
 
   .project-navigation strong {
-    left: 8px;
-    bottom: 8px;
-    max-width: calc(100% - 16px);
-    padding: 7px 8px 8px;
-    font-size: clamp(13px, 4.2vw, 18px);
+    font-size: clamp(18px, 5.6vw, 28px);
+  }
+
+  .project-navigation-copy {
+    width: 84%;
+    gap: 9px;
+  }
+
+  .project-navigation-copy span {
+    font-size: 9px;
+    letter-spacing: 0.12em;
   }
 }
 

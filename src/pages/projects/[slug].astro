@@ -493,6 +493,11 @@ const breadcrumbStructuredData = {
         <div class="project-navigation-grid">
           {navigationProjects.map((navigationProject, index) => {
             const navigationSources = optimizedImage(navigationProject.navigationImage);
+            const navigationMeta = [
+              navigationProject.category,
+              navigationProject.subcategory,
+              navigationProject.year,
+            ].filter(Boolean);
 
             return (
               <a
@@ -533,7 +538,13 @@ const breadcrumbStructuredData = {
                   </picture>
                 )}
 
-                <strong>{navigationProject.title}</strong>
+                <span class="project-navigation-copy">
+                  <strong>{navigationProject.title}</strong>
+
+                  {navigationMeta.length > 0 && (
+                    <span>{navigationMeta.join(' / ')}</span>
+                  )}
+                </span>
               </a>
             );
           })}
