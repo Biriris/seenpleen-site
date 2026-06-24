@@ -740,27 +740,37 @@ img {
 }
 
 .project-navigation h2 {
-  margin: 0 0 42px;
-  font-size: clamp(44px, 7vw, 108px);
-  line-height: 0.94;
+  margin: 0 0 36px;
+  font-size: clamp(24px, 3.2vw, 48px);
+  line-height: 1;
   font-weight: 500;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.04em;
+  text-align: center;
   color: var(--text);
 }
 
 .project-navigation-grid {
-  width: min(980px, 100%);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
 .project-navigation a {
+  position: relative;
+  width: min(460px, 100%);
   min-width: 0;
   text-decoration: none;
-  display: grid;
-  gap: 18px;
+  display: block;
+}
+
+.project-navigation a:first-child {
+  justify-self: start;
+}
+
+.project-navigation a:last-child {
+  justify-self: end;
 }
 
 .project-navigation picture {
@@ -784,10 +794,16 @@ img {
 }
 
 .project-navigation strong {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
   max-width: 520px;
-  font-size: clamp(24px, 3vw, 44px);
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  padding: 10px 12px 11px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: clamp(18px, 2vw, 30px);
+  line-height: 1;
+  letter-spacing: -0.04em;
   font-weight: 500;
 }
 
@@ -1125,18 +1141,18 @@ img {
   }
 
   .project-navigation h2 {
-    margin-bottom: 28px;
-    font-size: clamp(42px, 13vw, 72px);
+    margin-bottom: 24px;
+    font-size: clamp(24px, 8vw, 40px);
   }
 
   .project-navigation-grid {
-    width: min(520px, 100%);
+    width: 100%;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
 
   .project-navigation a {
-    gap: 12px;
+    width: 100%;
   }
 
   .project-navigation picture {
@@ -1144,7 +1160,11 @@ img {
   }
 
   .project-navigation strong {
-    font-size: clamp(18px, 6vw, 28px);
+    left: 8px;
+    bottom: 8px;
+    max-width: calc(100% - 16px);
+    padding: 7px 8px 8px;
+    font-size: clamp(13px, 4.2vw, 18px);
   }
 }
 
