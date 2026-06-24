@@ -8,19 +8,7 @@ import path from 'node:path';
 
 export async function getStaticPaths() {
   const projects = await getProjects();
-  const visibleProjects = projects
-    .filter((project) => !project.hidden)
-    .sort((a, b) => {
-      const orderA = Number.isFinite(Number(a.order))
-        ? Number(a.order)
-        : Number.POSITIVE_INFINITY;
-
-      const orderB = Number.isFinite(Number(b.order))
-        ? Number(b.order)
-        : Number.POSITIVE_INFINITY;
-
-      return orderA - orderB;
-    });
+  const visibleProjects = projects.filter((project) => !project.hidden);
 
   return visibleProjects.map((project, index) => {
     const projectCount = visibleProjects.length;

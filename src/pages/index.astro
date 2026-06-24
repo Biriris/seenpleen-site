@@ -8,14 +8,7 @@ import path from 'node:path';
 
 const projects = await getProjects();
 
-const visibleProjects = projects
-  .filter((project) => !project.hidden)
-  .sort((a, b) => {
-    const orderA = Number.isInteger(a.order) ? a.order : Number.POSITIVE_INFINITY;
-    const orderB = Number.isInteger(b.order) ? b.order : Number.POSITIVE_INFINITY;
-
-    return orderA - orderB;
-  });
+const visibleProjects = projects.filter((project) => !project.hidden);
 
 const categories = [
   ...new Set(visibleProjects.map((project) => project.category).filter(Boolean)),
