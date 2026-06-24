@@ -32,11 +32,15 @@ export async function getStaticPaths() {
         visibleProjects[index - 1] || visibleProjects[visibleProjects.length - 1],
       nextProject:
         visibleProjects[index + 1] || visibleProjects[0],
+      alternateProject:
+        visibleProjects[index + 2] ||
+        visibleProjects[index - 2] ||
+        visibleProjects[0],
     },
   }));
 }
 
-const { project, previousProject, nextProject } = Astro.props;
+const { project, previousProject, nextProject, alternateProject } = Astro.props;
 
 const heroImage =
   project.hero ||
@@ -293,8 +297,9 @@ while (galleryQuoteIndex < projectQuotes.length) {
 }
 
 const heroSources = optimizedImage(heroImage);
-const navigationProjects = [previousProject, nextProject]
+const navigationProjects = [previousProject, nextProject, alternateProject]
   .filter(Boolean)
+  .filter((item) => item.slug !== project.slug)
   .filter((item, index, items) => items.findIndex((projectItem) => projectItem.slug === item.slug) === index)
   .map((item) => ({
     ...item,

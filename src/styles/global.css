@@ -753,24 +753,16 @@ img {
   width: 100%;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
 .project-navigation a {
   position: relative;
-  width: min(460px, 100%);
+  width: 100%;
   min-width: 0;
   text-decoration: none;
   display: block;
-}
-
-.project-navigation a:first-child {
-  justify-self: start;
-}
-
-.project-navigation a:last-child {
-  justify-self: end;
 }
 
 .project-navigation picture {
@@ -797,14 +789,13 @@ img {
   position: absolute;
   left: 16px;
   bottom: 16px;
-  max-width: 520px;
-  padding: 10px 12px 11px;
-  background: var(--bg);
-  color: var(--text);
+  max-width: calc(100% - 32px);
+  color: #fff;
   font-size: clamp(18px, 2vw, 30px);
   line-height: 1;
   letter-spacing: -0.04em;
   font-weight: 500;
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.48);
 }
 
 /* Footer */
