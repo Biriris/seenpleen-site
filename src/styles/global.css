@@ -734,41 +734,57 @@ img {
 }
 
 .project-navigation {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  padding: 86px 6vw 96px;
   border-top: 1px solid rgba(17, 17, 17, 0.12);
   border-bottom: 1px solid rgba(17, 17, 17, 0.12);
 }
 
-.project-navigation a {
-  min-height: 150px;
-  padding: 30px 6vw;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.project-navigation a:first-child {
-  border-right: 1px solid rgba(17, 17, 17, 0.12);
-}
-
-.project-navigation a:last-child {
-  text-align: right;
-  align-items: flex-end;
-}
-
-.project-navigation span {
-  font-size: 10px;
+.project-navigation h2 {
+  margin: 0 0 30px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--muted);
 }
 
+.project-navigation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-navigation a {
+  min-width: 0;
+  text-decoration: none;
+  display: grid;
+  gap: 18px;
+}
+
+.project-navigation picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #e8e4dc;
+}
+
+.project-navigation img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out);
+}
+
+.project-navigation a:hover img {
+  transform: scale(1.025);
+}
+
 .project-navigation strong {
   max-width: 520px;
-  font-size: clamp(24px, 3vw, 46px);
+  font-size: clamp(24px, 3vw, 44px);
   line-height: 0.98;
   letter-spacing: -0.05em;
   font-weight: 500;
@@ -1104,26 +1120,28 @@ img {
   }
 
   .project-navigation {
-    grid-template-columns: 1fr;
+    padding: 58px 6vw 68px;
+  }
+
+  .project-navigation h2 {
+    margin-bottom: 20px;
+  }
+
+  .project-navigation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .project-navigation a {
-    min-height: 140px;
-    padding: 28px 6vw;
+    gap: 12px;
   }
 
-  .project-navigation a:first-child {
-    border-right: 0;
-    border-bottom: 1px solid rgba(17, 17, 17, 0.12);
-  }
-
-  .project-navigation a:last-child {
-    text-align: left;
-    align-items: flex-start;
+  .project-navigation picture {
+    aspect-ratio: 4 / 5;
   }
 
   .project-navigation strong {
-    font-size: clamp(28px, 9vw, 42px);
+    font-size: clamp(18px, 6vw, 28px);
   }
 }
 

@@ -293,6 +293,17 @@ while (galleryQuoteIndex < projectQuotes.length) {
 }
 
 const heroSources = optimizedImage(heroImage);
+const navigationProjects = [previousProject, nextProject]
+  .filter(Boolean)
+  .filter((item, index, items) => items.findIndex((projectItem) => projectItem.slug === item.slug) === index)
+  .map((item) => ({
+    ...item,
+    navigationImage:
+      item.cover ||
+      item.hero ||
+      item.gallery_uploads?.[0] ||
+      item.gallery?.[0]?.url,
+  }));
 const pageTitle = project.seo_title || project.title;
 const pageDescription =
   project.seo_description ||
@@ -483,18 +494,59 @@ const breadcrumbStructuredData = {
       </section>
     )}
 
-    {previousProject && nextProject && (
-      <nav class="project-navigation reveal-item" aria-label="Project navigation">
-        <a href={`/projects/${previousProject.slug}/`}>
-          <span>Previous Project</span>
-          <strong>{previousProject.title}</strong>
-        </a>
+    {navigationProjects.length > 0 && (
+      <section class="project-navigation reveal-item" aria-label="More projects">
+        <h2>More Projects</h2>
 
-        <a href={`/projects/${nextProject.slug}/`}>
-          <span>Next Project</span>
-          <strong>{nextProject.title}</strong>
-        </a>
-      </nav>
+        <div class="project-navigation-grid">
+          {navigationProjects.map((navigationProject, index) => {
+            const navigationSources = optimizedImage(navigationProject.navigationImage);
+
+            return (
+              <a
+                href={`/projects/${navigationProject.slug}/`}
+                style={`--reveal-delay: ${Math.min(index * 70, 140)}ms`}
+              >
+                {navigationProject.navigationImage && (
+                  <picture>
+                    {navigationSources.avifSrcset && (
+                      <source
+                        srcset={navigationSources.avifSrcset}
+                        sizes="(max-width: 768px) 50vw, 50vw"
+                        type="image/avif"
+                      />
+                    )}
+
+                    {navigationSources.webpSrcset && (
+                      <source
+                        srcset={navigationSources.webpSrcset}
+                        sizes="(max-width: 768px) 50vw, 50vw"
+                        type="image/webp"
+                      />
+                    )}
+
+                    {navigationSources.avif && (
+                      <source srcset={navigationSources.avif} type="image/avif" />
+                    )}
+
+                    {navigationSources.webp && (
+                      <source srcset={navigationSources.webp} type="image/webp" />
+                    )}
+
+                    <img
+                      src={navigationSources.avif || navigationSources.webp || navigationProject.navigationImage}
+                      alt={navigationProject.cover_alt || navigationProject.hero_alt || navigationProject.title}
+                      loading="lazy"
+                    />
+                  </picture>
+                )}
+
+                <strong>{navigationProject.title}</strong>
+              </a>
+            );
+          })}
+        </div>
+      </section>
     )}
   </main>
 
