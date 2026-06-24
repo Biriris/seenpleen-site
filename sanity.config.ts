@@ -1,5 +1,6 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
+import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 import { schemaTypes } from './sanity/schemaTypes';
 
 const projectId =
@@ -17,7 +18,23 @@ export default defineConfig({
   title: 'SeenPleen Studio',
   projectId,
   dataset,
-  plugins: [structureTool()],
+  plugins: [
+    structureTool({
+      structure: (S, context) =>
+        S.list()
+          .title('Content')
+          .items([
+            orderableDocumentListDeskItem({
+              type: 'project',
+              title: 'Order Projects',
+              S,
+              context,
+            }),
+            S.divider(),
+            S.documentTypeListItem('project').title('Projects'),
+          ]),
+    }),
+  ],
   schema: {
     types: schemaTypes,
   },

@@ -1,10 +1,11 @@
 import localProjects from '../data/projects.json';
 import { hasSanityConfig, hasSanityToken, sanityClient } from './sanity';
 
-const projectQuery = `*[_type == "project"] | order(coalesce(order, 999999) asc, title asc) {
+const projectQuery = `*[_type == "project"] | order(defined(orderRank) desc, orderRank asc, coalesce(order, 999999) asc, title asc) {
   title,
   "slug": slug.current,
   order,
+  orderRank,
   hidden,
   featured,
   seo_title,

@@ -9,11 +9,13 @@
     "sanity:create-deploy-webhook": "node scripts/create-sanity-cloudflare-webhook.mjs",
     "sanity:deploy": "sanity deploy",
     "sanity:import-projects": "node scripts/import-projects-to-sanity.mjs",
+    "sanity:migrate-order-rank": "node scripts/migrate-project-order-rank.mjs",
     "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "latest",
     "@sanity/client": "^7.23.0",
+    "@sanity/orderable-document-list": "^2.0.4",
     "astro": "latest",
     "sanity": "^6.1.0",
     "sharp": "latest",

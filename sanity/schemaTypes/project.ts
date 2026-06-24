@@ -1,4 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 import { BulkGalleryUploadInput } from '../components/BulkGalleryUploadInput';
 
 const statusOptions = [
@@ -66,9 +67,11 @@ export const projectType = defineType({
     }),
     defineField({
       name: 'order',
-      title: 'Order',
+      title: 'Legacy Order',
       type: 'number',
+      hidden: true,
     }),
+    orderRankField({ type: 'project' }),
     defineField({
       name: 'hidden',
       title: 'Hide Project',
@@ -291,4 +294,5 @@ export const projectType = defineType({
       media: 'cover',
     },
   },
+  orderings: [orderRankOrdering],
 });
