@@ -7,7 +7,8 @@ export const sanityConfig = {
   projectId:
     env('SANITY_PROJECT_ID') ||
     env('SANITY_STUDIO_PROJECT_ID') ||
-    env('PUBLIC_SANITY_PROJECT_ID'),
+    env('PUBLIC_SANITY_PROJECT_ID') ||
+    'xfhp705d',
   dataset:
     env('SANITY_DATASET') ||
     env('SANITY_STUDIO_DATASET') ||
