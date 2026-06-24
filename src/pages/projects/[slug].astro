@@ -22,22 +22,21 @@ export async function getStaticPaths() {
       return orderA - orderB;
     });
 
-  return visibleProjects.map((project, index) => ({
-    params: {
-      slug: project.slug,
-    },
-    props: {
-      project,
-      previousProject:
-        visibleProjects[index - 1] || visibleProjects[visibleProjects.length - 1],
-      nextProject:
-        visibleProjects[index + 1] || visibleProjects[0],
-      alternateProject:
-        visibleProjects[index + 2] ||
-        visibleProjects[index - 2] ||
-        visibleProjects[0],
-    },
-  }));
+  return visibleProjects.map((project, index) => {
+    const projectCount = visibleProjects.length;
+
+    return {
+      params: {
+        slug: project.slug,
+      },
+      props: {
+        project,
+        previousProject: visibleProjects[(index - 1 + projectCount) % projectCount],
+        nextProject: visibleProjects[(index + 1) % projectCount],
+        alternateProject: visibleProjects[(index + 2) % projectCount],
+      },
+    };
+  });
 }
 
 const { project, previousProject, nextProject, alternateProject } = Astro.props;
