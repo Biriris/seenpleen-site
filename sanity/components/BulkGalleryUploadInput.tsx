@@ -5,6 +5,12 @@ import { ChangeEvent, DragEvent, useCallback, useRef, useState } from 'react';
 import { insert, PatchEvent, setIfMissing, useClient } from 'sanity';
 
 type BulkGalleryUploadInputProps = {
+  document?: {
+    slug?: {
+      current?: string;
+    };
+    title?: string;
+  };
   onChange: (event: PatchEvent) => void;
   readOnly?: boolean;
   renderDefault: (props: BulkGalleryUploadInputProps) => React.ReactNode;
@@ -13,10 +19,25 @@ type BulkGalleryUploadInputProps = {
 
 const imageTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/avif'];
 
-const filenameToAlt = (filename: string) => filename.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ');
+const filenameExtension = (filename: string) => {
+  const match = filename.match(/\.([a-z0-9]+)$/i);
+
+  return match ? match[1].toLowerCase() : 'jpg';
+};
+
+const projectNameFromDocument = (document?: BulkGalleryUploadInputProps['document']) => {
+  const source = document?.slug?.current || document?.title || 'project';
+
+  return source
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '') || 'project';
+};
 
 export function BulkGalleryUploadInput(props: BulkGalleryUploadInputProps) {
-  const { onChange, readOnly, renderDefault } = props;
+  const { document, onChange, readOnly, renderDefault, value } = props;
   const client = useClient({ apiVersion: '2025-01-01' });
   const toast = useToast();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -39,12 +60,16 @@ export function BulkGalleryUploadInput(props: BulkGalleryUploadInputProps) {
 
       try {
         const uploadedImages = [];
+        const projectName = projectNameFromDocument(document);
+        const startIndex = Array.isArray(value) ? value.length : 0;
 
         for (const [index, file] of files.entries()) {
           setUploadLabel(`Uploading ${index + 1} of ${files.length}`);
+          const imageNumber = startIndex + index + 1;
+          const cleanFilename = `${projectName}_${imageNumber}.${filenameExtension(file.name)}`;
 
           const asset = await client.assets.upload('image', file, {
-            filename: file.name,
+            filename: cleanFilename,
           });
 
           uploadedImages.push({
@@ -54,7 +79,7 @@ export function BulkGalleryUploadInput(props: BulkGalleryUploadInputProps) {
               _type: 'reference',
               _ref: asset._id,
             },
-            alt: filenameToAlt(file.name),
+            alt: `${document?.title || projectName} ${imageNumber}`,
           });
         }
 
@@ -75,7 +100,7 @@ export function BulkGalleryUploadInput(props: BulkGalleryUploadInputProps) {
         setUploadLabel('');
       }
     },
-    [client, onChange, toast]
+    [client, document, onChange, toast, value]
   );
 
   const handleFileChange = useCallback(
