@@ -1,5 +1,5 @@
 import localProjects from '../data/projects.json';
-import { hasSanityConfig, sanityClient } from './sanity';
+import { hasSanityConfig, hasSanityToken, sanityClient } from './sanity';
 
 const projectQuery = `*[_type == "project"] | order(coalesce(order, 999999) asc, title asc) {
   title,
@@ -42,6 +42,12 @@ const cleanProject = (project) => ({
 
 export async function getProjects() {
   if (!hasSanityConfig || !sanityClient) {
+    console.warn('Using local projects.json because Sanity project configuration is missing.');
+    return localProjects;
+  }
+
+  if (!hasSanityToken) {
+    console.warn('Using local projects.json because SANITY_READ_TOKEN is missing.');
     return localProjects;
   }
 
@@ -49,9 +55,11 @@ export async function getProjects() {
     const sanityProjects = await sanityClient.fetch(projectQuery);
 
     if (!Array.isArray(sanityProjects) || sanityProjects.length === 0) {
+      console.warn('Using local projects.json because Sanity returned no projects.');
       return localProjects;
     }
 
+    console.log(`Loaded ${sanityProjects.length} project(s) from Sanity.`);
     return sanityProjects.map(cleanProject);
   } catch (error) {
     console.warn('Falling back to local projects.json because Sanity fetch failed.', error);
