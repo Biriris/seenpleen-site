@@ -1146,6 +1146,10 @@ img {
     width: 100%;
   }
 
+  .project-navigation a:nth-child(n + 3) {
+    display: none;
+  }
+
   .project-navigation picture {
     aspect-ratio: 4 / 5;
   }
