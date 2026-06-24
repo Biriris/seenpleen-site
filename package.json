@@ -9,6 +9,7 @@
     "sanity:create-deploy-webhook": "node scripts/create-sanity-cloudflare-webhook.mjs",
     "sanity:deploy": "sanity deploy",
     "sanity:import-projects": "node scripts/import-projects-to-sanity.mjs",
+    "sanity:merge-gallery-to-bulk": "node scripts/merge-detailed-gallery-to-bulk.mjs",
     "sanity:migrate-order-rank": "node scripts/migrate-project-order-rank.mjs",
     "sanity:rename-project-images": "node scripts/rename-sanity-project-image-assets.mjs",
     "optimize-images": "node scripts/optimize-images.mjs"

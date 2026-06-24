@@ -239,6 +239,7 @@ export const projectType = defineType({
       name: 'gallery',
       title: 'Detailed Gallery',
       type: 'array',
+      hidden: true,
       of: [
         defineArrayMember({
           type: 'object',
