@@ -29,13 +29,22 @@ export async function getStaticPaths() {
 
 const { project, previousProject, nextProject, alternateProject } = Astro.props;
 
+const heroMedia = project.hero_media;
+const heroVideo = heroMedia?.mimeType?.startsWith('video/') ? heroMedia.url : null;
 const heroImage =
+  (!heroVideo && heroMedia?.url) ||
   project.hero ||
   project.cover ||
   project.gallery_uploads?.[0] ||
   project.gallery?.[0]?.url;
+const heroPosterImage =
+  project.cover ||
+  project.hero ||
+  project.gallery_uploads?.[0] ||
+  project.gallery?.[0]?.url;
 
 const heroAlt =
+  heroMedia?.alt ||
   project.hero_alt ||
   project.cover_alt ||
   project.title;
@@ -284,6 +293,7 @@ while (galleryQuoteIndex < projectQuotes.length) {
 }
 
 const heroSources = optimizedImage(heroImage);
+const heroPosterSources = optimizedImage(heroPosterImage);
 const navigationProjects = [previousProject, nextProject, alternateProject]
   .filter(Boolean)
   .filter((item) => item.slug !== project.slug)
@@ -305,7 +315,13 @@ const pageDescription =
 
 const siteUrl = (Astro.site?.toString() || 'https://seenpleen.com').replace(/\/$/, '');
 const projectUrl = new URL(`/projects/${project.slug}/`, siteUrl).toString();
-const projectImage = heroSources.avif || heroSources.webp || heroImage;
+const projectImage =
+  heroSources.avif ||
+  heroSources.webp ||
+  heroImage ||
+  heroPosterSources.avif ||
+  heroPosterSources.webp ||
+  heroPosterImage;
 const projectStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'CreativeWork',
@@ -351,7 +367,18 @@ const breadcrumbStructuredData = {
 
   <main class="project-page">
     <section class="project-hero is-revealed">
-      {heroImage ? (
+      {heroVideo ? (
+        <video
+          src={heroVideo}
+          poster={heroPosterSources.avif || heroPosterSources.webp || heroPosterImage}
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label={heroAlt}
+        ></video>
+      ) : heroImage ? (
         <picture>
           {heroSources.avifSrcset && (
             <source

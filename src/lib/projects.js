@@ -25,6 +25,12 @@ const projectQuery = `*[_type == "project"] | order(defined(orderRank) desc, ord
   "cover_alt": cover.alt,
   "hero": hero.asset->url,
   "hero_alt": hero.alt,
+  "hero_media": hero_media[0] {
+    _type,
+    alt,
+    "url": asset->url,
+    "mimeType": asset->mimeType
+  },
   "gallery_uploads": gallery_uploads[].asset->url,
   "gallery": gallery[] {
     "url": image.asset->url,

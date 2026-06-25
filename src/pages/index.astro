@@ -19,8 +19,18 @@ const featuredProject =
   visibleProjects.find((project) => project.slug === 'the-matchbox-house') ||
   visibleProjects[0];
 
-const featuredImage = featuredProject?.hero || featuredProject?.cover;
+const featuredMedia = featuredProject?.hero_media;
+const featuredVideo = featuredMedia?.mimeType?.startsWith('video/') ? featuredMedia.url : null;
+const featuredImage =
+  (!featuredVideo && featuredMedia?.url) ||
+  featuredProject?.hero ||
+  featuredProject?.cover;
+const featuredPosterImage =
+  featuredProject?.cover ||
+  featuredProject?.hero ||
+  featuredImage;
 const featuredAlt =
+  featuredMedia?.alt ||
   featuredProject?.hero_alt ||
   featuredProject?.cover_alt ||
   featuredProject?.title;
@@ -109,7 +119,7 @@ const optimizedImage = (src) => {
   };
 };
 
-const featuredSocialSources = optimizedImage(featuredImage);
+const featuredSocialSources = optimizedImage(featuredImage || featuredPosterImage);
 const homeDescription =
   'Selected architecture, interior design and visualization projects by SeenPleen Studio in Patras, Greece.';
 ---
@@ -122,10 +132,27 @@ const homeDescription =
 >
   <Header />
 
-  {featuredProject && featuredImage && (
+  {featuredProject && (featuredVideo || featuredImage) && (
     <section class="home-hero is-revealed">
       {(() => {
         const heroSources = optimizedImage(featuredImage);
+        const posterSources = optimizedImage(featuredPosterImage);
+
+        if (featuredVideo) {
+          return (
+            <video
+              src={featuredVideo}
+              poster={posterSources.avif || posterSources.webp || featuredPosterImage}
+              class="home-hero-image"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label={featuredAlt}
+            ></video>
+          );
+        }
 
         return (
           <picture>

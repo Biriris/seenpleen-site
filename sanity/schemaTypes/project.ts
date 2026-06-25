@@ -199,8 +199,9 @@ export const projectType = defineType({
     }),
     defineField({
       name: 'hero',
-      title: 'Hero Image',
+      title: 'Legacy Hero Image',
       type: 'image',
+      hidden: true,
       options: {
         hotspot: true,
       },
@@ -209,6 +210,43 @@ export const projectType = defineType({
           name: 'alt',
           title: 'Alt Text',
           type: 'string',
+        }),
+      ],
+    }),
+    defineField({
+      name: 'hero_media',
+      title: 'Hero Image / Video',
+      description: 'Upload one hero image or one hero video. Keep Cover Image set as the fallback/poster image.',
+      type: 'array',
+      validation: (rule) => rule.max(1),
+      of: [
+        defineArrayMember({
+          type: 'image',
+          title: 'Hero Image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+            }),
+          ],
+        }),
+        defineArrayMember({
+          type: 'file',
+          title: 'Hero Video',
+          options: {
+            accept: 'video/mp4,video/webm',
+          },
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+            }),
+          ],
         }),
       ],
     }),
