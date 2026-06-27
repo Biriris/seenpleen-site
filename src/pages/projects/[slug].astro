@@ -518,6 +518,40 @@ const breadcrumbStructuredData = {
       </section>
     )}
 
+    {hasPanoramaImages && (
+      <section class="project-panorama reveal-item" aria-label="360 views">
+        <div class="project-panorama-header">
+          <h2>360 View</h2>
+
+          {panoramaImages.length > 1 && (
+            <div class="project-panorama-tabs" aria-label="360 image selection">
+              {panoramaImages.map((image, index) => (
+                <button
+                  type="button"
+                  class={index === 0 ? 'is-active' : ''}
+                  data-panorama-tab={index}
+                >
+                  {image.title || `View ${index + 1}`}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div class="project-panorama-stage">
+          {panoramaImages.map((image, index) => (
+            <div
+              class={`project-panorama-viewer${index === 0 ? ' is-active' : ''}`}
+              data-panorama-index={index}
+              data-panorama-url={image.url}
+              data-panorama-title={image.title || project.title}
+              aria-label={image.alt || image.title || `${project.title} 360 view`}
+            ></div>
+          ))}
+        </div>
+      </section>
+    )}
+
     {navigationProjects.length > 0 && (
       <section class="project-navigation reveal-item" aria-label="More projects">
         <h2>More Projects</h2>
@@ -580,40 +614,6 @@ const breadcrumbStructuredData = {
               </a>
             );
           })}
-        </div>
-      </section>
-    )}
-
-    {hasPanoramaImages && (
-      <section class="project-panorama reveal-item" aria-label="360 views">
-        <div class="project-panorama-header">
-          <h2>360 View</h2>
-
-          {panoramaImages.length > 1 && (
-            <div class="project-panorama-tabs" aria-label="360 image selection">
-              {panoramaImages.map((image, index) => (
-                <button
-                  type="button"
-                  class={index === 0 ? 'is-active' : ''}
-                  data-panorama-tab={index}
-                >
-                  {image.title || `View ${index + 1}`}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div class="project-panorama-stage">
-          {panoramaImages.map((image, index) => (
-            <div
-              class={`project-panorama-viewer${index === 0 ? ' is-active' : ''}`}
-              data-panorama-index={index}
-              data-panorama-url={image.url}
-              data-panorama-title={image.title || project.title}
-              aria-label={image.alt || image.title || `${project.title} 360 view`}
-            ></div>
-          ))}
         </div>
       </section>
     )}
