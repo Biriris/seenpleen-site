@@ -156,6 +156,11 @@ const bulkGallery = (project.gallery_uploads || [])
 
 const detailedGallery = (project.gallery || []).filter((img) => publicImageExists(img.url));
 const gallery = uniqueGalleryItems([...bulkGallery, ...detailedGallery]);
+const panoramaImages = (project.panorama_images || []).filter((image) => image?.url);
+const hasPanoramaImages = panoramaImages.length > 0;
+const panoramaCss = hasPanoramaImages
+  ? fs.readFileSync(path.join(process.cwd(), 'node_modules', 'pannellum', 'build', 'pannellum.css'), 'utf8')
+  : '';
 
 const optimizedImage = (src) => {
   if (isExternalImage(src)) {
@@ -578,11 +583,49 @@ const breadcrumbStructuredData = {
         </div>
       </section>
     )}
+
+    {hasPanoramaImages && (
+      <section class="project-panorama reveal-item" aria-label="360 views">
+        <div class="project-panorama-header">
+          <h2>360 View</h2>
+
+          {panoramaImages.length > 1 && (
+            <div class="project-panorama-tabs" aria-label="360 image selection">
+              {panoramaImages.map((image, index) => (
+                <button
+                  type="button"
+                  class={index === 0 ? 'is-active' : ''}
+                  data-panorama-tab={index}
+                >
+                  {image.title || `View ${index + 1}`}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div class="project-panorama-stage">
+          {panoramaImages.map((image, index) => (
+            <div
+              class={`project-panorama-viewer${index === 0 ? ' is-active' : ''}`}
+              data-panorama-index={index}
+              data-panorama-url={image.url}
+              data-panorama-title={image.title || project.title}
+              aria-label={image.alt || image.title || `${project.title} 360 view`}
+            ></div>
+          ))}
+        </div>
+      </section>
+    )}
   </main>
 
   <Footer />
 
+  {hasPanoramaImages && <style is:global set:html={panoramaCss}></style>}
+
   <script>
+    import 'pannellum';
+
     const fitGalleryRows = () => {
       const rows = document.querySelectorAll(
         '.project-gallery-row-count-2, .project-gallery-row-count-3'
@@ -640,5 +683,53 @@ const breadcrumbStructuredData = {
     );
 
     revealItems.forEach((item) => revealObserver.observe(item));
+
+    const panoramaViewers = [...document.querySelectorAll('.project-panorama-viewer')];
+    const panoramaTabs = [...document.querySelectorAll('[data-panorama-tab]')];
+    const initializedPanoramas = new Set();
+
+    const initializePanorama = (viewer) => {
+      const index = viewer.dataset.panoramaIndex;
+
+      if (!window.pannellum || initializedPanoramas.has(index)) {
+        return;
+      }
+
+      window.pannellum.viewer(viewer, {
+        type: 'equirectangular',
+        panorama: viewer.dataset.panoramaUrl,
+        autoLoad: true,
+        showControls: true,
+        compass: false,
+        mouseZoom: false,
+        draggable: true,
+        title: viewer.dataset.panoramaTitle || '',
+      });
+
+      initializedPanoramas.add(index);
+    };
+
+    const showPanorama = (targetIndex) => {
+      panoramaViewers.forEach((viewer) => {
+        const isActive = viewer.dataset.panoramaIndex === targetIndex;
+        viewer.classList.toggle('is-active', isActive);
+
+        if (isActive) {
+          initializePanorama(viewer);
+        }
+      });
+
+      panoramaTabs.forEach((tab) => {
+        tab.classList.toggle('is-active', tab.dataset.panoramaTab === targetIndex);
+      });
+    };
+
+    if (panoramaViewers.length > 0) {
+      showPanorama('0');
+    }
+
+    panoramaTabs.forEach((tab) => {
+      tab.addEventListener('click', () => showPanorama(tab.dataset.panoramaTab));
+    });
   </script>
 </BaseLayout>

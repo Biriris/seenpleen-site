@@ -736,6 +736,91 @@ img {
   color: var(--text);
 }
 
+.project-panorama {
+  width: 100%;
+  padding: 24px 4vw 120px;
+}
+
+.project-panorama-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 0 18px;
+}
+
+.project-panorama h2 {
+  margin: 0;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text);
+}
+
+.project-panorama-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.project-panorama-tabs button {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  padding: 0 0 4px;
+  background: transparent;
+  color: rgba(17, 17, 17, 0.48);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.project-panorama-tabs button:hover,
+.project-panorama-tabs button.is-active {
+  color: var(--text);
+  border-bottom-color: currentColor;
+}
+
+.project-panorama-stage {
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 58vw, 860px);
+  background: #f2f0eb;
+  overflow: hidden;
+}
+
+.project-panorama-viewer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.project-panorama-viewer.is-active {
+  display: block;
+}
+
+.project-panorama .pnlm-container {
+  background-color: #f2f0eb;
+  font-family: "Manrope", Arial, sans-serif;
+}
+
+.project-panorama .pnlm-controls {
+  border: 0;
+  border-radius: 0;
+  background-color: rgba(255, 255, 255, 0.82);
+  box-shadow: none;
+}
+
+.project-panorama .pnlm-panorama-info {
+  display: none !important;
+}
+
 .project-navigation {
   padding: 86px 6vw 96px;
   border-top: 1px solid rgba(17, 17, 17, 0.12);
@@ -1162,6 +1247,28 @@ img {
   .project-gallery-quote p {
     font-size: 16px;
     line-height: 1.5;
+  }
+
+  .project-panorama {
+    padding: 8px 6vw 76px;
+  }
+
+  .project-panorama-header {
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  .project-panorama h2 {
+    font-size: 22px;
+  }
+
+  .project-panorama-tabs {
+    justify-content: flex-start;
+    margin-top: 14px;
+  }
+
+  .project-panorama-stage {
+    height: clamp(360px, 82vw, 560px);
   }
 
   .project-navigation {

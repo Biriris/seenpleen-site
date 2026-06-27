@@ -274,6 +274,29 @@ export const projectType = defineType({
       ],
     }),
     defineField({
+      name: 'panorama_images',
+      title: '360 Images',
+      description: 'Upload equirectangular 360 JPEG images for this project. Use 2:1 images, for example 6000x3000.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'image',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
       name: 'gallery',
       title: 'Detailed Gallery',
       type: 'array',

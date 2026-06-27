@@ -32,6 +32,11 @@ const projectQuery = `*[_type == "project"] | order(defined(orderRank) desc, ord
     "mimeType": asset->mimeType
   },
   "gallery_uploads": gallery_uploads[].asset->url,
+  "panorama_images": panorama_images[] {
+    title,
+    alt,
+    "url": asset->url
+  },
   "gallery": gallery[] {
     "url": image.asset->url,
     layout,
@@ -44,6 +49,7 @@ const cleanProject = (project) => ({
   ...project,
   slug: project.slug || '',
   gallery_uploads: (project.gallery_uploads || []).filter(Boolean),
+  panorama_images: (project.panorama_images || []).filter((image) => image?.url),
   gallery: (project.gallery || []).filter((image) => image?.url),
 });
 

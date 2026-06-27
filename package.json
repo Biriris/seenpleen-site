@@ -20,6 +20,7 @@
     "@sanity/client": "^7.23.0",
     "@sanity/orderable-document-list": "^2.0.4",
     "astro": "latest",
+    "pannellum": "^2.5.7",
     "sanity": "^6.1.0",
     "sharp": "latest",
     "styled-components": "^6.4.2"
