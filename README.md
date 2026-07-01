@@ -32,3 +32,25 @@ To recreate an existing webhook with the same name:
 ```bash
 npm run sanity:create-deploy-webhook -- --replace
 ```
+
+## Cloudflare build commands
+
+Use this build command in Cloudflare Pages for faster deploys:
+
+```bash
+npm run build:cloudflare
+```
+
+It reuses the cached `/admin` Studio output when possible, and rebuilds it when the cache is missing or Studio-related files changed.
+
+Use the full build locally when the Sanity Studio or `/admin` changes:
+
+```bash
+npm run build
+```
+
+Use the site-only build only for local checks that do not need `/admin`:
+
+```bash
+npm run build:site
+```

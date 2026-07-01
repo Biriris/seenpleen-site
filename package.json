@@ -2,6 +2,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "npm run sanity:build:admin && astro build",
+    "build:site": "astro build",
+    "build:full": "npm run sanity:build:admin && astro build",
+    "build:cloudflare": "node scripts/build-cloudflare.mjs",
     "preview": "astro preview",
     "detect-gallery-layouts": "node scripts/detect-gallery-layouts.mjs",
     "sanity:dev": "sanity dev",
