@@ -236,6 +236,7 @@ const galleryItems = gallery.map((img, index) => ({
 
 const rowPattern = [1, 2, 1, 2];
 const galleryRows = [];
+let galleryQuoteIndex = 0;
 
 for (let index = 0; index < galleryItems.length;) {
   const item = galleryItems[index];
@@ -253,6 +254,28 @@ for (let index = 0; index < galleryItems.length;) {
 
   const targetCount = rowPattern[galleryRows.length % rowPattern.length];
   const remaining = galleryItems.length - index;
+
+  if (targetCount === 2 && galleryQuoteIndex < projectQuotes.length && remaining > 0) {
+    const quoteItem = {
+      type: 'quote',
+      quote: projectQuotes[galleryQuoteIndex],
+      index: item.index + 0.5,
+      layout: 'quote',
+    };
+    const rowItems = galleryQuoteIndex % 2 === 0 ? [item, quoteItem] : [quoteItem, item];
+
+    galleryRows.push({
+      type: 'images',
+      layout: 'count-2',
+      index: item.index,
+      items: rowItems,
+    });
+
+    index += 1;
+    galleryQuoteIndex += 1;
+    continue;
+  }
+
   const rowCount = Math.min(targetCount, remaining);
   const rowItems = galleryItems.slice(index, index + rowCount);
 
@@ -266,33 +289,19 @@ for (let index = 0; index < galleryItems.length;) {
   index += rowCount;
 }
 
-const quoteInsertionIndexes = new Set(
-  projectQuotes.map((quote, index) =>
-    Math.max(0, Math.round(((index + 1) * galleryRows.length) / (projectQuotes.length + 1)) - 1)
-  )
-);
-
-const galleryEntries = [];
-let galleryQuoteIndex = 0;
-
-galleryRows.forEach((row, index) => {
-  galleryEntries.push(row);
-
-  if (quoteInsertionIndexes.has(index) && galleryQuoteIndex < projectQuotes.length) {
-    galleryEntries.push({
-      type: 'quote',
-      quote: projectQuotes[galleryQuoteIndex],
-      index: row.index + 0.5,
-    });
-    galleryQuoteIndex += 1;
-  }
-});
-
 while (galleryQuoteIndex < projectQuotes.length) {
-  galleryEntries.push({
-    type: 'quote',
-    quote: projectQuotes[galleryQuoteIndex],
+  galleryRows.push({
+    type: 'images',
+    layout: 'full',
     index: gallery.length + galleryQuoteIndex,
+    items: [
+      {
+        type: 'quote',
+        quote: projectQuotes[galleryQuoteIndex],
+        index: gallery.length + galleryQuoteIndex,
+        layout: 'quote',
+      },
+    ],
   });
   galleryQuoteIndex += 1;
 }
@@ -456,24 +465,24 @@ const breadcrumbStructuredData = {
 
     {gallery.length > 0 && (
       <section class="project-gallery">
-        {galleryEntries.map((entry) => {
-          if (entry.type === 'quote') {
-            return (
-              <aside
-                class="project-gallery-quote reveal-item"
-                style={`--reveal-delay: ${Math.min(entry.index * 55, 420)}ms`}
-              >
-                <p>{entry.quote}</p>
-              </aside>
-            );
-          }
-
+        {galleryRows.map((entry) => {
           return (
             <div
               class={`project-gallery-row project-gallery-row-${entry.layout} reveal-item`}
               style={`--reveal-delay: ${Math.min(entry.index * 55, 420)}ms`}
             >
-              {entry.items.map(({ img, index, layout }) => {
+              {entry.items.map(({ type, quote, img, index, layout }) => {
+                if (type === 'quote') {
+                  return (
+                    <aside
+                      class="project-gallery-item project-gallery-quote-tile"
+                      data-gallery-ratio="0.78"
+                    >
+                      <p>{quote}</p>
+                    </aside>
+                  );
+                }
+
                 const gallerySources = optimizedImage(img.url);
 
                 return (
@@ -639,8 +648,12 @@ const breadcrumbStructuredData = {
         }
 
         const images = [...row.querySelectorAll('img')];
+        const items = [...row.querySelectorAll('.project-gallery-item')];
 
-        if (images.length === 0 || images.some((image) => !image.naturalWidth || !image.naturalHeight)) {
+        if (
+          items.length === 0 ||
+          images.some((image) => !image.naturalWidth || !image.naturalHeight)
+        ) {
           return;
         }
 
@@ -648,11 +661,13 @@ const breadcrumbStructuredData = {
 
         const rowStyle = window.getComputedStyle(row);
         const gap = parseFloat(rowStyle.columnGap || rowStyle.gap) || 0;
-        const availableWidth = row.clientWidth - gap * (images.length - 1);
-        const ratioSum = images.reduce(
-          (sum, image) => sum + image.naturalWidth / image.naturalHeight,
-          0
-        );
+        const availableWidth = row.clientWidth - gap * (items.length - 1);
+        const ratioSum = items.reduce((sum, item) => {
+          const image = item.querySelector('img');
+          const fallbackRatio = parseFloat(item.dataset.galleryRatio || '0.78');
+
+          return sum + (image ? image.naturalWidth / image.naturalHeight : fallbackRatio);
+        }, 0);
         const fittedHeight = availableWidth / ratioSum;
 
         row.style.height = `${fittedHeight}px`;
